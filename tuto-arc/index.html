@@ -63,8 +63,7 @@
 			</div>
 			<h2>Objectif</h2>
 			<p>
-				Apporter des précisions et des indications sur l'utilisation des outils dans &ldquo;<i><b>ethereum-ws</b></i>&rdquo; par l'intermédiaire
-				de l'application <b>ARC</b>.
+				Apporter des précisions et des indications sur l'utilisation des outils dans "ethereum-ws" par l'intermédiaire de l'application ARC.
 			</p>
 		</div>
 
@@ -80,34 +79,27 @@
 		</nav>
 
 		<div class="page-header" id="comparc">
-			<h2>Compilation dans ARC (<a href="#up">up</a>)</h2>
+			<h2>Compilation dans ARC (<a href="#">up</a>)</h2>
 		</div>
 		<p>On utilise la requète "Solidity Compiler".</p>
 		<ol>
-			<li>Vérifier que le Content-Type est bien &ldquo;Text/Plain&rdquo;.<li/>
+			<li>Vérifier que le Content-Type est bien "Text/Plain".<li/>
 		
-		<p>Dans l'onglet
-				&ldquo;RAW Payload&rdquo;, coller directement le code Solidity.</p>
-				<li/>
-		<p>Si la réponse
-				est &ldquo;200&rdquo; (OK), on trouve en fin de retour du code
-				indenté les différents éléments utiles
-				à récupérer afin de déployer par la
-				suite le contrat compilé. Ces différents éléments
-				seront :</p>
-				<ol type="a">
+		<p>Dans l'onglet "RAW Payload", coller directement le code Solidity.</p>
+		<p>Si la réponse est "200" (OK), on trouve en fin de retour du code indenté les différents éléments utiles à récupérer afin de déployer par la suite le contrat compilé. Ces différents éléments seront :</p>
+			<ol type="a">
 					<li/>
-		<p>&ldquo;<font size="3" style="font-size: 12pt">bytecode&rdquo;
-					(&ldquo;data&rdquo;).</font></p>
-					<p><font size="3" style="font-size: 12pt">Exemple avec le bytecode
-					du premier contrat en production de Smoothie :</font></p>
+						<p>"bytecode" ("data").</p>
+					<p>Exemple avec le bytecode du premier contrat en production de Smoothie :</p>
 					<p><blockquote><code>606060405234610000576040516020806101b583398101604052515b60008054600160a060020a0319166c010000000000000000000000003381020417808255600160a060020a031681526001602052604090208190555b505b61014e806100676000396000f3606060405260e060020a600035046302d05d3f811461003457806370a082311461005d578063a9059cbb1461007f575b610000565b3461000057610041610094565b60408051600160a060020a039092168252519081900360200190f35b346100005761006d6004356100a3565b60408051918252519081900360200190f35b34610000576100926004356024356100b5565b005b600054600160a060020a031681565b60016020526000908152604090205481565b8015156100c157610000565b33600160a060020a031682600160a060020a031614156100e057610000565b600160a060020a03821615156100f557610000565b600160a060020a0333166000908152600160205260409020548190101561011b57610000565b600160a060020a0380831660009081526001602052604080822080548501905533909216815220805482900390555b505056</code></blockquote></p>
 					<li/>
-		<p>&ldquo;interface&rdquo;
-					(&ldquo;abi&rdquo; format JSON).</p>
-					<p><font size="3" style="font-size: 12pt">Exemple avec l'interface
-					du premier contrat en production de Smoothie:</font></p>
-					<p><blockquote><code>[{"constant":true,"inputs":[],"name":"creator","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"dest","type":"address"},{"name":"quantity","type":"uint256"}],"name":"transfer","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":"totalShares","type":"uint256"}],"payable":false,"type":"constructor"}]</code></blockquote></p>
+		<p>"interface" ("abi" format JSON).</p>
+					<p>Exemple avec l'interface du premier contrat en production de Smoothie:</p>
+					<p>
+						<blockquote>
+							<code>[{"constant":true,"inputs":[],"name":"creator","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"dest","type":"address"},{"name":"quantity","type":"uint256"}],"name":"transfer","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":"totalShares","type":"uint256"}],"payable":false,"type":"constructor"}]</code>
+						</blockquote>
+					</p>
 				</ol>
 			</ol>
 
@@ -116,57 +108,56 @@
 
 
 		<div class="page-header" id="deplarc">
-			<h2>Déploiement dans ARC (<a href="#up">up</a>)</h2>
+			<h2>Déploiement dans ARC (<a href="#">up</a>)</h2>
 		</div>
-			<p><font size="3" style="font-size: 12pt">On utilise la requète
-			"Contract creation".</font></p>
+			<p>On utilise la requète
+			"Contract creation".</p>
 			<ol>
 				<li/>
-		<p><font size="3" style="font-size: 12pt">Vérifier le
-				<i>Content-Type</i> !</font></p>
+		<p>Vérifier le
+				<i>Content-Type</i> !</p>
 				<li/>
-		<p><font size="3" style="font-size: 12pt">La valeur
-				&ldquo;interface&rdquo; doit &ecirc;tre convertie pour </font><font size="3" style="font-size: 12pt"><b>PHP</b></font>
-				<font size="3" style="font-size: 12pt">5.6.29 afin d'&ecirc;tre
-				attribuée à &ldquo;abi&rdquo; par la suite. On peut
+		<p>La valeur
+				"interface" doit être convertie pour PHP 5.6.29 afin d'être
+				attribuée à "abi" par la suite. On peut
 				par exemple utiliser l'application web suivante :
-				<a href="http://json_encode.onlinephpfunctions.com/">http://json_encode.onlinephpfunctions.com/</a></font></p>
-				<p><font size="3" style="font-size: 12pt">Exemple avec l'interface
+				<a href="http://json_encode.onlinephpfunctions.com/">http://json_encode.onlinephpfunctions.com/</a></p>
+				<p>Exemple avec l'interface
 				rendue dans la partie précédente (<a href="#comparc">Compilation
-				dans ARC</a>) :</font></p>
+				dans ARC</a>) :</p>
 				<p><blockquote><code>"abi":"[{\"constant\":true,\"inputs\":[],\"name\":\"creator\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"dest\",\"type\":\"address\"},{\"name\":\"quantity\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[],\"payable\":false,\"type\":\"function\"},{\"inputs\":[{\"name\":\"totalShares\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"constructor\"}]"</code></blockquote></p>
 				<li/>
 		<p><font size="3" style="font-size: 12pt">Les valeurs à
 				transmettre seront :</font></p>
 				<ol type="a">
 					<li/>
-		<p>&ldquo;abi&rdquo;
+		<p>"abi"
 					au format transcrit pour <b>PHP</b>
 					5.6.29. (voir point 2.).</p>
 					<li/>
-		<p>&ldquo;from&rdquo;
+		<p>"from"
 					: Adresse hash Ethereum de l'entreprise qui déploie
 					le contrat.</p>
 					<li/>
-		<p>&ldquo;data&rdquo;
+		<p>"data"
 					: Le bytecode.</p>
 					<li/>
-		<p>&ldquo;tokens&rdquo;
+		<p>"tokens"
 					: Tokens de l'entreprise pour le contrat.</p>
 					<li/>
-		<p>&ldquo;amount&rdquo;
+		<p>"amount"
 					: Valeur par défaut indexée sur le gaz consommé
 					pour déployer le contrat (0.2 avec le premier contrat en
 					production).</p>
 					<li/>
-		<p>&ldquo;passphrase&rdquo;
-					: Le mot de passe du compte &ldquo;from&rdquo;, c'est-à-dire
+		<p>"passphrase"
+					: Le mot de passe du compte "from", c'est-à-dire
 					le mot de passe de l'entreprise qui permet de débloquer
 					le déploiement du contrat.</p>
 				</ol>
 				<li/>
 		<p>La méthode
-				employée est POST. Le format du &ldquo;RAW Payload&rdquo;
+				employée est POST. Le format du "RAW Payload"
 				est donc :</p>
 				<p><blockquote><code>{"abi":"abi_format_pour_php_5.6.29",
 				"from":"0x12345...", "data":"bytecode",
