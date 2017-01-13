@@ -38,15 +38,7 @@
 
 	<!-- Optional theme -->
 	<style type="text/css">
-		/*
-		p { margin-bottom: 0.25cm; color: #333333; font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif; font-size: 10pt; line-height: 142% }
-		h1 { margin-top: 0.53cm; margin-bottom: 0.25cm; color: #333333; font-family: "inherit"; font-size: 27pt; line-height: 110% }
-		h2 { margin-top: 0.53cm; margin-bottom: 0.25cm; color: #333333; font-family: "inherit"; font-size: 22pt; line-height: 110% }
-		a:link { color: #337ab7; background: transparent; text-decoration: none }
-		code.cjk { font-family: "Nimbus Mono L", monospace }
-		a:visited { color: #337ab7; background: transparent; text-decoration: none }
-		blockquote { font-size: 12px; border: 1px solid gray; border-radius:8px; background: silver; color: black; width: 90em; word-wrap: break-word;}
-		*/
+		blockquote{ word-wrap: break-word; }
 	</style>
 </head>
 <body lang="en-US" text="#333333" link="#337ab7" vlink="#337ab7" bgcolor="#ffffff" dir="ltr">
@@ -59,7 +51,7 @@
 				<ul class="nav navbar-nav">
 					<li><a href="/3a" title="TP 3A">3e année</a></li>
 					<li><a href="/4a" title="TP 4A">4e année</a></li>
-					<li><a href="/tuto-arc/" title="Tutoriel ARC">Tutoriel ARC</a></li>
+					<li class="active"><a title="Tutoriel ARC">Tutoriel ARC</a></li>
 				</ul>
 			</div>
 		</div>
@@ -88,24 +80,12 @@
 		</nav>
 
 		<div class="page-header" id="comparc">
-			<h2>Compilation dans ARC</h2>
-		</div>
-
-		<div class="page-header" id="deplarc">
-			<h2>Déploiement dans ARC</h2>
-		</div>
-		
-		
-
-		<ul>
-		<div id="" dir="ltr">
 			<h2>Compilation dans ARC (<a href="#up">up</a>)</h2>
-			<p>On utilise la requète "Solidity Compiler".</p>
-			<ol>
-				<li/>
-		<p>Vérifier que
-				le Content-Type est bien &ldquo;Text/Plain&rdquo;.</p>
-				<li/>
+		</div>
+		<p>On utilise la requète "Solidity Compiler".</p>
+		<ol>
+			<li>Vérifier que le Content-Type est bien &ldquo;Text/Plain&rdquo;.<li/>
+		
 		<p>Dans l'onglet
 				&ldquo;RAW Payload&rdquo;, coller directement le code Solidity.</p>
 				<li/>
@@ -130,9 +110,14 @@
 					<p><blockquote><code>[{"constant":true,"inputs":[],"name":"creator","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"dest","type":"address"},{"name":"quantity","type":"uint256"}],"name":"transfer","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":"totalShares","type":"uint256"}],"payable":false,"type":"constructor"}]</code></blockquote></p>
 				</ol>
 			</ol>
-		</div>
-		<div id="deplarc" dir="ltr">
+
+
+
+
+
+		<div class="page-header" id="deplarc">
 			<h2>Déploiement dans ARC (<a href="#up">up</a>)</h2>
+		</div>
 			<p><font size="3" style="font-size: 12pt">On utilise la requète
 			"Contract creation".</font></p>
 			<ol>
@@ -195,7 +180,7 @@
 				"tokens":1000, "amount":0.2,
 				"passphrase":"passphrase"}</code></blockquote></p>
 			</ol>
-		</div>
+		
 	</div>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
