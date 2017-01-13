@@ -83,11 +83,10 @@
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li><a href="#installation" title="Installation">Installation</a></li>
-						<li><a href="#tp1" title="TP 1 - Appel JSON et page d'informations">TP 1 - Appel JSON et page d'informations</a></li>
-						<li><a href="#tp2" title="TP 2 - Navigation Blocks, Address, Transactions, ...">TP 2 - Navigation Blocks, Address, Transactions, ...</a></li>
-						<li><a href="#tp3" title="TP 3 - Générateur de QR Code">TP 3 - Générateur de QR Code</a></li>
-						<li><a href="#tp4" title="TP 4 - Proof of Existence">TP 4 - Proof of Existence</a></li>
-						<li><a href="#tp5" title="TP 5 - Ethereum">TP 5 - Ethereum</a></li>
+						<li><a href="#tp1" title="TP 1 - Appel JSON et page d'informations">TP 1 - Home Page et WS JSON</a></li>
+						<li><a href="#tp2" title="TP 2 - Navigation Blocks, Address, Transactions, ...">TP 2 - Navigation Blocks, Address, Transactions</a></li>
+						<li><a href="#tp3" title="TP 3 - Générateur de QR Code et Proof of Existence">TP 3 - QR Code et Proof of Existence</a></li>
+						<li><a href="#tp4" title="TP 4 - Ethereum et Smart-contracts">TP 4 - Smart-contracts</a></li>
 					</ul>
 				</div>
 			</div>
@@ -114,23 +113,41 @@
 		<ul class="list-group">
 			<li class="list-group-item">Créer une page HTML avec <a href="https://pages.github.com/" title="Github Pages" rel="nofollow" target="_blanck">Github Pages</a></li>
 			<li class="list-group-item">Commit + Push sur GitHub</li>
-		</ul>				
+		</ul>
 		
 		<h3>Test en local</h3>
-		<p>
-			Il est recommandé de tester directement en local sur votre poste pour 
-		</p>
-		
 		<div class="alert alert-warning" role="alert">
 			<strong>Warning ! </strong>
 			GitHub Pages impose un délai de mise à jour de quelques minutes. Il est recommandé de tester avant sur son poste afin de limiter les commits aux évolutions stables.
 		</div>
-	
+		<p>
+			Il est recommandé de tester directement en local sur votre poste. Vous pouvez pour cela utiliser un navigateur web.<br/>
+			Pour tester les WS JSON, nous vous invitons à suivre le <a href="https://mubizinc.github.io/tuto-arc" title="Tutoriel ARC">tutoriel ARC</a>.
+		</p>
+		
 		<h3>Rédaction de la home page</h3> 
 		<ul class="list-group">
 			<li class="list-group-item">Les Prénom NOM du binome</li>
 			<li class="list-group-item">Indiquer l'URL de votre Github Page par e-mail à votre encadrant</li>
 			<li class="list-group-item">(option) Ce n'est pas un TP de Web Design, ... mais intégrer Bootstrap et quelques icones à ce moment peut rendre le TP plus agréable pour la suite.</li>
+		</ul>
+
+		<h3>Qualité de code</h3>
+		<p>
+			Nous nous concentrons sur les cas d'application de la technologie blockchain, mais cela ne doit pas justifier un code difficile à maintenir.<br/>
+			Nous vous invitons à respecter, autant que possible, les quelques bonnes pratiques suivantes.
+		</p>
+		<ul class="list-group">
+			<li class="list-group-item">* - Mettre des commentaires au fur et à mesure de vos développements</li>
+			<li class="list-group-item">JS - Faciliter la génération d'un documentation, par exemple en respectant le format APIDOC</li>
+			<li class="list-group-item">JS - Commencer les paramètres par "_"</li>
+			<li class="list-group-item">JS - Commencer les variables par une minuscule et les nommer en chameau</li>
+			<li class="list-group-item">JS - Commencer chaque fonction par un contrôle des paramètres fournis et des retours logiques.</li>
+			<li class="list-group-item">HTML SEO - Ajouter de méta-données dans les pages HTML, dans le respect de schema.org</li>
+			<li class="list-group-item">Performance - Vérifier la conformité W3C (HTML et CSS)</li>
+			<li class="list-group-item">Performance - Ne pas appeler des fichiers inutiles (JS, CSS, ...)</li>
+			<li class="list-group-item">UX - Ajouter d'icônes et d'images</li>
+			<li class="list-group-item">UX - Intégrer un minimum d'ergonomie "standard" des pages (Bootstrap ou autre)</li>
 		</ul>
 
 		<div class="page-header" id="tp1">
@@ -188,10 +205,15 @@
 			<li class="list-group-item">Fusionner les champs en un seul</li>
 			<li class="list-group-item">Ajouter des contrôles de vérification des données fournies</li>
 		</ul>
-		- Validité de l'adresse
-		- Validité du hash de la transaction
-		- ...
 		
+		<p>L'ajout de contrôle est nécessaire pour protéger le serveur<br/>
+		<ul class="list-group">
+			<li class="list-group-item">Validité de l'adresse</li>
+			<li class="list-group-item">Validité du hash de la transaction</li>
+			<li class="list-group-item">...</li>
+		</ul>
+			L'ajout d'un message d'erreur est nécessaire (UX)<br/>
+		</p>
 		
 		<h3>Navigation</h3>
 		<ul class="list-group">
@@ -207,25 +229,23 @@
 	
 		
 		<div class="page-header" id="tp3">
-			<h2>TP 3 - Générateur de QR Code</h2>
+			<h2>TP 3 - Générateur de QR Code et Proof of Existence</h2>
 		</div>
+		<h3>Générateur de QR Code</h3>
 		<ul class="list-group">
 			<li class="list-group-item">A l'aide de la librairie <a href="https://github.com/davidshimjs/qrcodejs" title="QR Code for JS" rel="nofollow" target="_blanck">QR Code for JS (MIT Licence)</a>, générer un QR Code respectant le BIP ...</li>
 			<li class="list-group-item">Tester le QR Code généré à l'aide d'une application mobile.</li>
 		</ul>
 
-
-		<div class="page-header" id="tp4">
-			<h2>TP 4 - Proof of Existence</h2>
-		</div>		
+		<h3>Proof of Existence</h3>
 		<ul class="list-group">
 			<li class="list-group-item">Signature d'un document => Génération d'un hash</li>
 			<li class="list-group-item">Vérification d'un document => Recevoir hash + document ET répondre si matching</li>
 		</ul>
 		
 		
-		<div class="page-header" id="tp5">
-			<h2>TP 5 - Ethereum</h2>
+		<div class="page-header" id="tp4">
+			<h2>TP 4 - Ethereum</h2>
 		</div>
 		<p>Faire le maximum des TP précédents pour la blockchain d'Ethereum</p>
 
@@ -257,6 +277,27 @@
 			<li class="list-group-item">Créer une 1ère règle : Si réception d'une adresse bitcoin valide, retourner son solde.</li>
 			<li class="list-group-item">Créer une 2e règle : Si réception d'une adresse bitcoin valide avec /historic, retourner l'historique des transactions, en commençeant par les dernières transactions reçues.</li>
 		</ul>
+		
+		<h3>HD Wallet et Audit financier</h3>
+		<p>
+			Les HD Wallet permettent la génération de plusieurs milliards d'adresses à partir d'une adresse bitcoin.
+			Par ce procédé, il est possible de facilement changer d'identité sur le réseau, et ainsi éviter d'avoir un unique historique de transaction.
+		</p>
+		<p>
+			Cette technologie trouve d'autres applications en gestion comptable d'entreprises.<br/>
+			La génération d'une adresse par compte permet de répartir les écritures sur différents comptes, sans que la blockchain (publique) ne permet de regrouper les comptes d'une même entreprise.<br/>
+			Ce procédé permet d'automatiser l'action d'audit comptable.<br/>
+			L'entreprise souhaitant faire auditer ses comptes fourni l'adresse racine à l'auditeur.<br/>
+			Ce dernier est alors en mesure d'extraire l'ensemble des écritures.
+		</p>
+		<ul class="list-group">
+			<li class="list-group-item">TODO Albin - Compléter les étapes</li>
+			<li class="list-group-item"></li>
+			<li class="list-group-item"></li>
+			<li class="list-group-item"></li>
+			<li class="list-group-item"></li>
+		</ul>
+		
 	</div>
 	<footer class="footer">
 		<div class="container">
