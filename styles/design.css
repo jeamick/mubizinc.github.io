@@ -13,11 +13,10 @@ img{
 
 /* ******** FOOTER HOMEPAGE ********  */
 footer {
-	font-size: 12px;
-	font-weight: bold;
 	width: 100%;
-	max-width: 900px;
 	margin: 0 auto;
+	background: #555555;
+	
 }
 
 footer ul {
