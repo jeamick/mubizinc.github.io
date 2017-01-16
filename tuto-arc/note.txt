@@ -1,0 +1,19 @@
+Created 2 : 0x43b77b4031554e04a134ec3a5a3dd1ec4aaaae40
+"tx": "0x76293d5b87fd649664f1fdbc5df4cee9cefe0cac4ae1dd3dc3f2ac058dfcdabd" ; 0.002
+
+
+{"abi":"[{\"constant\":true,\"inputs\":[],\"name\":\"creator\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"dest\",\"type\":\"address\"},{\"name\":\"quantity\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[],\"payable\":false,\"type\":\"function\"},{\"inputs\":[{\"name\":\"totalShares\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"constructor\"}]", "from":"0x43b77b4031554e04a134ec3a5a3dd1ec4aaaae40", "data":"606060405234610000576040516020806101b583398101604052515b60008054600160a060020a0319166c010000000000000000000000003381020417808255600160a060020a031681526001602052604090208190555b505b61014e806100676000396000f3606060405260e060020a600035046302d05d3f811461003457806370a082311461005d578063a9059cbb1461007f575b610000565b3461000057610041610094565b60408051600160a060020a039092168252519081900360200190f35b346100005761006d6004356100a3565b60408051918252519081900360200190f35b34610000576100926004356024356100b5565b005b600054600160a060020a031681565b60016020526000908152604090205481565b8015156100c157610000565b33600160a060020a031682600160a060020a031614156100e057610000565b600160a060020a03821615156100f557610000565b600160a060020a0333166000908152600160205260409020548190101561011b57610000565b600160a060020a0380831660009081526001602052604080822080548501905533909216815220805482900390555b505056", "tokens":1000, "amount":0.2, "passphrase":"mypassphrase"}
+
+
+"contract": "0xffc08af73478d9c0681dc8d2027c92b57a09e6d4"
+
+Internal Tx
+http://ethereum-test.smoothie.tech/balanceOf?abi&contract&of
+
+{
+"abi": "[{\"constant\":true,\"inputs\":[],\"name\":\"creator\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"dest\",\"type\":\"address\"},{\"name\":\"quantity\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[],\"payable\":false,\"type\":\"function\"},{\"inputs\":[{\"name\":\"totalShares\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"constructor\"}]",
+"contract": "0xffc08af73478d9c0681dc8d2027c92b57a09e6d4",
+"of": "0x43b77b4031554e04a134ec3a5a3dd1ec4aaaae40"
+}
+
+
