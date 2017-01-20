@@ -86,174 +86,97 @@
 		<div class="page-header" id="NodeJs">
 			<h2>Installation de Node.js (<a href="#">up</a>)</h2>
 		</div>
-		<p>Le gestionnaire de paquets de Node.js est « npm » (Node.js Packages Manager).</p>
+		<p>Le gestionnaire de paquets de <b>Node.js</b> est « <b>npm</b> » (Node.js Packages Manager).</p>
 		<ol>
-			<li>Windows
-				<p>http://nodejs.org/en/download/</p>
+			<li><b>Windows</b>
+				<p>Télécharger Node.js à l'adresse : http://nodejs.org/en/download/</p>
 				<p>Il est préférable de prendre la version « Stable » pour avoir toutes les fonctionnalités.</p>
 				<p>En ligne de commande, vérifications des versions :</p>
 				<p><blockquote><code>C:\> node --version</code></blockquote></p>
 				<p><blockquote><code>C:\> npm --version</code></blockquote></p>
-			<li>MAC
+			<li><b>MAC</b>
 				<p>Idem que Windows.</p>
-			<li>Linux
+			<li><b>Linux</b>
 				<p><blockquote><code>$ curl -sL https://deb.nodesource.com/setup_#.x | sudo -E bash -</code></blockquote></p>
-				<p>Remplacer # par le numéro de la dernière version.</p>
+				<p>Remplacer <b>#</b> par le numéro de la dernière version.</p>
 				<p><blockquote><code>$ sudo apt install nodejs</code></blockquote></p>
 				<p>npm sera installé avec la dernière version en même temps avec cette méthode.</p>
 				<p>Vérifications des versions :</p>
 				<p><blockquote><code>$ node --version</code></blockquote></p>
 				<p><blockquote><code>$ npm --version</code></blockquote></p>
+			
+
 			<div style="text-align:center;">
 				<p><img src="images/.jpg" width="1000" height="400"></p>
 			</div>
-			<ol type="a">
-				<li>
-					<p>"bytecode" ("data").</p>
-					<p>Exemple avec le bytecode du premier contrat en production de Smoothie :</p>
-					<p><blockquote><code>6066</code></blockquote></p>
-					<p>"interface" ("abi" format JSON).</p>
-					<p>Exemple avec l'interface du premier contrat en production de Smoothie:</p>
-					<p><blockquote><code>[{"constant":true,"type":"constructor"}]</code></blockquote></p>
-			</ol>
+		
+
 		</ol>
-
-
-
-
-
-		<div class="page-header" id="deplarc">
-			<h2>Déploiement dans ARC (<a href="#">up</a>)</h2>
+		<div class="page-header" id="Web3Js">
+			<h2>Installation de WEB3.JS comme paquet de NODE.JS (<a href="#">up</a>)</h2>
 		</div>
-			<p>On utilise la requète
-			"Contract creation".</p>
+		<h4>Recherche d'un paquet</h4>
+		<p>Il faut tout d'abord faire la recherche du paquet (afin de reconstruire l’index). La recherche peut être un peu longue. Elle se lance à partir de l'invite de commande de base, avec la commande :</p>
+		<p><blockquote><code>npm search web3</code></blockquote></p>
+		<p>
+		<h4>Deux types d’installation possibles d’un paquet :</h4>
 			<ol>
-				<li/>
-		<p>Vérifier le
-				<i>Content-Type</i> !</p>
-				<li/>
-		<p>La valeur
-				"interface" doit être convertie pour PHP 5.6.29 afin d'être
-				attribuée à "abi" par la suite. On peut
-				par exemple utiliser l'application web suivante :
-				<a href="http://json_encode.onlinephpfunctions.com/">http://json_encode.onlinephpfunctions.com/</a></p>
-				<div style="text-align:center;">
-					<p><img src="images/ARC_json_encode_php_5-6-29_01.jpg"></p>
-				</div>
-				<p><hr width="50%"></p>
-				<div style="text-align:center;">
-					<p><img src="images/ARC_json_encode_php_5-6-29_02.jpg"></p>
-				</div>
-				<p>Exemple avec l'interface
-				rendue dans la partie précédente (<a href="#comparc">Compilation
-				dans ARC</a>) :</p>
-				<p><blockquote><code>"abi":"[{\"constant\":true,\"inputs\":[],\"name\":\"creator\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"dest\",\"type\":\"address\"},{\"name\":\"quantity\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[],\"payable\":false,\"type\":\"function\"},{\"inputs\":[{\"name\":\"totalShares\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"constructor\"}]"</code></blockquote></p>
-				<li/>
-		<p><font size="3" style="font-size: 12pt">Les valeurs à
-				transmettre seront :</font></p>
-				<ol type="a">
-					<li/>
-		<p>"abi"
-					au format transcrit pour <b>PHP</b>
-					5.6.29. (voir point 2.).</p>
-					<li/>
-		<p>"from"
-					: Adresse hash Ethereum de l'entreprise qui déploie
-					le contrat.</p>
-					<li/>
-		<p>"data"
-					: Le bytecode.</p>
-					<li/>
-		<p>"tokens"
-					: Tokens de l'entreprise pour le contrat.</p>
-					<li/>
-		<p>"amount"
-					: Valeur par défaut indexée sur le gaz consommé
-					pour déployer le contrat (0.2 avec le premier contrat en
-					production).</p>
-					<li/>
-		<p>"passphrase"
-					: Le mot de passe du compte "from", c'est-à-dire
-					le mot de passe de l'entreprise qui permet de débloquer
-					le déploiement du contrat.</p>
-				</ol>
-				<li/>
-		<p>La méthode
-				employée est POST. Le format du "RAW Payload"
-				est donc :</p>
-				<p><blockquote><code>{"abi":"abi_format_pour_php_5.6.29",
-				"from":"0x12345...", "data":"bytecode",
-				"tokens":54321, "amount":0.2,
-				"passphrase":"mot_2_passe"}</code></blockquote></p>
-				<p><font size="3" style="font-size: 12pt">Exemple avec le
-				déploiement du premier contrat en production de Smoothie :</font></p>
-				<p><blockquote><code>{"abi":"[{\"constant\":true,\"inputs\":[],\"name\":\"creator\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"dest\",\"type\":\"address\"},{\"name\":\"quantity\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[],\"payable\":false,\"type\":\"function\"},{\"inputs\":[{\"name\":\"totalShares\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"constructor\"}]",
-				"from":"0x938fd640696a468040999872b0bd820d4e5ed422",
-				"data":"606060405234610000576040516020806101b583398101604052515b60008054600160a060020a0319166c010000000000000000000000003381020417808255600160a060020a031681526001602052604090208190555b505b61014e806100676000396000f3606060405260e060020a600035046302d05d3f811461003457806370a082311461005d578063a9059cbb1461007f575b610000565b3461000057610041610094565b60408051600160a060020a039092168252519081900360200190f35b346100005761006d6004356100a3565b60408051918252519081900360200190f35b34610000576100926004356024356100b5565b005b600054600160a060020a031681565b60016020526000908152604090205481565b8015156100c157610000565b33600160a060020a031682600160a060020a031614156100e057610000565b600160a060020a03821615156100f557610000565b600160a060020a0333166000908152600160205260409020548190101561011b57610000565b600160a060020a0380831660009081526001602052604080822080548501905533909216815220805482900390555b505056",
-				"tokens":1000, "amount":0.2,
-				"passphrase":"passphrase"}</code></blockquote></p>
+				<li>Installation « <b>locale</b> » dans le projet courant :
+					<p><blockquote><code>npm install web3</code></blockquote></p>
+				<li>Installation « <b>globale</b> » accessible depuis n’importe quel dossier du système (ou presque… On verra par la suite...) :
+					<p><blockquote><code>npm install -g web3</code></blockquote></p>
 			</ol>
-			<p><hr width="75%"></p>
+		<h4>Lister les modules installés :</h4>
+		<p>
+			<ol>
+				<li>En « <b>local</b> » :
+					<p><blockquote><code>npm list</code></blockquote></p>
+				<li>En « <b>global</b> » :
+					<p><blockquote><code>npm -g list</code></blockquote></p>
+			</ol>
+		</p>
+		<h4>Mettre à jour un module ou tous les modules :</h4>
+		<p>
+			<ol>
+				<li>En « <b>local</b> » :
+					<ol type="a">
+						<li><b>Un module :</b>
+							<p><blockquote><code>npm update web3</code></blockquote></p>
+						<li><b>Tous les modules :</b>
+							<p><blockquote><code>npm update</code></blockquote></p>
+					</ol>
+				<li>En « <b>global</b> » :
+					<ol type="a">
+						<li><b>Un module</b> :
+							<p><blockquote><code>npm -g update web3</code></blockquote></p>
+						<li><b>Tous les modules</b> :
+							<p><blockquote><code>npm -g update</code></blockquote></p>
+					</ol>
+			</ol>
+		</p>
+
+
+		<p><hr width="75%"></p>
 			<div style="text-align:center;">
-					<p><img src="images/ARC_Contract_Creation_cut_arrow.jpg"  width="1000" height="446"></p>
+					<p><img src="images/.jpg"  width="10" height="10"></p>
 			</div>
-			<p><hr width="75%"></p>
-		<p>En résultat on obtiendra l'adresse Ethereum du contrat (0x...). Il faudra la noter pour accéder plus tard au contrat, ses variables et ses fonctions.</p>
-		<div class="page-header" id="gestcomptes">
-			<h2>Gestion des comptes Ethereum sur le node avec ARC (<a href="#">up</a>)</h2>
+		<p><hr width="75%"></p>
+
+
+		<div class="page-header" id="TestRPC">
+			<h2>Installation de Test RPC afin de créer un nœud Ethereum local de test (<a href="#">up</a>)</h2>
 		</div>
-		<ol>
-			<li/><p>Création d'un nouveau compte Ethereum (en dehors d'un contrat dont le compte est crée pour chaque déploiement).</p>
-				<p>Requète "<b>New Account</b>" en méthode <b>GET</b>.</p>
-				<p>La valeur de "passphrase" est le mot de passe à définir pour le <b>nouvel account</b>.</p>
-				<p>Ne pas oublier de faire précéder le mot de passe par le nom du paramètre : <b><i>...passphrase=mot_2_passe</i></b>.</p>
-				<br>
-				<div style="text-align:center;">
-					<p><img src="images/ARC_new_account.jpg"></p>
-				</div>
-				<br>
-				<p>La réponse obtenue est l'<b>addresse Ethereum</b> du nouveau compte crée.</p>
-				<br>
-			<li/><p>Réaliser une transaction (à partir du compte par défaut).</p>
-				<p>Requète "<b>Send Tx</b>" en méthode <b>GET</b>.</p>
-				<p>Ne pas oublier de faire précéder les paramètres avec leur nom : <b><i>.../sendTransaction?receiver=0x0879...&amount=123456</i></b>.</p>
-				<br>
-				<div style="text-align:center;">
-					<p><img src="images/ARC_SendTx.jpg"></p>
-				</div>
-				<br>
-				<p>La réponse obtenue est le <b>hash</b> de la transaction.</p>
-				<br>
-			<li/><p>Récupérer l'adresse du compte par défaut.</p>
-				<p>Requète "<b>Default Account</b>" en méthode <b>GET</b>.</p>
-				<br>
-				<div style="text-align:center;">
-					<p><img src="images/ARC_defaultAccount.jpg"></p>
-				</div>
-				<br>
-				<p>La réponse obtenue est bien sûr l'<b>adresse Ethereum</b> du compte par défaut.</p>
-				<br>
-			<li/><p>Récupérer la liste des comptes du noeud Ethereum.</p>
-				<p>Requète "<b>Accounts List</b>" en méthode <b>GET</b>.</p>
-				<br>
-				<div style="text-align:center;">
-					<p><img src="images/ARC_AccountList.jpg"></p>
-				</div>
-				<br>
-				<p>Bien sûr, la réponse obtenue est la <b>liste des comptes gérés par le noeud Ethereum</b>.</p>
-				<br>
-			<li/><p>Récupérer la balance d'un compte.</p>
-				<p>Requète "<b>Balance</b>" en méthode <b>GET</b>.</p>
-				<br>
-				<div style="text-align:center;">
-					<p><img src="images/ARC_Balance_Account.jpg"></p>
-				</div>
-				<br>
-				<p>La réponse obtenue est la <b>balance</b> du compte sous deux formes, dont la balance en <b>WEI</b>.</p>
-				<br>
-		</ol>
-		<div class="page-header" id="internal">
-			<h2>Appels à l'intérieur d'un contrat dans ARC (<a href="#">up</a>)</h2>
+		<p><b>Windows</b>
+			<ol>
+				<li>Installer Visual Studio Community Edition. Pour une installation personnalisée, le minimum est tout ce qui est lié à Visual C++.
+				<li>Installer Windows SDK for Windows 8.1
+				<li>Installer Python 2.7 si ce n’est pas déjà fait, et ajouter son dossier d'installation au PATH.
+				<li>Installer OpenSSL ici (pas la version light). <b>Ne pas changer le dossier d’installation et laisser celui par défaut</b>. 
+				<li>Créer un dossier "tmp" à la racine du disque par défaut (ceci ne semble pas nécessaire à 100 %).
+			</ol>
+		</p>
+		<div class="page-header" id="Init">
+			<h2>Lancer le node et initier Web3 (<a href="#">up</a>)</h2>
 		</div>
 		<ol>
 			<li/><p>Obtenir la balance en jetons d'un compte à l'intérieur d'un contrat.</p>
@@ -266,11 +189,6 @@
 				<br>
 				<p>Il faut spécifier dans le payload <b>l'interface/abi</b> du contrat, l'<b>adresse</b> du contrat, et enfin, l'<b>adresse Ethereum</b> du compte dont on veut la <b>balance en jetons</b>.</p>
 				<p>Exemple de payload :</p>
-				<p><blockquote><code>{
-"abi": "[{\"constant\":true,\"inputs\":[],\"name\":\"creator\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"dest\",\"type\":\"address\"},{\"name\":\"quantity\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[],\"payable\":false,\"type\":\"function\"},{\"inputs\":[{\"name\":\"totalShares\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"constructor\"}]",
-"contract": "0xffc08af73478d9c0681dc8d2027c92b57a09e6d4",
-"of": "0x43b77b4031554e04a134ec3a5a3dd1ec4aaaae40"
-}</code></blockquote></p>
 				<p>La réponse obtenue est la <b>balance en <i>jetons</i></b> du compte choisi à l'intérieur du contrat.</p>
 				<br>
 			<li/><p>Réaliser un transfert de jetons d'un compte à un autre à l'intérieur d'un contrat.</p>
