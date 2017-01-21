@@ -2,10 +2,10 @@
 <head>
 	<meta charset="UTF-8" />
 
-	<title>Tutoriel ARC | Mubiz</title>
+	<title>Tutoriel WEB3 | Mubiz</title>
 
-	<meta name="description"    content="Tutoriel ARC par/pour Mubiz"/>
-	<meta name="keywords"       content="Tutoriel, ARC, Mubiz"/>
+	<meta name="description"    content="Tutoriel WEB3 par/pour Mubiz"/>
+	<meta name="keywords"       content="Tutoriel, WEB3, Mubiz"/>
 	
 	<meta name="robots"         content="index,follow"/>
 	<meta name="rating"         content="safe for kids"/>
@@ -51,7 +51,7 @@
 				<ul class="nav navbar-nav">
 					<li><a href="/3a" title="TP 3A">3e année</a></li>
 					<li><a href="/4a" title="TP 4A">4e année</a></li>
-					<li class="active"><a title="Tutoriel ARC">Tutoriel ARC</a></li>
+					<li class="active"><a title="Tutoriel WEB3">Tutoriel WEB3</a></li>
 				</ul>
 			</div>
 		</div>
@@ -78,6 +78,7 @@
 						<li><a href="#CreationContrat" title="Création d'un contrat">Création d'un contrat</a></li>
 						<li><a href="#AppelFonction" title="Appel d'une fonction d'un contrat">Appel d'une fonction d'un contrat</a></li>
 						<li><a href="#AppelObjet" title="Appel d'un objet d'un contrat">Appel d'un objet d'un contrat</a></li>
+						<li><a href="#TouteLaConsole" title="Toute la console du Node">Toute la console du Node</a></li>
 					</ul>
 				</div>
 			</div>
@@ -89,7 +90,7 @@
 		<p>Le gestionnaire de paquets de <b>Node.js</b> est « <b>npm</b> » (Node.js Packages Manager).</p>
 		<ol>
 			<li><b>Windows</b>
-				<p>Télécharger Node.js à l'adresse : http://nodejs.org/en/download/</p>
+				<p>Télécharger Node.js à l'adresse : <a href="http://nodejs.org/en/download/">http://nodejs.org/en/download/</a></p>
 				<p>Il est préférable de prendre la version « Stable » pour avoir toutes les fonctionnalités.</p>
 				<p>En ligne de commande, vérifications des versions :</p>
 				<p><blockquote><code>C:\> node --version</code></blockquote></p>
@@ -168,50 +169,210 @@
 		</div>
 		<p><b>Windows</b>
 			<ol>
-				<li>Installer Visual Studio Community Edition. Pour une installation personnalisée, le minimum est tout ce qui est lié à Visual C++.
-				<li>Installer Windows SDK for Windows 8.1
-				<li>Installer Python 2.7 si ce n’est pas déjà fait, et ajouter son dossier d'installation au PATH.
-				<li>Installer OpenSSL ici (pas la version light). <b>Ne pas changer le dossier d’installation et laisser celui par défaut</b>. 
+				<li>Installer <a href="https://beta.visualstudio.com/downloads/">Visual Studio Community Edition</a>. Pour une installation personnalisée, le minimum est tout ce qui est lié à Visual C++.
+				<li>Installer <a href="https://developer.microsoft.com/en-us/windows/downloads/windows-8-1-sdk">Windows SDK for Windows 8.1 (si vous êtes sur Windows 8.1)</a>
+				<li>Installer <a href="https://www.python.org/download/releases/2.7/">Python 2.7</a> si ce n’est pas déjà fait, et <a href="http://www.anthonydebarros.com/2014/02/16/setting-up-python-in-windows-8-1/">ajouter son dossier d'installation au PATH si vous êtes sur Windows 8.1</a>.
+				<li>Installer <a href="http://slproweb.com/products/Win32OpenSSL.html">OpenSSL</a> (pas la version light). <b>Ne pas changer le dossier d’installation et laisser celui par défaut</b>. 
 				<li>Créer un dossier "tmp" à la racine du disque par défaut (ceci ne semble pas nécessaire à 100 %).
 			</ol>
+			<p>Puis : <blockquote><code>npm install -g ethereumjs-testrpc</code></blockquote></p>
+			<p>(ici en « global » dans l’exemple)</p>
+		</p>
+		<p><b>MAC</b>
+			<p>Avoir les « <i>XCode Command Line Tools » installés.</i></p>
+			<p>Puis : <blockquote><code>npm install -g ethereumjs-testrpc</code></blockquote></p>
+			<p>(ici en « global » dans l’exemple)</p>
+		</p>
+		<p><b>Linux</b>
+			<p>Installer le paquet « <b>build-essential</b> » :<p>
+			<blockquote><code>sudo apt-get install build-essential</code></blockquote>
+			<p>Puis : <blockquote><code>npm install -g ethereumjs-testrpc</code></blockquote></p>
+			<p>(ici en « global » dans l’exemple)</p>
 		</p>
 		<div class="page-header" id="Init">
 			<h2>Lancer le node et initier Web3 (<a href="#">up</a>)</h2>
 		</div>
-		<ol>
-			<li/><p>Obtenir la balance en jetons d'un compte à l'intérieur d'un contrat.</p>
-			<p>Requète "<b>Internal Balance</b>" en méthode <b>POST</b>.</p>
-				<p>Ne pas oublier de vérifier le <b><i>Content-Type</i></b> qui doit être positionné sur "<b>application/json</b>".
-				<br>
-				<div style="text-align:center;">
-					<p><img src="images/ARC_Internal_Balance.jpg"></p>
-				</div>
-				<br>
-				<p>Il faut spécifier dans le payload <b>l'interface/abi</b> du contrat, l'<b>adresse</b> du contrat, et enfin, l'<b>adresse Ethereum</b> du compte dont on veut la <b>balance en jetons</b>.</p>
-				<p>Exemple de payload :</p>
-				<p>La réponse obtenue est la <b>balance en <i>jetons</i></b> du compte choisi à l'intérieur du contrat.</p>
-				<br>
-			<li/><p>Réaliser un transfert de jetons d'un compte à un autre à l'intérieur d'un contrat.</p>
-			<p>Requète "<b>Internal Tx</b>" en méthode <b>POST</b>.</p>
-				<p>Ne pas oublier de vérifier le <b><i>Content-Type</i></b> qui doit être positionné sur "<b>application/json</b>".
-				<br>
-				<div style="text-align:center;">
-					<p><img src="images/ARC_Internal_Tx.jpg"></p>
-				</div>
-				<br>
-				<p>Les différents paramètres à fournir sont :</p>
-				<ol type="a">
-					<li/><p><b>"to"</b> : Adresse Ethereum destination des tokens dans le contrat.</p>
-					<li/><p><b>"from"</b> : Adresse Ethereum expéditeur des tokens dans le contrat.</p>
-					<li/><p><b>"passphrase"</b> : Bien sûr, le mot de passe de l'expéditeur.</p>
-					<li/><p><b>"contract"</b> : Adresse Ethereum du contrat en question.</p>
-					<li/><p><b>"tokens"</b> : Le nombre de jetons transférés dans le contrat.</p>
-					<li/><p><b>"abi"</b> : L'interface format PHP 5.6.29...</p>
-				</ol>
-				<br>
-				<p>Exemple de payload :</p>
-				<p><blockquote><code>Bleh</code></blockquote></p>
-		</ol>
+		<p>On partira du principe que les installations sont faites en "global". Si des installations ont été faites en "local" il suffit d'adapter les chemins (on peut contrôler les messages d'erreurs).</p>
+		<p><b>Windows</b>
+			<p><blockquote><code>C:\Users\user\AppData\Roaming\npm\node_modules> testrpc</code></blockquote></p>
+		</p>		
+		<p><b>MAC</b>
+			<p>Trouver l'emplacement global ou local, puis :</p>
+			<p><blockquote><code>.../dossier/node_modules/>$ testrpc</code></blockquote></p>
+		</p>
+		<p><b>Linux</b>
+			<p><blockquote><code>root@mon_nom:/usr/lib/node_modules# testrpc</code></blockquote></p>
+		</p>
+		<p>Références pour TestRPC : <a href="https://github.com/ethereumjs/testrpc">https://github.com/ethereumjs/testrpc</a></p>
+		<br>
+		<p><h4>Initions Web3 :</h4></p>
+		<br>
+		<p>A partir du terminal, <b>dans une nouvelle fenêtre ou onglet</b>, se rendre dans le répertoire « node_modules » des paquets de Node.js. En tous les cas, se rendre dans le répertoire local ou global où est installé le paquet « web3 ». Il peut s’agir d’un projet isolé dans un répertoire en local. Puis lancer le node à partir de là.</p>
+		<p>Par exemple, en installation globale sur Linux :</p>
+		<p><blockquote><code>root@mon_nom:/usr/lib/node_modules# node</code></blockquote></p>
+		<p>On initie maintenant web3 et le serveur :</p>
+		<p><blockquote><code>var Web3 = require(‘web3’);</code></blockquote></p>
+		<p><blockquote><code>var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));</code></blockquote></p>
+		<p>On vérifie que la connexion est effective entre le node et web3 si la commande suivante retourne le booléen "true" :
+		<p><blockquote><code>web3.isConnected()</code></blockquote></p>
+		<p>Par défaut, dix comptes Ethereum sont crées. On obtient la liste de ces comptes au lancement de TestRPC, ainsi que leur clefs privées. On obtient même le brain wallet.<br>Pour réafficher la liste des comptes on peut utiliser la commande (toujours dans le node (la ligne dans la console commence par « > »)) :</p>
+		<p><blockquote><code>web3.eth.accounts</code></blockquote></p>
+		<p>Par défaut, le compte par défaut n’est pas défini. Pour l’attribuer on peut choisir un des dix comptes crées au lancement et l’y affecter :</p>
+		<p><blockquote><code>web3.eth.defaultAccount = "0x75846d020def5...032e317b8a"</code></blockquote></p>
+		<p>Le point-virgule en fin de commande n’est pas nécessaire.</p>
+		<p>Pour obtenir la balance d’un compte :</p>
+		<p><blockquote><code>web3.eth.getBalance("0x75846d020def5...032e317b8a")</code></blockquote></p>
+		<p>Conversion de la balance (par l’intermédiaire de la gestion des grands nombres bignumber.js de web3.js), dans cet exemple en Ether à partir de Wei :</p>
+		<p><blockquote><code>web3.fromWei(web3.eth.getBalance("0x75846d020def5...032e317b8a"), "ether").toNumber()</code></blockquote></p>
+		<div class="page-header" id="CreationContrat">
+			<h2>Création du contrat sur la blockchain Ethereum locale (<a href="#">up</a>)</h2>
+		</div>
+		<p>Création d’un objet contrat (instance d’un contrat Solidity déjà compilé)</p>
+		<hr>
+			<h4>Note :</h4>
+			<blockquote><i>On peut également compiler du code Solidity à partir de Web3.js en utilisant la syntaxe de commande :</i><br>
+			<blockquote><code>web3.eth.compiler.solidity(sourceString [, callback])</code></blockquote>
+			<i>« sourceString » est le code source sous forme de string.</i><br>
+			<i>On peut également compiler du code LLL ou Serpent.<br>
+			Pour plus de détails : <a href="https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethcompilesolidity">https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethcompilesolidity</a>
+			</i><br>
+			<i>Par la suite, on va voir qu’il est également possible de compiler le code source d’un contrat à partir d’un fichier ".sol" et du module Node.js dont le paquet s’appelle "solc".</i>
+			</blockquote>
+		<hr>
+		<p>A partir du contrat <b>compilé</b> on récupère l’ABI (interface) sous forme d’un array et on l’insère dans une variable (par clarté) JavaScript directement en commande Node.js :</p>
+		<p><blockquote><code>var abi = [{"constant":true,"inputs":[],"name":"creator","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"dest","type":"address"},{"name":"quantity","type":"uint256"}],"name":"transfer","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":"totalShares","type":"uint256"}],"payable":false,"type":"constructor"}];</code></blockquote></p>
+		<p>Et on crée l’objet contrat :</p>
+		<p><blockquote><code>var monContrat = web3.eth.contract(abi);</code></blockquote></p>
+		<p>On doit également récupérer le bytecode du contrat (ou data) :</p>
+		<p><blockquote><code>var bytecode = "606060405234610000576040516020806103c5833981016040528080519060200190919050505b33600060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508060016000600060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055505b505b6102e6806100df6000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806302d05d3f1461005457806370a08231146100a3578063a9059cbb146100ea575b610000565b3461000057610061610126565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34610000576100d4600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061014c565b6040518082815260200191505060405180910390f35b3461000057610124600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035906020019091905050610164565b005b600060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60016020528060005260406000206000915090505481565b600081141561017257610000565b3373ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff1614156101ab57610000565b60008273ffffffffffffffffffffffffffffffffffffffff1614156101cf57610000565b80600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054101561021b57610000565b80600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828254019250508190555080600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825403925050819055505b50505600a165627a7a72305820e6e3cf272e359423670eb95cbbde230f11553ebdd4dfbc8c51238f6f518dc1f50029";</code></blockquote></p>
+		<p>Avant de déployer le contrat, on va évaluer le gaz consommé avec l’aide du bytecode :</p>
+		<p><blockquote><code>var gasEstimate = web3.eth.estimateGas({data: bytecode});</code></blockquote></p>
+		<h4>Déploiement du contrat</h4>
+		<p><blockquote><code>var monContratDeploye = monContrat.new(constructorParam1, constructorParam2, {from:adresseEthExp, data:bytecode, gas:gasEstimate},
+			<blockquote><code>function (error, monContrat) {
+			<blockquote><code>if (!error) {
+			<blockquote><code>if (!monContrat.address) {
+			<blockquote><code>console.log(monContrat.transactionHash);</code></blockquote>
+			}<br>
+			else {<br>
+			<blockquote><code>console.log(monContrat.address);</code></blockquote>
+			}</code></blockquote>
+			}</code></blockquote>
+			}</code></blockquote>
+			);</code></blockquote></p>
+		<p>Suivant la fonction anonyme utilisée, la commande précédente retourne l’adresse du contrat déployé et/ou le hash de la transaction du déploiement dans la console du node. Attention, des retours sont aussi affichés dans la fenêtre de terminal de TestRPC. De plus, on peut manquer de gaz si l’estimation (gasEstimate) est trop faible. Cette erreur sera affichée dans la console de TestRPC. On peut simplement entrer une valeur plus importante de gaz pour être sûr.</p>
+		<p><blockquote><code>var deployeur = web3.eth.accounts[1];</code></blockquote></p>
+		<p>On a choisit l’index « 1 » dans l’exemple pour le compte qui déploie le contrat mais on aurait pu en choisir un autre.</p>
+		<p><blockquote><code>var monContratDeploye = monContrat.new (123456, {from:deployeur, data:bytecode, gas:500000}, function (error, monContrat) {if (!error) {if (!monContrat.address) {console.log(monContrat.transactionHash);} else {console.log(monContrat.address);}}});</code></blockquote></p>
+		<p>On peut facilement vérifier l’adresse du contrat déployé ainsi que le hash de la transaction rattachée :</p>
+		<blockquote><code>monContratDeploye.address<br>
+		monContratDeploye.transactionHash
+		</code></blockquote>
+		<p>A noter que l’on peut récupérer le contrat sous forme de fichier « .sol », le compiler et intégrer les valeurs directement dans les commandes !</p>
+		<blockquote><code>const fs = require("fs");<br>
+		const solc = require('solc');
+		</code></blockquote>
+		<p>Attention, il faut installer le module « solc » pour Node.js au préalable. Le fichier « .sol » devra être placé dans le projet (potentiellement dans /usr/lib/node_modules sur Linux en installation globale).</p>
+		<blockquote><code>var source = fs.readFileSync('nameContract.sol', 'utf8');<br>
+		var compiledContract = solc.compile(source, 1);<br>
+		var abi = compiledContract.contracts['nameContract'].interface;<br>
+		var bytecode = compiledContract.contracts['nameContract'].bytecode;<br>
+		var gasEstimate = web3.eth.estimateGas({data: bytecode});<br>
+		var MyContract = web3.eth.contract(JSON.parse(abi));
+		</code></blockquote>
+		<p>Il faut maintenant instancier le contrat :</p>
+		<blockquote><code>var monContratInstance = monContrat.at(monContratDeploye.address);</code></blockquote>
+		<div class="page-header" id="AppelFonction">
+			<h2>Appeler une fonction du contrat (<a href="#">up</a>)</h2>
+		</div>
+		<p>La syntaxe est la suivante :</p>
+		<blockquote><code>transaction_Hash = monContratInstance.ma_fonction_du_contrat.sendTransaction([ma_fonction_du_contrat_param1, ma_fonction_du_contrat_param2, ...]);</code></blockquote>
+		<p>A noter que le résultat est le <b>hash de la transaction</b> qui a servi à appeler la fonction dans le contrat (attention « transactionHash » est réservé).</p>
+		<p>Par exemple, si dans notre contrat nous avons une fonction « <b>transfer</b> » prenant en paramètres un expéditeur « <b>exp</b> » en premier, un destinataire « <b>dest</b> » en second, et une valeur « <b>val</b> » en troisième, la commande devient :</p>
+		<blockquote><code>transaction_Hash = monContratInstance.transfer.sendTransaction(exp, dest, val);</code></blockquote>
+		<div class="page-header" id="AppelObjet">
+			<h2>Appeler un objet à l’intérieur du contrat (<a href="#">up</a>)</h2>
+		</div>
+		<p>De la même manière que le contrat a été transformé en objet et qu’une fonction interne en devient un membre (ou une méthode), un objet interne au contrat en devient un membre.</p>
+		<p>Ainsi, on peut utiliser ce genre de commande dans le node :</p>
+		<blockquote><code>var valeur = monContratInstance.monObjet(membreDeMonObjet);</code></blockquote>
+		<p>Par exemple, si dans le contrat se trouve un mapping « <b>balanceOf</b> » qui associe une « <i>Key_Value</i> » de type « <i>address</i> » avec un entier naturel « <i>uint</i> » :
+		<blockquote><code>var balanceInterne = monContratInstance.monObjet(0x654f654sg654865f…);</code></blockquote>
+		<p>Cette commande affectera l’entier « <i>uint</i> »(la balance interne au contrat) associé au compte « <b>0x654f654sg654865f…</b> » à « <b>balanceInterne</b> ».</p>
+		<p>Exemple :</p>
+		<blockquote><code>
+			var transaction_Hash = monContratInstance.transfer.sendTransaction(accounts[1], 11111);<br>
+			<i>undefined</i><br>
+			transaction_Hash<br>
+			<i>'0x70e2a330ae96f57802fe6bcfde106eb03b83fbb055bea1949e8cd97c406c4406'</i><br>
+			monContratInstance.balanceOf(accounts[0])<br>
+			<i>{ [String: '112345'] s: 1, e: 5, c: [ 112345 ] }</i><br>
+			monContratInstance.balanceOf(accounts[1])<br>
+			<i>{ [String: '11111'] s: 1, e: 4, c: [ 11111 ] }</i>
+		</code></blockquote>
+		<p>Ici, on a réalisé un transfert interne d’une valeur de « <b>11111</b> » de « <b>accounts[0]</b> » vers « <b>accounts[1]</b> ». A l’origine, « <b>accounts[0]</b> » a une balance de « <b>123456</b> » et « <b>accounts[1]</b> » a une balance de « <b>0</b> ». On peut constater que les balances ont bien été mises à jour :</p>
+		<p><b>123456 – 11111 = 112345</b><br>
+		<b>0 + 11111 = 11111</b></p>
+		<h4>Remarques :</h4>
+		<blockquote>Il est important de bien comprendre qu'ici l'expéditeur n'étant pas spécifié, c'est <b>le compte pas défaut</b> qui a été utilisé en tant que tel !<br>
+		Autre subtilité ici dans notre exemple : la fonction "transfer" prend de toute façon comme expéditeur l'auteur de la transaction d'appel, et en plus, cette fonction ajoute naturellement le destinataire dans le mapping "balanceOf". C'est la raison pour laquelle la commande "<i><b>monContratInstance.balanceOf(accounts[1])</b></i>" peut fonctionner...</p></blockquote>
+		<hr>
+		<div class="page-header" id="TouteLaConsole">
+			<h2>La console depuis le début (côté terminal Node.js) (<a href="#">up</a>)</h2>
+		</div>
+		<blockquote><code>
+		> var Web3 = require('web3');<br>
+		undefined<br>
+		> var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));<br>
+		undefined
+		</code></blockquote>
+		[Partie non nécessaire dans notre exemple]
+		<blockquote><code>
+		> var fs = require('fs');<br>
+		undefined<br>
+		> var solc = require('solc');<br>
+		undefined
+		</code></blockquote>
+		[/]
+		<blockquote><code>
+		> accounts = web3.eth.accounts;<br>
+		[ '0xf68427e286ca8e5db788a79cdc3095ef298d4721',<br>
+		  '0x77cb8568f88b2602b2c6a5fb18d056a520d43e6d',<br>
+		  '0x744fa7859cef4d86b830123e3c881a3dd73dfa01',<br>
+		  '0x5d8415674f3da6b11724800844b3c2d6ea5ea0ae',<br>
+		  '0x304b7f4cba250674d31cdc010dd1b639096b06a1',<br>
+		  '0x5eb96a1f481b3fced614733d28ea666a35d385ac',<br>
+		  '0x6909e7603c61ad60abd3f468e09eeb037713a20d',<br>
+		  '0x64a96c18f574192081938b75a831cb42cd05d8c8',<br>
+		  '0x5a7e5ad14de6a1b0199171360a99b3df441fa0c5',<br>
+		  '0xdee2d8f7086d50e926ff2ab17b5302b0cc81673d' ]<br>
+		> web3.eth.defaultAccount = accounts[0];<br>
+		'0xf68427e286ca8e5db788a79cdc3095ef298d4721'<br>
+		> var abi = [{"constant":true,"inputs":[],"name":"creator","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"dest","type":"address"},{"name":"quantity","type":"uint256"}],"name":"transfer","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":"totalShares","type":"uint256"}],"payable":false,"type":"constructor"}];<br>
+		undefined<br>
+		> var bytecode = "606060405234610000576040516020806103c5833981016040528080519060200190919050505b33600060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508060016000600060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055505b505b6102e6806100df6000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806302d05d3f1461005457806370a08231146100a3578063a9059cbb146100ea575b610000565b3461000057610061610126565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34610000576100d4600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061014c565b6040518082815260200191505060405180910390f35b3461000057610124600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035906020019091905050610164565b005b600060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60016020528060005260406000206000915090505481565b600081141561017257610000565b3373ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff1614156101ab57610000565b60008273ffffffffffffffffffffffffffffffffffffffff1614156101cf57610000565b80600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054101561021b57610000565b80600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828254019250508190555080600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825403925050819055505b50505600a165627a7a72305820e6e3cf272e359423670eb95cbbde230f11553ebdd4dfbc8c51238f6f518dc1f50029";<br>
+		undefined<br>
+		> var monContrat = web3.eth.contract(abi);<br>
+		undefined<br>
+		> var deployeur = web3.eth.accounts[0];<br>
+		undefined<br>
+		> var monContratDeploye = monContrat.new (123456, {from:deployeur, data:bytecode, gas:500000}, function (err, monContrat) {if (!err) {if (!monContrat.address) {console.log(monContrat.transactionHash);} else {console.log(monContrat.address);}}});<br>
+		undefined<br>
+		> 0x5cacb6437cd844988c7f9ba0fbfa90bb4be7fc395347ce008f0fc1615de47847<br>
+		0xe0aee942ef1dc799a9207991ecd8d5819bd00a8c<br>
+		<br>
+		> var monContratInstance = monContrat.at(monContratDeploye.address);<br>
+		undefined<br>
+		> var transaction_Hash = monContratInstance.transfer.sendTransaction(accounts[1], 11111);<br>
+		undefined<br>
+		> transaction_Hash<br>
+		'0x70e2a330ae96f57802fe6bcfde106eb03b83fbb055bea1949e8cd97c406c4406'<br>
+		> monContratInstance.balanceOf(accounts[0])<br>
+		{ [String: '112345'] s: 1, e: 5, c: [ 112345 ] }<br>
+		> monContratInstance.balanceOf(accounts[1])<br>
+		{ [String: '11111'] s: 1, e: 4, c: [ 11111 ] }
+		</code></blockquote>
+		<hr>
 	</div>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
