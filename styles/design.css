@@ -13,7 +13,9 @@ img{
 	max-width: 100%;
 }
 
-
+blockquote {
+	word-wrap: break-word;
+}
 
 
 /* ******** FOOTER HOMEPAGE ********  */
