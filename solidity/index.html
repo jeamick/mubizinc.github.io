@@ -2,10 +2,10 @@
 <head>
 	<meta charset="UTF-8" />
 
-	<title>Tutoriel ARC | Mubiz</title>
+	<title>Solidity - Language de programmation de Smart-contract | Mubiz</title>
 
-	<meta name="description"    content="Tutoriel ARC par/pour Mubiz"/>
-	<meta name="keywords"       content="Tutoriel, ARC, Mubiz"/>
+	<meta name="description"    content="Données concernant Solidity, language de programmation de Smart-contract, par Mubiz"/>
+	<meta name="keywords"       content="Solidity, Smart-contract, Ethereum, Blockchain, Mubiz"/>
 	
 	<meta name="robots"         content="index,follow"/>
 	<meta name="rating"         content="safe for kids"/>
@@ -23,9 +23,10 @@
 	<link rel="shortcut icon"   					type="image/ico"	href="/images/favicon.png" 	/>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, target-densitydpi=device-dpi"/>
+
+	<script type="text/javascript" src="/js/jquery.js"></script>
 	
-	
-	<link rel="stylesheet"    		media="all"		type="text/css" 	href="/style/style_screen.css"   />
+	<link rel="stylesheet"    		media="all"		type="text/css" 	href="../styles/design.css"   />
 	
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -74,10 +75,17 @@
 			<div class="container">
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="#contexte" title="Installation">Contexte et environnement</a></li>
+						<li><a href="#contexte" title="Contexte et environnement">Contexte et environnement</a></li>
 						<li><a href="#bases" title="Structure d'un Smart-contract">Bases du Smart-contract</a></li>
-						<li><a href="#gestcomptes" title="Gestion des comptes"></a></li>
-						<li><a href="#internal" title="Appels à l'intérieur d'un contrat dans ARC">Appels à l'intérieur d'un contrat dans ARC</a></li>
+						<li><a href="#commentaires" title="">Commentaires</a></li>
+						<li><a href="#variables" title="">Variables</a></li>
+						<li><a href="#structures" title="">Listes et Structures</a></li>
+						<li><a href="#events" title="">Events</a></li>
+						<li><a href="#modifiers" title="">Modifiers</a></li>
+						<li><a href="#constructeurs" title="">Constructeurs</a></li>
+						<li><a href="#functions" title="">Functions</a></li>
+						<li><a href="#getters_setters" title="">Getters and Setters</a></li>
+						<li><a href="#kills" title="">Kills</a></li>
 					</ul>
 				</div>
 			</div>
@@ -87,7 +95,7 @@
 			<h2>Contexte et environnement (<a href="#">up</a>)</h2>
 		</div>
 		<p>
-			Un smart-contract Solidity est un code compilé, diffusé sur le réseau Ethereum, afin de pouvoir être appelé pour toutes les adresses du réseau, et executé sur l'ensemble du réseau Ethereum.<br/>
+			Un smart-contract Solidity est un code compilé, diffusé à l'ensemble des Virtual Machines (VM) du réseau d'une blockchain. Un Smart-contract peut être appelé pour toutes les adresses du réseau, et est executé sur toutes les VM du réseau.<br/>
 			L'allocation mémoire et les traitements sont facturés à l'appelant par les mineurs du réseau.<br/>
 		</p>
 		<div class="alert alert-info" role="info">
@@ -102,92 +110,154 @@
 		<div class="page-header" id="bases">
 			<h2>Bases d'un Smart-contract Solidity (<a href="#">up</a>)</h2>
 		</div>
-			<p>
-				Solidity est un language de programmation, à la syntaxe proche de JavaScript, permettant la rédaction de Smart-contract.<br/>
-				Solidity est actuellement le language le plus populaire de Smart-contract. Vous trouverez donc plus facilement d'informations et conseils en utilisant ce language.<br/>
-				L'utilisation de Solidity est également un gage de portabilité. En effet, des VM sur Bitcoin (Rootstock) et d'autres crypto-monnaies sont en cours de développement.
-			</p>
-			<p>
-				Un Smart-contract Solidity se rédige sous la même forme qu'une Class est C++ ou Java.<br/>
-				<blockquote><code>
-					pragma solidity ^0.4.0;
-					contract NomDuSmartContract {
-					
-						variables;
-						variables;
-						variables;
-						
-						Struct{
-						
-						}
-				
-				
-						
-						// Constructeurs
-						public
-						
-						
-						
-						// Modifiers			
-				
-				
-				
-				
-						// Functions
-						
-						
-						
-						// Getter et Setter
-				
-				
-				</code></blockquote>
-			</p>
+		<p>
+			Solidity est un language de programmation, à la syntaxe proche de JavaScript, permettant la rédaction de Smart-contract.<br/>
+			Solidity est actuellement le language le plus populaire de Smart-contract. Vous trouverez donc plus facilement d'informations et conseils en utilisant ce language.<br/>
+			L'utilisation de Solidity est également un gage de portabilité. En effet, des VM sur Bitcoin (Rootstock) et d'autres crypto-monnaies sont en cours de développement.
+		</p>
+		<p>
+			Un Smart-contract Solidity se rédige sous la même forme qu'une Class est C++ ou Java.<br/>
+			<blockquote><code>
+				pragma solidity ^0.4.0;<br/>
+				contract NomDuSmartContract {<br/>
+					<br/>
+					public type variables;<br/>
+					public type variables;<br/>
+					type variables;<br/>
+					<br/>
+					Struct{<br/>
+						public type variables;<br/>
+						public type variables;<br/>
+						type variables;<br/>
+					}<br/>
+					<br/>
+					<br/>
+					// Modifiers<br/>
+					modifier nomDuModifier(){<br/>
+						if( test ) throw;<br/>
+						_;<br/>
+					}<br/>
+					<br/>
+					<br/>
+					// Events<br/>
+					event nomDeLEvent();<br/>
+					<br/>
+					<br/>	
+					// Constructeurs<br/>
+					function NomDuSmartContract(type _argument, type _argument, ...) {<br/>
+					<br/>
+					}<br/>
+					<br/>
+					<br/>
+					// Functions<br/>
+					function nomDeLaFunction(type _argument, type _argument, ...) nomDuModifier() returns (type argument) {<br/>
+					<br/>
+					<br/>
+					}<br/>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+					// Getter et Setter<br/>
+					<br/>
+					<br/>
+			</code></blockquote>
+		</p>
 
-
-
-
-		<div class="page-header" id="internal">
-			<h2>Appels à l'intérieur d'un contrat dans ARC (<a href="#">up</a>)</h2>
+		<div class="page-header" id="commentaires">
+			<h2>Commentaires (<a href="#">up</a>)</h2>
 		</div>
-		<ol>
-			<li/><p>Obtenir la balance en jetons d'un compte à l'intérieur d'un contrat.</p>
-			<p>Requète "<b>Internal Balance</b>" en méthode <b>POST</b>.</p>
-				<p>Ne pas oublier de vérifier le <b><i>Content-Type</i></b> qui doit être positionné sur "<b>application/json</b>".
-				<br>
-				<div style="text-align:center;">
-					<p><img src="images/ARC_Internal_Balance.jpg"></p>
-				</div>
-				<br>
-				<p>Il faut spécifier dans le payload <b>l'interface/abi</b> du contrat, l'<b>adresse</b> du contrat, et enfin, l'<b>adresse Ethereum</b> du compte dont on veut la <b>balance en jetons</b>.</p>
-				<p>Exemple de payload :</p>
-				<p><blockquote><code>{
-"abi": "[{\"constant\":true,\"inputs\":[],\"name\":\"creator\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"dest\",\"type\":\"address\"},{\"name\":\"quantity\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[],\"payable\":false,\"type\":\"function\"},{\"inputs\":[{\"name\":\"totalShares\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"constructor\"}]",
-"contract": "0xffc08af73478d9c0681dc8d2027c92b57a09e6d4",
-"of": "0x43b77b4031554e04a134ec3a5a3dd1ec4aaaae40"
-}</code></blockquote></p>
-				<p>La réponse obtenue est la <b>balance en <i>jetons</i></b> du compte choisi à l'intérieur du contrat.</p>
-				<br>
-			<li/><p>Réaliser un transfert de jetons d'un compte à un autre à l'intérieur d'un contrat.</p>
-			<p>Requète "<b>Internal Tx</b>" en méthode <b>POST</b>.</p>
-				<p>Ne pas oublier de vérifier le <b><i>Content-Type</i></b> qui doit être positionné sur "<b>application/json</b>".
-				<br>
-				<div style="text-align:center;">
-					<p><img src="images/ARC_Internal_Tx.jpg"></p>
-				</div>
-				<br>
-				<p>Les différents paramètres à fournir sont :</p>
-				<ol type="a">
-					<li/><p><b>"to"</b> : Adresse Ethereum destination des tokens dans le contrat.</p>
-					<li/><p><b>"from"</b> : Adresse Ethereum expéditeur des tokens dans le contrat.</p>
-					<li/><p><b>"passphrase"</b> : Bien sûr, le mot de passe de l'expéditeur.</p>
-					<li/><p><b>"contract"</b> : Adresse Ethereum du contrat en question.</p>
-					<li/><p><b>"tokens"</b> : Le nombre de jetons transférés dans le contrat.</p>
-					<li/><p><b>"abi"</b> : L'interface format PHP 5.6.29...</p>
-				</ol>
-				<br>
-				<p>Exemple de payload :</p>
-				<p><blockquote><code>Bleh</code></blockquote></p>
-		</ol>
+		<p>
+			L'ajout de commentaires se fait donc avec // (jusqu'à fin de ligne) soit avec /* ... */
+		</p>
+		
+
+		<div class="page-header" id="variables">
+			<h2>Types de Varibles (<a href="#">up</a>)</h2>
+		</div>
+		<p>
+			Voici une liste non exhaustive des types disponibles :
+			<ul class="list-group">
+				<li class="list-group-item">bool</li>
+				<li class="list-group-item">uint</li>
+				<li class="list-group-item">mapping</li>
+				<li class="list-group-item">array</li>
+				<li class="list-group-item">string</li>
+				<li class="list-group-item">address</li>
+			</ul>
+		</p>
+		
+		<div class="page-header" id="structures">
+			<h2>Listes et Structures (<a href="#">up</a>)</h2>
+		</div>
+		<p>	
+			Il est également possible de faire des listes.<br/>
+			<code>uint[]</code>
+			
+			Enfin, il est possible de générer des structures.<br/>
+			<code>
+				Struct Member{<br/>
+				    address memberAddress;<br/>
+	        		bool active;<br/>
+				}
+			</code>
+			
+			Toutes les données d'un smart-contract sont enregistrées dans la blockchain (Ethereum, Bitcoin, ...).<br/>
+			Les données peuvent donc être lues par l'ensemble des noeuds du réseau.<br/>
+			
+			Solidity gère la notion de public/private par rapport aux autres smart-contracts.<br/>
+			Les données ne sont appelables par d'autres smart-contracts que si elles sont tagguées "public" lors de leurs déclarations.	
+		</p>
+
+
+		<div class="page-header" id="events">
+			<h2>Events (<a href="#">up</a>)</h2>
+		</div>
+		<p>
+
+		</p>
+
+
+		<div class="page-header" id="modifiers">
+			<h2>Modifiers (<a href="#">up</a>)</h2>
+		</div>
+		<p>
+
+		</p>
+
+
+		<div class="page-header" id="constructors">
+			<h2>Constructeurs (<a href="#">up</a>)</h2>
+		</div>
+		<p>
+
+		</p>
+		
+		<div class="page-header" id="functions">
+			<h2>Functions (<a href="#">up</a>)</h2>
+		</div>
+		<p>
+
+		</p>
+
+
+		<div class="page-header" id="getters_setters">
+			<h2>Getters and Setters (<a href="#">up</a>)</h2>
+		</div>
+		<p>
+
+		</p>
+		
+		
+		
+
+		<div class="page-header" id="kills">
+			<h2>Kills (<a href="#">up</a>)</h2>
+		</div>
+		<p>
+			Ethereum n'est pas une poubelle... aussi, il est important de libérer l'espace occupé par le Smart-contract. Ce nettoyage doit être prévu dès la conception du Smart-contract.<br/>
+			Pour faire un peu d'écolonomie, un intérêt simple peut-être de récupérer les fonds restants disponible sur l'adresse du smart-contract...<br/>
+		</p>
 	</div>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
