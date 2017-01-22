@@ -1,0 +1,195 @@
+<html>
+<head>
+	<meta charset="UTF-8" />
+
+	<title>Tutoriel ARC | Mubiz</title>
+
+	<meta name="description"    content="Tutoriel ARC par/pour Mubiz"/>
+	<meta name="keywords"       content="Tutoriel, ARC, Mubiz"/>
+	
+	<meta name="robots"         content="index,follow"/>
+	<meta name="rating"         content="safe for kids"/>
+	<meta name="revisit-after"  content="14 days"/>
+	<meta name="author"         content="Mubiz"/>
+
+	<meta name="geo.placename"	content="France"/>
+
+	<meta property="og:type"		content="website"/>
+	<meta property="og:site_name"	content="GitHub - MubizInc"/>
+	<meta property="og:locale"		content="fr_FR"/>
+
+	<meta name="theme-color" content="#009999">
+	
+	<link rel="shortcut icon"   					type="image/ico"	href="/images/favicon.png" 	/>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, target-densitydpi=device-dpi"/>
+	
+	
+	<link rel="stylesheet"    		media="all"		type="text/css" 	href="/style/style_screen.css"   />
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-01-11T16:22:57.811000000"/>
+
+	<!-- Optional theme -->
+	<style type="text/css">
+		blockquote{ word-wrap: break-word; }
+	</style>
+</head>
+<body lang="en-US" text="#333333" link="#337ab7" vlink="#337ab7" bgcolor="#ffffff" dir="ltr">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="/" class="navbar-brand" rel="home" title=""><img style="max-width:100px;" src="http://mubiz.com/images/mubiz/mubiz-logo-white.png" alt="Mubiz logo"/></a>
+			</div>
+			<div class="navbar-collapse collapse" id="navbar">
+				<ul class="nav navbar-nav">
+					<li><a href="/3a" title="TP 3A">3e année</a></li>
+					<li><a href="/4a" title="TP 4A">4e année</a></li>
+					<li class="active"><a title="Bases concernant le language Solidity">Solidity</a></li>
+					<li><a title="Tutoriel ARC">Tutoriel ARC</a></li>
+					<li><a href="/tuto-doc-node-web3" title="Tutoriel Web3.js">Tutoriel Web3.js</a></li>
+					<li><a href="/lexique" title="Lexique Blockchain">Lexique Blockchain</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container theme-showcase" role="main">
+		<div class="jumbotron">
+			<div id="up" dir="ltr">
+				<h1>Smart-contract Solidity</h1>
+			</div>
+			<h2>Objectif</h2>
+			<p>
+				Présenter les connaissances de base pour la programmation de Smart-contract en Solidity
+			</p>
+		</div>
+
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="#contexte" title="Installation">Contexte et environnement</a></li>
+						<li><a href="#bases" title="Structure d'un Smart-contract">Bases du Smart-contract</a></li>
+						<li><a href="#gestcomptes" title="Gestion des comptes"></a></li>
+						<li><a href="#internal" title="Appels à l'intérieur d'un contrat dans ARC">Appels à l'intérieur d'un contrat dans ARC</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="page-header" id="comparc">
+			<h2>Contexte et environnement (<a href="#">up</a>)</h2>
+		</div>
+		<p>
+			Un smart-contract Solidity est un code compilé, diffusé sur le réseau Ethereum, afin de pouvoir être appelé pour toutes les adresses du réseau, et executé sur l'ensemble du réseau Ethereum.<br/>
+			L'allocation mémoire et les traitements sont facturés à l'appelant par les mineurs du réseau.<br/>
+		</p>
+		<div class="alert alert-info" role="info">
+			<strong>En déduire :</strong><br/>
+			Un smart-contract étant public, il est nécessaire de gérer les droits d'accès aux fonctions.<br/>
+			L'execution d'un smart-contract étant facturé par le réseau, il est important d'optimiser les fonctions et les allocations mémoires.<br/>
+		</div>
+
+
+
+
+		<div class="page-header" id="bases">
+			<h2>Bases d'un Smart-contract Solidity (<a href="#">up</a>)</h2>
+		</div>
+			<p>
+				Solidity est un language de programmation, à la syntaxe proche de JavaScript, permettant la rédaction de Smart-contract.<br/>
+				Solidity est actuellement le language le plus populaire de Smart-contract. Vous trouverez donc plus facilement d'informations et conseils en utilisant ce language.<br/>
+				L'utilisation de Solidity est également un gage de portabilité. En effet, des VM sur Bitcoin (Rootstock) et d'autres crypto-monnaies sont en cours de développement.
+			</p>
+			<p>
+				Un Smart-contract Solidity se rédige sous la même forme qu'une Class est C++ ou Java.<br/>
+				<blockquote><code>
+					pragma solidity ^0.4.0;
+					contract NomDuSmartContract {
+					
+						variables;
+						variables;
+						variables;
+						
+						Struct{
+						
+						}
+				
+				
+						
+						// Constructeurs
+						public
+						
+						
+						
+						// Modifiers			
+				
+				
+				
+				
+						// Functions
+						
+						
+						
+						// Getter et Setter
+				
+				
+				</code></blockquote>
+			</p>
+
+
+
+
+		<div class="page-header" id="internal">
+			<h2>Appels à l'intérieur d'un contrat dans ARC (<a href="#">up</a>)</h2>
+		</div>
+		<ol>
+			<li/><p>Obtenir la balance en jetons d'un compte à l'intérieur d'un contrat.</p>
+			<p>Requète "<b>Internal Balance</b>" en méthode <b>POST</b>.</p>
+				<p>Ne pas oublier de vérifier le <b><i>Content-Type</i></b> qui doit être positionné sur "<b>application/json</b>".
+				<br>
+				<div style="text-align:center;">
+					<p><img src="images/ARC_Internal_Balance.jpg"></p>
+				</div>
+				<br>
+				<p>Il faut spécifier dans le payload <b>l'interface/abi</b> du contrat, l'<b>adresse</b> du contrat, et enfin, l'<b>adresse Ethereum</b> du compte dont on veut la <b>balance en jetons</b>.</p>
+				<p>Exemple de payload :</p>
+				<p><blockquote><code>{
+"abi": "[{\"constant\":true,\"inputs\":[],\"name\":\"creator\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"dest\",\"type\":\"address\"},{\"name\":\"quantity\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[],\"payable\":false,\"type\":\"function\"},{\"inputs\":[{\"name\":\"totalShares\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"constructor\"}]",
+"contract": "0xffc08af73478d9c0681dc8d2027c92b57a09e6d4",
+"of": "0x43b77b4031554e04a134ec3a5a3dd1ec4aaaae40"
+}</code></blockquote></p>
+				<p>La réponse obtenue est la <b>balance en <i>jetons</i></b> du compte choisi à l'intérieur du contrat.</p>
+				<br>
+			<li/><p>Réaliser un transfert de jetons d'un compte à un autre à l'intérieur d'un contrat.</p>
+			<p>Requète "<b>Internal Tx</b>" en méthode <b>POST</b>.</p>
+				<p>Ne pas oublier de vérifier le <b><i>Content-Type</i></b> qui doit être positionné sur "<b>application/json</b>".
+				<br>
+				<div style="text-align:center;">
+					<p><img src="images/ARC_Internal_Tx.jpg"></p>
+				</div>
+				<br>
+				<p>Les différents paramètres à fournir sont :</p>
+				<ol type="a">
+					<li/><p><b>"to"</b> : Adresse Ethereum destination des tokens dans le contrat.</p>
+					<li/><p><b>"from"</b> : Adresse Ethereum expéditeur des tokens dans le contrat.</p>
+					<li/><p><b>"passphrase"</b> : Bien sûr, le mot de passe de l'expéditeur.</p>
+					<li/><p><b>"contract"</b> : Adresse Ethereum du contrat en question.</p>
+					<li/><p><b>"tokens"</b> : Le nombre de jetons transférés dans le contrat.</p>
+					<li/><p><b>"abi"</b> : L'interface format PHP 5.6.29...</p>
+				</ol>
+				<br>
+				<p>Exemple de payload :</p>
+				<p><blockquote><code>Bleh</code></blockquote></p>
+		</ol>
+	</div>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</body>
+</html>
