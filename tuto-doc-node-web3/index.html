@@ -105,13 +105,6 @@
 				<p>Vérifications des versions :</p>
 				<p><blockquote><code>$ node --version</code></blockquote></p>
 				<p><blockquote><code>$ npm --version</code></blockquote></p>
-			
-
-			<div style="text-align:center;">
-				<p><img src="images/.jpg" width="1000" height="400"></p>
-			</div>
-		
-
 		</ol>
 		<div class="page-header" id="Web3Js">
 			<h2>Installation de WEB3.JS comme paquet de NODE.JS (<a href="#">up</a>)</h2>
@@ -155,15 +148,6 @@
 					</ol>
 			</ol>
 		</p>
-
-
-		<p><hr width="75%"></p>
-			<div style="text-align:center;">
-					<p><img src="images/.jpg"  width="10" height="10"></p>
-			</div>
-		<p><hr width="75%"></p>
-
-
 		<div class="page-header" id="TestRPC">
 			<h2>Installation de Test RPC afin de créer un nœud Ethereum local de test (<a href="#">up</a>)</h2>
 		</div>
@@ -203,6 +187,10 @@
 		<p><b>Linux</b>
 			<p><blockquote><code>root@mon_nom:/usr/lib/node_modules# testrpc</code></blockquote></p>
 		</p>
+		<div style="text-align:center;">
+			<p><img src="images/testrpc01.jpg"></p>
+			<p><img src="images/testrpc02.jpg"></p>
+		</div>
 		<p>Références pour TestRPC : <a href="https://github.com/ethereumjs/testrpc">https://github.com/ethereumjs/testrpc</a></p>
 		<br>
 		<p><h4>Initions Web3 :</h4></p>
@@ -213,8 +201,14 @@
 		<p>On initie maintenant web3 et le serveur :</p>
 		<p><blockquote><code>var Web3 = require(‘web3’);</code></blockquote></p>
 		<p><blockquote><code>var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));</code></blockquote></p>
+		<div style="text-align:center;">
+			<p><img src="images/node.web3.init.jpg"></p>
+		</div>
 		<p>On vérifie que la connexion est effective entre le node et web3 si la commande suivante retourne le booléen "true" :
 		<p><blockquote><code>web3.isConnected()</code></blockquote></p>
+		<div style="text-align:center;">
+			<p><img src="images/web3.isConnected.true.jpg"></p>
+		</div>
 		<p>Par défaut, dix comptes Ethereum sont crées. On obtient la liste de ces comptes au lancement de TestRPC, ainsi que leur clefs privées. On obtient même le brain wallet.<br>Pour réafficher la liste des comptes on peut utiliser la commande (toujours dans le node (la ligne dans la console commence par « > »)) :</p>
 		<p><blockquote><code>web3.eth.accounts</code></blockquote></p>
 		<p>Par défaut, le compte par défaut n’est pas défini. Pour l’attribuer on peut choisir un des dix comptes crées au lancement et l’y affecter :</p>
@@ -222,8 +216,17 @@
 		<p>Le point-virgule en fin de commande n’est pas nécessaire.</p>
 		<p>Pour obtenir la balance d’un compte :</p>
 		<p><blockquote><code>web3.eth.getBalance("0x75846d020def5...032e317b8a")</code></blockquote></p>
+		<div style="text-align:center;">
+			<p><img src="images/web3.init.accounts.balance.default.jpg"></p>
+		</div>
+		<div style="text-align:center;">
+			<p><img src="images/web3.getBalance.jpg"></p>
+		</div>
 		<p>Conversion de la balance (par l’intermédiaire de la gestion des grands nombres bignumber.js de web3.js), dans cet exemple en Ether à partir de Wei :</p>
 		<p><blockquote><code>web3.fromWei(web3.eth.getBalance("0x75846d020def5...032e317b8a"), "ether").toNumber()</code></blockquote></p>
+		<div style="text-align:center;">
+			<p><img src="images/web3.default.balance.fromwei.jpg"></p>
+		</div>
 		<div class="page-header" id="CreationContrat">
 			<h2>Création du contrat sur la blockchain Ethereum locale (<a href="#">up</a>)</h2>
 		</div>
@@ -247,6 +250,12 @@
 		<p><blockquote><code>var bytecode = "606060405234610000576040516020806103c5833981016040528080519060200190919050505b33600060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508060016000600060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055505b505b6102e6806100df6000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806302d05d3f1461005457806370a08231146100a3578063a9059cbb146100ea575b610000565b3461000057610061610126565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34610000576100d4600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061014c565b6040518082815260200191505060405180910390f35b3461000057610124600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035906020019091905050610164565b005b600060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60016020528060005260406000206000915090505481565b600081141561017257610000565b3373ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff1614156101ab57610000565b60008273ffffffffffffffffffffffffffffffffffffffff1614156101cf57610000565b80600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054101561021b57610000565b80600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828254019250508190555080600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825403925050819055505b50505600a165627a7a72305820e6e3cf272e359423670eb95cbbde230f11553ebdd4dfbc8c51238f6f518dc1f50029";</code></blockquote></p>
 		<p>Avant de déployer le contrat, on va évaluer le gaz consommé avec l’aide du bytecode :</p>
 		<p><blockquote><code>var gasEstimate = web3.eth.estimateGas({data: bytecode});</code></blockquote></p>
+		<div style="text-align:center;">
+			<p><img src="images/abi.contrat.objet.bytecode.gasestimate.jpg"></p>
+		</div>
+		<div style="text-align:center;">
+			<p><img src="images/web3.gasEstimate.jpg"></p>
+		</div>
 		<h4>Déploiement du contrat</h4>
 		<p><blockquote><code>var monContratDeploye = monContrat.new(constructorParam1, constructorParam2, {from:adresseEthExp, data:bytecode, gas:gasEstimate},
 			<blockquote><code>function (error, monContrat) {
@@ -262,12 +271,26 @@
 			);</code></blockquote></p>
 		<p>Suivant la fonction anonyme utilisée, la commande précédente retourne l’adresse du contrat déployé et/ou le hash de la transaction du déploiement dans la console du node. Attention, des retours sont aussi affichés dans la fenêtre de terminal de TestRPC. De plus, on peut manquer de gaz si l’estimation (gasEstimate) est trop faible. Cette erreur sera affichée dans la console de TestRPC. On peut simplement entrer une valeur plus importante de gaz pour être sûr.</p>
 		<p><blockquote><code>var deployeur = web3.eth.accounts[1];</code></blockquote></p>
+		<div style="text-align:center;">
+			<p><img src="images/web3.deployeur.jpg"></p>
+		</div>
 		<p>On a choisit l’index « 1 » dans l’exemple pour le compte qui déploie le contrat mais on aurait pu en choisir un autre.</p>
 		<p><blockquote><code>var monContratDeploye = monContrat.new (123456, {from:deployeur, data:bytecode, gas:500000}, function (error, monContrat) {if (!error) {if (!monContrat.address) {console.log(monContrat.transactionHash);} else {console.log(monContrat.address);}}});</code></blockquote></p>
 		<p>On peut facilement vérifier l’adresse du contrat déployé ainsi que le hash de la transaction rattachée :</p>
 		<blockquote><code>monContratDeploye.address<br>
 		monContratDeploye.transactionHash
 		</code></blockquote>
+		<div style="text-align:center;">
+			<p><img src="images/web3.gasEstimate.deployeur.monContratDeploye.success.jpg"></p>
+		</div>
+		<p>Du côté du terminal TestRPC (autre contrat déployé, donc adresse différente dans l'exemple) :</p>
+		<div style="text-align:center;">
+			<p><img src="images/web3.deploiement.retours.testrpc.jpg"></p>
+		</div>
+		<p>Vérifions le déploiement :</p>
+		<div style="text-align:center;">
+			<p><img src="images/web3.deploiement.success.verif.jpg"></p>
+		</div>
 		<p>A noter que l’on peut récupérer le contrat sous forme de fichier « .sol », le compiler et intégrer les valeurs directement dans les commandes !</p>
 		<blockquote><code>const fs = require("fs");<br>
 		const solc = require('solc');
@@ -282,6 +305,9 @@
 		</code></blockquote>
 		<p>Il faut maintenant instancier le contrat :</p>
 		<blockquote><code>var monContratInstance = monContrat.at(monContratDeploye.address);</code></blockquote>
+		<div style="text-align:center;">
+			<p><img src="images/web3.Contrat.Instance.jpg"></p>
+		</div>
 		<div class="page-header" id="AppelFonction">
 			<h2>Appeler une fonction du contrat (<a href="#">up</a>)</h2>
 		</div>
@@ -290,6 +316,9 @@
 		<p>A noter que le résultat est le <b>hash de la transaction</b> qui a servi à appeler la fonction dans le contrat (attention « transactionHash » est réservé).</p>
 		<p>Par exemple, si dans notre contrat nous avons une fonction « <b>transfer</b> » prenant en paramètres un expéditeur « <b>exp</b> » en premier, un destinataire « <b>dest</b> » en second, et une valeur « <b>val</b> » en troisième, la commande devient :</p>
 		<blockquote><code>transaction_Hash = monContratInstance.transfer.sendTransaction(exp, dest, val);</code></blockquote>
+		<div style="text-align:center;">
+			<p><img src="images/web3.transfer.interne.0.1.jpg"></p>
+		</div>
 		<div class="page-header" id="AppelObjet">
 			<h2>Appeler un objet à l’intérieur du contrat (<a href="#">up</a>)</h2>
 		</div>
@@ -298,7 +327,7 @@
 		<blockquote><code>var valeur = monContratInstance.monObjet(membreDeMonObjet);</code></blockquote>
 		<p>Par exemple, si dans le contrat se trouve un mapping « <b>balanceOf</b> » qui associe une « <i>Key_Value</i> » de type « <i>address</i> » avec un entier naturel « <i>uint</i> » :
 		<blockquote><code>var balanceInterne = monContratInstance.monObjet(0x654f654sg654865f…);</code></blockquote>
-		<p>Cette commande affectera l’entier « <i>uint</i> »(la balance interne au contrat) associé au compte « <b>0x654f654sg654865f…</b> » à « <b>balanceInterne</b> ».</p>
+		<p>Cette commande affectera l’entier « <i>uint</i> » (la balance interne au contrat) associé au compte « <b>0x654f654sg654865f…</b> » à « <b>balanceInterne</b> ».</p>
 		<p>Exemple :</p>
 		<blockquote><code>
 			var transaction_Hash = monContratInstance.transfer.sendTransaction(accounts[1], 11111);<br>
@@ -310,6 +339,9 @@
 			monContratInstance.balanceOf(accounts[1])<br>
 			<i>{ [String: '11111'] s: 1, e: 4, c: [ 11111 ] }</i>
 		</code></blockquote>
+		<div style="text-align:center;">
+			<p><img src="images/web3.transfer.interne.balances.jpg"></p>
+		</div>
 		<p>Ici, on a réalisé un transfert interne d’une valeur de « <b>11111</b> » de « <b>accounts[0]</b> » vers « <b>accounts[1]</b> ». A l’origine, « <b>accounts[0]</b> » a une balance de « <b>123456</b> » et « <b>accounts[1]</b> » a une balance de « <b>0</b> ». On peut constater que les balances ont bien été mises à jour :</p>
 		<p><b>123456 – 11111 = 112345</b><br>
 		<b>0 + 11111 = 11111</b></p>
