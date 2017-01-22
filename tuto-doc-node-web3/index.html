@@ -2,10 +2,10 @@
 <head>
 	<meta charset="UTF-8" />
 
-	<title>Tutoriel WEB3 | Mubiz</title>
+	<title>Tutoriel ARC | Mubiz</title>
 
-	<meta name="description"    content="Tutoriel WEB3 par/pour Mubiz"/>
-	<meta name="keywords"       content="Tutoriel, WEB3, Mubiz"/>
+	<meta name="description"    content="Tutoriel ARC par/pour Mubiz"/>
+	<meta name="keywords"       content="Tutoriel, ARC, Mubiz"/>
 	
 	<meta name="robots"         content="index,follow"/>
 	<meta name="rating"         content="safe for kids"/>
@@ -24,9 +24,8 @@
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, target-densitydpi=device-dpi"/>
 	
-	
-	<link rel="stylesheet"    		media="all"		type="text/css" 	href="/style/style_screen.css"   />
-	
+	<link rel="stylesheet"    		media="all"		type="text/css" 	href="../styles/design.css"   />
+
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	
@@ -51,7 +50,10 @@
 				<ul class="nav navbar-nav">
 					<li><a href="/3a" title="TP 3A">3e année</a></li>
 					<li><a href="/4a" title="TP 4A">4e année</a></li>
-					<li class="active"><a title="Tutoriel WEB3">Tutoriel WEB3</a></li>
+					<li><a href="/solidity" title="Bases concernant le language Solidity">Solidity</a></li>
+					<li><a href="/tuto-arc" title="Tutoriel ARC">Tutoriel ARC</a></li>
+					<li class="active"><a title="Tutoriel Web3.js">Tutoriel Web3.js</a></li>
+					<li><a href="/lexique" title="Lexique Blockchain">Lexique Blockchain</a></li>
 				</ul>
 			</div>
 		</div>
@@ -78,7 +80,6 @@
 						<li><a href="#CreationContrat" title="Création d'un contrat">Création d'un contrat</a></li>
 						<li><a href="#AppelFonction" title="Appel d'une fonction d'un contrat">Appel d'une fonction d'un contrat</a></li>
 						<li><a href="#AppelObjet" title="Appel d'un objet d'un contrat">Appel d'un objet d'un contrat</a></li>
-						<li><a href="#TouteLaConsole" title="Toute la console du Node">Toute la console du Node</a></li>
 					</ul>
 				</div>
 			</div>
@@ -90,7 +91,7 @@
 		<p>Le gestionnaire de paquets de <b>Node.js</b> est « <b>npm</b> » (Node.js Packages Manager).</p>
 		<ol>
 			<li><b>Windows</b>
-				<p>Télécharger Node.js à l'adresse : <a href="http://nodejs.org/en/download/">http://nodejs.org/en/download/</a></p>
+				<p>Télécharger Node.js à l'adresse : http://nodejs.org/en/download/</p>
 				<p>Il est préférable de prendre la version « Stable » pour avoir toutes les fonctionnalités.</p>
 				<p>En ligne de commande, vérifications des versions :</p>
 				<p><blockquote><code>C:\> node --version</code></blockquote></p>
@@ -153,29 +154,17 @@
 		</div>
 		<p><b>Windows</b>
 			<ol>
-				<li>Installer <a href="https://beta.visualstudio.com/downloads/">Visual Studio Community Edition</a>. Pour une installation personnalisée, le minimum est tout ce qui est lié à Visual C++.
-				<li>Installer <a href="https://developer.microsoft.com/en-us/windows/downloads/windows-8-1-sdk">Windows SDK for Windows 8.1 (si vous êtes sur Windows 8.1)</a>
-				<li>Installer <a href="https://www.python.org/download/releases/2.7/">Python 2.7</a> si ce n’est pas déjà fait, et <a href="http://www.anthonydebarros.com/2014/02/16/setting-up-python-in-windows-8-1/">ajouter son dossier d'installation au PATH si vous êtes sur Windows 8.1</a>.
-				<li>Installer <a href="http://slproweb.com/products/Win32OpenSSL.html">OpenSSL</a> (pas la version light). <b>Ne pas changer le dossier d’installation et laisser celui par défaut</b>. 
+				<li>Installer Visual Studio Community Edition. Pour une installation personnalisée, le minimum est tout ce qui est lié à Visual C++.
+				<li>Installer Windows SDK for Windows 8.1
+				<li>Installer Python 2.7 si ce n’est pas déjà fait, et ajouter son dossier d'installation au PATH.
+				<li>Installer OpenSSL ici (pas la version light). <b>Ne pas changer le dossier d’installation et laisser celui par défaut</b>. 
 				<li>Créer un dossier "tmp" à la racine du disque par défaut (ceci ne semble pas nécessaire à 100 %).
 			</ol>
-			<p>Puis : <blockquote><code>npm install -g ethereumjs-testrpc</code></blockquote></p>
-			<p>(ici en « global » dans l’exemple)</p>
-		</p>
-		<p><b>MAC</b>
-			<p>Avoir les « <i>XCode Command Line Tools » installés.</i></p>
-			<p>Puis : <blockquote><code>npm install -g ethereumjs-testrpc</code></blockquote></p>
-			<p>(ici en « global » dans l’exemple)</p>
-		</p>
-		<p><b>Linux</b>
-			<p>Installer le paquet « <b>build-essential</b> » :<p>
-			<blockquote><code>sudo apt-get install build-essential</code></blockquote>
-			<p>Puis : <blockquote><code>npm install -g ethereumjs-testrpc</code></blockquote></p>
-			<p>(ici en « global » dans l’exemple)</p>
 		</p>
 		<div class="page-header" id="Init">
 			<h2>Lancer le node et initier Web3 (<a href="#">up</a>)</h2>
 		</div>
+<<<<<<< HEAD
 		<p>On partira du principe que les installations sont faites en "global". Si des installations ont été faites en "local" il suffit d'adapter les chemins (on peut contrôler les messages d'erreurs).</p>
 		<p><b>Windows</b>
 			<p><blockquote><code>C:\Users\user\AppData\Roaming\npm\node_modules> testrpc</code></blockquote></p>
@@ -405,6 +394,42 @@
 		{ [String: '11111'] s: 1, e: 4, c: [ 11111 ] }
 		</code></blockquote>
 		<hr>
+=======
+		<ol>
+			<li/><p>Obtenir la balance en jetons d'un compte à l'intérieur d'un contrat.</p>
+			<p>Requète "<b>Internal Balance</b>" en méthode <b>POST</b>.</p>
+				<p>Ne pas oublier de vérifier le <b><i>Content-Type</i></b> qui doit être positionné sur "<b>application/json</b>".
+				<br>
+				<div style="text-align:center;">
+					<p><img src="images/ARC_Internal_Balance.jpg"></p>
+				</div>
+				<br>
+				<p>Il faut spécifier dans le payload <b>l'interface/abi</b> du contrat, l'<b>adresse</b> du contrat, et enfin, l'<b>adresse Ethereum</b> du compte dont on veut la <b>balance en jetons</b>.</p>
+				<p>Exemple de payload :</p>
+				<p>La réponse obtenue est la <b>balance en <i>jetons</i></b> du compte choisi à l'intérieur du contrat.</p>
+				<br>
+			<li/><p>Réaliser un transfert de jetons d'un compte à un autre à l'intérieur d'un contrat.</p>
+			<p>Requète "<b>Internal Tx</b>" en méthode <b>POST</b>.</p>
+				<p>Ne pas oublier de vérifier le <b><i>Content-Type</i></b> qui doit être positionné sur "<b>application/json</b>".
+				<br>
+				<div style="text-align:center;">
+					<p><img src="images/ARC_Internal_Tx.jpg"></p>
+				</div>
+				<br>
+				<p>Les différents paramètres à fournir sont :</p>
+				<ol type="a">
+					<li/><p><b>"to"</b> : Adresse Ethereum destination des tokens dans le contrat.</p>
+					<li/><p><b>"from"</b> : Adresse Ethereum expéditeur des tokens dans le contrat.</p>
+					<li/><p><b>"passphrase"</b> : Bien sûr, le mot de passe de l'expéditeur.</p>
+					<li/><p><b>"contract"</b> : Adresse Ethereum du contrat en question.</p>
+					<li/><p><b>"tokens"</b> : Le nombre de jetons transférés dans le contrat.</p>
+					<li/><p><b>"abi"</b> : L'interface format PHP 5.6.29...</p>
+				</ol>
+				<br>
+				<p>Exemple de payload :</p>
+				<p><blockquote><code>Bleh</code></blockquote></p>
+		</ol>
+>>>>>>> origin/master
 	</div>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

@@ -1,0 +1,294 @@
+<html>
+<head>
+	<meta charset="UTF-8" />
+
+	<title>Solidity - Language de programmation de Smart-contract | Mubiz</title>
+
+	<meta name="description"    content="Données concernant Solidity, language de programmation de Smart-contract, par Mubiz"/>
+	<meta name="keywords"       content="Solidity, Smart-contract, Ethereum, Blockchain, Mubiz"/>
+	
+	<meta name="robots"         content="index,follow"/>
+	<meta name="rating"         content="safe for kids"/>
+	<meta name="revisit-after"  content="14 days"/>
+	<meta name="author"         content="Mubiz"/>
+
+	<meta name="geo.placename"	content="France"/>
+
+	<meta property="og:type"		content="website"/>
+	<meta property="og:site_name"	content="GitHub - MubizInc"/>
+	<meta property="og:locale"		content="fr_FR"/>
+
+	<meta name="theme-color" content="#009999">
+	
+	<link rel="shortcut icon"   					type="image/ico"	href="/images/favicon.png" 	/>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, target-densitydpi=device-dpi"/>
+
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	
+	<link rel="stylesheet"    		media="all"		type="text/css" 	href="../styles/design.css"   />
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-01-11T16:22:57.811000000"/>
+
+	<!-- Optional theme -->
+	<style type="text/css">
+		blockquote{ word-wrap: break-word; }
+	</style>
+</head>
+<body lang="en-US" text="#333333" link="#337ab7" vlink="#337ab7" bgcolor="#ffffff" dir="ltr">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="/" class="navbar-brand" rel="home" title=""><img style="max-width:100px;" src="http://mubiz.com/images/mubiz/mubiz-logo-white.png" alt="Mubiz logo"/></a>
+			</div>
+			<div class="navbar-collapse collapse" id="navbar">
+				<ul class="nav navbar-nav">
+					<li><a href="/3a" title="TP 3A">3e année</a></li>
+					<li><a href="/4a" title="TP 4A">4e année</a></li>
+					<li class="active"><a title="Bases concernant le language Solidity">Solidity</a></li>
+					<li><a href="/tuto-arc" title="Tutoriel ARC">Tutoriel ARC</a></li>
+					<li><a href="/tuto-doc-node-web3" title="Tutoriel Web3.js">Tutoriel Web3.js</a></li>
+					<li><a href="/lexique" title="Lexique Blockchain">Lexique Blockchain</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container theme-showcase" role="main">
+		<div class="jumbotron">
+			<div id="up" dir="ltr">
+				<h1>Smart-contract Solidity</h1>
+			</div>
+			<h2>Objectif</h2>
+			<p>
+				Présenter les connaissances de base pour la programmation de Smart-contract en Solidity
+			</p>
+			
+			<h2>Documentation Solidity</h2>
+			<p>
+				Vous trouverez sur ReadTheDocs.io <a href="http://solidity.readthedocs.io/" title="Documentation Solidity" rel="nofollow" target="_blanck">une documentation complète de Solidity (EN)</a>. 
+			</p>
+			
+			<h2>Outils</h2>
+			<p>
+				Un compilateur en ligne : <a href="https://ethereum.github.io/browser-solidity/" title="" rel="nofollow" target="_blanck">Browser Solidity d'Ethereum</a>
+				
+			</p>
+		</div>
+
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="#contexte" title="Contexte et environnement">Contexte et environnement</a></li>
+						<li><a href="#bases" title="Structure d'un Smart-contract">Bases du Smart-contract</a></li>
+						<li><a href="#commentaires" title="">Commentaires</a></li>
+						<li><a href="#variables" title="">Variables</a></li>
+						<li><a href="#structures" title="">Listes, Structures et Enumérations</a></li>
+						<li><a href="#events" title="">Events</a></li>
+						<li><a href="#modifiers" title="">Modifiers</a></li>
+						<li><a href="#constructeurs" title="">Constructeurs</a></li>
+						<li><a href="#functions" title="">Functions</a></li>
+						<li><a href="#getters_setters" title="">Getters and Setters</a></li>
+						<li><a href="#kills" title="">Kills</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="page-header" id="comparc">
+			<h2>Contexte et environnement (<a href="#">up</a>)</h2>
+		</div>
+		<p>
+			Un smart-contract Solidity est un code compilé, diffusé à l'ensemble des Virtual Machines (VM) du réseau d'une blockchain. Un Smart-contract peut être appelé pour toutes les adresses du réseau, et est executé sur toutes les VM du réseau.<br/>
+			L'allocation mémoire et les traitements sont facturés à l'appelant par les mineurs du réseau.<br/>
+		</p>
+		<div class="alert alert-info" role="info">
+			<strong>En déduire :</strong><br/>
+			Un smart-contract étant public, il est nécessaire de gérer les droits d'accès aux fonctions.<br/>
+			L'execution d'un smart-contract étant facturé par le réseau, il est important d'optimiser les fonctions et les allocations mémoires.<br/>
+		</div>
+
+
+
+
+		<div class="page-header" id="bases">
+			<h2>Bases d'un Smart-contract Solidity (<a href="#">up</a>)</h2>
+		</div>
+		<p>
+			Solidity est un language de programmation, à la syntaxe proche de JavaScript, permettant la rédaction de Smart-contract.<br/>
+			Solidity est actuellement le language le plus populaire de Smart-contract. Vous trouverez donc plus facilement d'informations et conseils en utilisant ce language.<br/>
+			L'utilisation de Solidity est également un gage de portabilité. En effet, des VM sur Bitcoin (Rootstock) et d'autres crypto-monnaies sont en cours de développement.
+		</p>
+		<p>
+			Un Smart-contract Solidity se rédige sous la même forme qu'une Class est C++ ou Java.<br/>
+			<blockquote><code>
+				pragma solidity ^0.4.0;<br/>
+				contract NomDuSmartContract {<br/>
+					<br/>
+					public type variables;<br/>
+					public type variables;<br/>
+					type variables;<br/>
+					<br/>
+					Struct{<br/>
+						public type variables;<br/>
+						public type variables;<br/>
+						type variables;<br/>
+					}<br/>
+					<br/>
+					<br/>
+					// Modifiers<br/>
+					modifier nomDuModifier(){<br/>
+						if( test ) throw;<br/>
+						_;<br/>
+					}<br/>
+					<br/>
+					<br/>
+					// Events<br/>
+					event nomDeLEvent();<br/>
+					<br/>
+					<br/>	
+					// Constructeurs<br/>
+					function NomDuSmartContract(type _argument, type _argument, ...) {<br/>
+					<br/>
+					}<br/>
+					<br/>
+					<br/>
+					// Functions<br/>
+					function nomDeLaFunction(type _argument, type _argument, ...) nomDuModifier() returns (type argument) {<br/>
+					<br/>
+					<br/>
+					}<br/>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+					// Getter et Setter<br/>
+					<br/>
+					<br/>
+			</code></blockquote>
+		</p>
+
+		<div class="page-header" id="commentaires">
+			<h2>Commentaires (<a href="#">up</a>)</h2>
+		</div>
+		<p>
+			L'ajout de commentaires se fait donc avec // (jusqu'à fin de ligne) soit avec /* ... */
+		</p>
+		
+
+		<div class="page-header" id="variables">
+			<h2>Types de Varibles (<a href="#">up</a>)</h2>
+		</div>
+		<p>
+			Voici une liste non exhaustive des types disponibles :
+			<ul class="list-group">
+				<li class="list-group-item">bool</li>
+				<li class="list-group-item">uint</li>
+				<li class="list-group-item">mapping</li>
+				<li class="list-group-item">array</li>
+				<li class="list-group-item">string</li>
+				<li class="list-group-item">address</li>
+			</ul>
+		</p>
+		
+		<div class="page-header" id="structures">
+			<h2>Listes, Structures et Enumérations (<a href="#">up</a>)</h2>
+		</div>
+		<h3>Listes</h3>
+		<p>	
+			Il est également possible de faire des listes.<br/>
+			<code>uint[]</code>
+		</p>
+
+		<h3>Structures</h3>
+		<p>
+			Enfin, il est possible de générer des structures.<br/>
+			<code>
+				Struct Member{<br/>
+				    address memberAddress;<br/>
+	        		bool active;<br/>
+				}
+			</code>
+			
+			Toutes les données d'un smart-contract sont enregistrées dans la blockchain (Ethereum, Bitcoin, ...).<br/>
+			Les données peuvent donc être lues par l'ensemble des noeuds du réseau.<br/>
+			
+			Solidity gère la notion de public/private par rapport aux autres smart-contracts.<br/>
+			Les données ne sont appelables par d'autres smart-contracts que si elles sont tagguées "public" lors de leurs déclarations.	
+		</p>
+
+		<h3>Enumérations</h3>
+		<p>
+		
+		</p>
+
+
+		<div class="page-header" id="events">
+			<h2>Events (<a href="#">up</a>)</h2>
+		</div>
+		<p>
+
+		</p>
+
+
+		<div class="page-header" id="modifiers">
+			<h2>Modifiers (<a href="#">up</a>)</h2>
+		</div>
+		<p>
+
+		</p>
+
+
+		<div class="page-header" id="constructors">
+			<h2>Constructeurs (<a href="#">up</a>)</h2>
+		</div>
+		<p>
+
+		</p>
+		
+		<div class="page-header" id="functions">
+			<h2>Functions (<a href="#">up</a>)</h2>
+		</div>
+		<p>
+
+		</p>
+
+
+		<div class="page-header" id="units_global">
+			<h2>Unités et variables globales (<a href="#">up</a>)</h2>
+		</div>
+		<p>
+			<a href="http://solidity.readthedocs.io/en/develop/units-and-global-variables.html" title="Unités et variables globales" rel="nofollow">Documentation concernant les unités de mesures + les variables globales</a>
+		</p>
+		
+
+
+		<div class="page-header" id="getters_setters">
+			<h2>Getters and Setters (<a href="#">up</a>)</h2>
+		</div>
+		<p>
+
+		</p>
+		
+		
+		
+
+		<div class="page-header" id="kills">
+			<h2>Kills (<a href="#">up</a>)</h2>
+		</div>
+		<p>
+			Ethereum n'est pas une poubelle... aussi, il est important de libérer l'espace occupé par le Smart-contract. Ce nettoyage doit être prévu dès la conception du Smart-contract.<br/>
+			Pour faire un peu d'écolonomie, un intérêt simple peut-être de récupérer les fonds restants disponible sur l'adresse du smart-contract...<br/>
+		</p>
+	</div>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</body>
+</html>
