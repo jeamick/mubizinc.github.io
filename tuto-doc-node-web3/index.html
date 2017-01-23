@@ -80,6 +80,7 @@
 						<li><a href="#CreationContrat" title="Création d'un contrat">Création d'un contrat</a></li>
 						<li><a href="#AppelFonction" title="Appel d'une fonction d'un contrat">Appel d'une fonction d'un contrat</a></li>
 						<li><a href="#AppelObjet" title="Appel d'un objet d'un contrat">Appel d'un objet d'un contrat</a></li>
+						<li><a href="#TouteLaConsole" title="Toute la console du Node">Toute la console du Node</a></li>
 					</ul>
 				</div>
 			</div>
@@ -394,42 +395,6 @@
 		{ [String: '11111'] s: 1, e: 4, c: [ 11111 ] }
 		</code></blockquote>
 		<hr>
-=======
-		<ol>
-			<li/><p>Obtenir la balance en jetons d'un compte à l'intérieur d'un contrat.</p>
-			<p>Requète "<b>Internal Balance</b>" en méthode <b>POST</b>.</p>
-				<p>Ne pas oublier de vérifier le <b><i>Content-Type</i></b> qui doit être positionné sur "<b>application/json</b>".
-				<br>
-				<div style="text-align:center;">
-					<p><img src="images/ARC_Internal_Balance.jpg"></p>
-				</div>
-				<br>
-				<p>Il faut spécifier dans le payload <b>l'interface/abi</b> du contrat, l'<b>adresse</b> du contrat, et enfin, l'<b>adresse Ethereum</b> du compte dont on veut la <b>balance en jetons</b>.</p>
-				<p>Exemple de payload :</p>
-				<p>La réponse obtenue est la <b>balance en <i>jetons</i></b> du compte choisi à l'intérieur du contrat.</p>
-				<br>
-			<li/><p>Réaliser un transfert de jetons d'un compte à un autre à l'intérieur d'un contrat.</p>
-			<p>Requète "<b>Internal Tx</b>" en méthode <b>POST</b>.</p>
-				<p>Ne pas oublier de vérifier le <b><i>Content-Type</i></b> qui doit être positionné sur "<b>application/json</b>".
-				<br>
-				<div style="text-align:center;">
-					<p><img src="images/ARC_Internal_Tx.jpg"></p>
-				</div>
-				<br>
-				<p>Les différents paramètres à fournir sont :</p>
-				<ol type="a">
-					<li/><p><b>"to"</b> : Adresse Ethereum destination des tokens dans le contrat.</p>
-					<li/><p><b>"from"</b> : Adresse Ethereum expéditeur des tokens dans le contrat.</p>
-					<li/><p><b>"passphrase"</b> : Bien sûr, le mot de passe de l'expéditeur.</p>
-					<li/><p><b>"contract"</b> : Adresse Ethereum du contrat en question.</p>
-					<li/><p><b>"tokens"</b> : Le nombre de jetons transférés dans le contrat.</p>
-					<li/><p><b>"abi"</b> : L'interface format PHP 5.6.29...</p>
-				</ol>
-				<br>
-				<p>Exemple de payload :</p>
-				<p><blockquote><code>Bleh</code></blockquote></p>
-		</ol>
->>>>>>> origin/master
 	</div>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
