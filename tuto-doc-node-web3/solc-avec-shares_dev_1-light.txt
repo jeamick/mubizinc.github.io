@@ -1,0 +1,59 @@
+root@zoogy-doogy-1001HA:~/node_projects/mubiz# node
+> var Web3 = require('web3');
+undefined
+> var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+undefined
+> var fs = require('fs');
+undefined
+> var solc = require('solc');
+undefined
+> accounts = web3.eth.accounts;
+[ '0x6570ababca9a085693247d3b39771a6a4c1e104b',
+  '0xb9486939c8928390a84180edca05e3978ffbf115',
+  '0x0d6b49ccd5c019c56b194fbff8de082319e7814f',
+  '0x7dab1feaffdd0a0d127eb5ff458ba8a8c9ea0126',
+  '0x536d34fca83046fdc6c4fa10697ac7c9e1bf8a1d',
+  '0x60861910633cc08c73f037f7e596bc127c4e88da',
+  '0xef0da586a58113e4d903887c2c3ffa5f931dc2a1',
+  '0x56d4622858d8b8495a01fa855d5e5401186cd342',
+  '0xedd66ab0708c76d2bdbebd928da17f686ddfcae8',
+  '0xbfd3761749f438485e701bb4560012705fc994a1' ]
+> var source = fs.readFileSync('Shares.sol', 'utf8');
+undefined
+> var compiledContract = solc.compile(source, 1);
+undefined
+> var abi = compiledContract.contracts['Shares'].interface;
+undefined
+> var bytecode = compiledContract.contracts['Shares'].bytecode;
+undefined
+> var gasEstimate = web3.eth.estimateGas({data: bytecode});
+undefined
+> gasEstimate
+304922
+> var MyContract = web3.eth.contract(JSON.parse(abi));
+undefined
+> web3.eth.defaultAccount = accounts[0]
+'0x6570ababca9a085693247d3b39771a6a4c1e104b'
+> var deployer = accounts[1];
+undefined
+> deployer
+'0xb9486939c8928390a84180edca05e3978ffbf115'
+> var MyContract = web3.eth.contract(JSON.parse(abi));
+undefined
+> var myContractDeployed = MyContract.new (123456, {from:deployer, data:bytecode, gas:500000}, function (error, MyContract) {if (!error) {if (!MyContract.address) {console.log(MyContract.transactionHash);} else {console.log(MyContract.address);}}});
+undefined
+> 0x4c2491bc59e41fae3a643f53cb0e032fc72ec66180ac44a8baab24926aa525df
+0xe2f664e56ee9aeb4d1140fb577817dd2c52eb09c
+
+> myContractDeployed.address
+'0xe2f664e56ee9aeb4d1140fb577817dd2c52eb09c'
+> var myContractInstance = MyContract.at(myContractDeployed.address);
+undefined
+> var TEST = myContractInstance.ShareHolders(0);
+undefined
+> TEST
+[ '0xb9486939c8928390a84180edca05e3978ffbf115',
+  { [String: '123456'] s: 1, e: 5, c: [ 123456 ] } ]
+> accounts[1]
+'0xb9486939c8928390a84180edca05e3978ffbf115'
+>

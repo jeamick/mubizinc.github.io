@@ -1,0 +1,425 @@
+root@zoogy-doogy-1001HA:~/node_projects/mubiz# node
+> var Web3 = require('web3');
+undefined
+> var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+undefined
+> var fs = require('fs');
+undefined
+> var solc = require('solc');
+undefined
+> accounts = web3.eth.accounts;
+[ '0x6570ababca9a085693247d3b39771a6a4c1e104b',
+  '0xb9486939c8928390a84180edca05e3978ffbf115',
+  '0x0d6b49ccd5c019c56b194fbff8de082319e7814f',
+  '0x7dab1feaffdd0a0d127eb5ff458ba8a8c9ea0126',
+  '0x536d34fca83046fdc6c4fa10697ac7c9e1bf8a1d',
+  '0x60861910633cc08c73f037f7e596bc127c4e88da',
+  '0xef0da586a58113e4d903887c2c3ffa5f931dc2a1',
+  '0x56d4622858d8b8495a01fa855d5e5401186cd342',
+  '0xedd66ab0708c76d2bdbebd928da17f686ddfcae8',
+  '0xbfd3761749f438485e701bb4560012705fc994a1' ]
+> var source = fs.readFileSync('Shares.sol', 'utf8');
+undefined
+> source
+'pragma solidity ^0.4.7;\n\ncontract Shares {\n\t//Address Ethereum du compte de l\'entreprise.\n    a
+ddress public creator;\n    //Définition d\'un actionnaire sous forme de struct pour intégration à un
+array.\n    struct ShareHolder {\n    \taddress sh_address;\n    \tuint sh_balance;\n    }\n    //Arra
+y des actionnaires.\n    ShareHolder[] public ShareHolders;\n    //Constructor.\n    function Shares (
+uint ctokens) {\n    \tcreator = msg.sender;\n    \tShareHolders.push(ShareHolder(creator, ctokens));\
+n    \t/*On estime ici pouvoir faire un "push" car le struct n\'est pas trop complexe.\n    \t"ctokens
+" représente la quantité de tokens à la création*/\n    }\n    // Transfert de jetons\n    function tr
+ansfer (address dest, uint tokens) {\n\t\t//Premières vérifications\n\t\tif ((tokens == 0) || (dest ==
+ msg.sender) || (dest == 0x0)) throw;\n\t\t//Vérification de disponible par récupérations des indexs d
+ans l\'array.\n\t\t// /!\\ IMPORTANT -- On suppose pour l\'instant que le dest existe /!\\.\n\t\t\t//i
+nitialisations.\n\t\tuint i = 0;\n\t\tuint j = 0;\n\t\t\t//Récupérations de l\'index sender.\n\t\twhil
+e ((msg.sender != ShareHolders[i].sh_address) && (i < ShareHolders.length)) {\n\t\ti++;\n\t\t}\n\t\t\t
+//Récupérations de l\'index dest.\n\t\twhile ((dest != ShareHolders[j].sh_address) && (j < ShareHolder
+s.length)) {\n\t\tj++;\n\t\t}\n\t\t//Test de la balance du sender.\n\t\tif (ShareHolders[i].sh_balance
+ < tokens) throw;\n\t\t//Opérations du transfert de tokens.\n\t\t/* /!\\ IMPORTANT -- Comme pour le mo
+ment on suppose que le dest existe, si jamais en test il n\'existe pas,\n\t\tce sera le dernier ShareH
+older du array qui sera considéré comme le dest ! /!\\ */\n\t\tShareHolders[j].sh_balance += tokens;\n
+\t\tShareHolders[i].sh_balance -= tokens;\n\t}\n}'
+> var compiledContract = solc.compile(source, 1);
+undefined
+> compiledContract
+{ contracts:
+   { Shares:
+      { assembly: [Object],
+        bytecode: '6060604052346100005760405160208061037b83398101604052515b60008054600160a060020a03191
+633600160a060020a0316179055600180548082018083558281838015829011610090576002028160020283600052602060002
+0918201910161009091905b8082111561008c578054600160a060020a031916815560006001820155600201610067565b50905
+65b5b505050916000526020600020906002020160005b5060408051808201909152600054600160a060020a031680825260209
+091018490528154600160a060020a031916178155600101829055505b505b61028c806100ef6000396000f300606060405263f
+fffffff60e060020a60003504166302d05d3f811461003a5780635ed2b80714610063578063a9059cbb14610096575b6100005
+65b34610000576100476100b4565b60408051600160a060020a039092168252519081900360200190f35b34610000576100736
+004356100c3565b60408051600160a060020a03909316835260208301919091528051918290030190f35b34610000576100b26
+00160a060020a03600435166024356100f9565b005b600054600160a060020a031681565b60018181548110156100005790600
+0526020600020906002020160005b508054600190910154600160a060020a03909116915082565b60008082158061011a57503
+3600160a060020a031684600160a060020a0316145b8061012c5750600160a060020a038416155b1561013657610000565b506
+0009050805b600182815481101561000057906000526020600020906002020160005b505433600160a060020a0390811691161
+4801590610179575060015482105b156101895760019091019061013d565b5b600181815481101561000057906000526020600
+020906002020160005b5054600160a060020a038581169116148015906101c5575060015481105b156101d25760010161018a5
+65b82600183815481101561000057906000526020600020906002020160005b5060010154101561020057610000565b8260018
+2815481101561000057906000526020600020906002020160005b5060010160008282540192505081905550826001838154811
+01561000057906000526020600020906002020160005b5060010180549190910390555b505050505600a165627a7a72305820a
+29e621e9842c456bd2deb531ae82a119c71a13d1f0e7b778d6171d5e4f1f8ad0029',
+        functionHashes: [Object],
+        gasEstimates: [Object],
+        interface: '[{"constant":true,"inputs":[],"name":"creator","outputs":[{"name":"","type":"addre
+ss"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"nam
+e":"ShareHolders","outputs":[{"name":"sh_address","type":"address"},{"name":"sh_balance","type":"uint2
+56"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"dest","type":"address"},
+{"name":"tokens","type":"uint256"}],"name":"transfer","outputs":[],"payable":false,"type":"function"},
+{"inputs":[{"name":"ctokens","type":"uint256"}],"payable":false,"type":"constructor"}]',
+        metadata: '{"compiler":{"version":"0.4.8+commit.60cc1668.Emscripten.clang"},"language":"Solidi
+ty","output":{"abi":[{"constant":true,"inputs":[],"name":"creator","outputs":[{"name":"","type":"addre
+ss"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"nam
+e":"ShareHolders","outputs":[{"name":"sh_address","type":"address"},{"name":"sh_balance","type":"uint2
+56"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"dest","type":"address"},
+{"name":"tokens","type":"uint256"}],"name":"transfer","outputs":[],"payable":false,"type":"function"},
+{"inputs":[{"name":"ctokens","type":"uint256"}],"payable":false,"type":"constructor"}],"devdoc":{"meth
+ods":{}},"userdoc":{"methods":{}}},"settings":{"compilationTarget":{"":"Shares"},"libraries":{},"optim
+izer":{"enabled":true,"runs":200},"remappings":[]},"sources":{"":{"keccak256":"0x23b2a580c47d17e46002b
+2be8f757611df380728c1c4060f4723ccf5c460a8c4","urls":["bzzr://a6076b5ec46707ace92f355eb4add36f7397c28a8
+29ad16ab4804fc40cde8d86"]}},"version":1}',
+        opcodes: 'PUSH1 0x60 PUSH1 0x40 MSTORE CALLVALUE PUSH2 0x0 JUMPI PUSH1 0x40 MLOAD PUSH1 0x20 D
+UP1 PUSH2 0x37B DUP4 CODECOPY DUP2 ADD PUSH1 0x40 MSTORE MLOAD JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1
+ PUSH1 0xA0 PUSH1 0x2 EXP SUB NOT AND CALLER PUSH1 0x1 PUSH1 0xA0 PUSH1 0x2 EXP SUB AND OR SWAP1 SSTOR
+E PUSH1 0x1 DUP1 SLOAD DUP1 DUP3 ADD DUP1 DUP4 SSTORE DUP3 DUP2 DUP4 DUP1 ISZERO DUP3 SWAP1 GT PUSH2 0
+x90 JUMPI PUSH1 0x2 MUL DUP2 PUSH1 0x2 MUL DUP4 PUSH1 0x0 MSTORE PUSH1 0x20 PUSH1 0x0 SHA3 SWAP2 DUP3
+ADD SWAP2 ADD PUSH2 0x90 SWAP2 SWAP1 JUMPDEST DUP1 DUP3 GT ISZERO PUSH2 0x8C JUMPI DUP1 SLOAD PUSH1 0x
+1 PUSH1 0xA0 PUSH1 0x2 EXP SUB NOT AND DUP2 SSTORE PUSH1 0x0 PUSH1 0x1 DUP3 ADD SSTORE PUSH1 0x2 ADD P
+USH2 0x67 JUMP JUMPDEST POP SWAP1 JUMP JUMPDEST JUMPDEST POP POP POP SWAP2 PUSH1 0x0 MSTORE PUSH1 0x20
+ PUSH1 0x0 SHA3 SWAP1 PUSH1 0x2 MUL ADD PUSH1 0x0 JUMPDEST POP PUSH1 0x40 DUP1 MLOAD DUP1 DUP3 ADD SWA
+P1 SWAP2 MSTORE PUSH1 0x0 SLOAD PUSH1 0x1 PUSH1 0xA0 PUSH1 0x2 EXP SUB AND DUP1 DUP3 MSTORE PUSH1 0x20
+ SWAP1 SWAP2 ADD DUP5 SWAP1 MSTORE DUP2 SLOAD PUSH1 0x1 PUSH1 0xA0 PUSH1 0x2 EXP SUB NOT AND OR DUP2 S
+STORE PUSH1 0x1 ADD DUP3 SWAP1 SSTORE POP JUMPDEST POP JUMPDEST PUSH2 0x28C DUP1 PUSH2 0xEF PUSH1 0x0
+CODECOPY PUSH1 0x0 RETURN STOP PUSH1 0x60 PUSH1 0x40 MSTORE PUSH4 0xFFFFFFFF PUSH1 0xE0 PUSH1 0x2 EXP
+PUSH1 0x0 CALLDATALOAD DIV AND PUSH4 0x2D05D3F DUP2 EQ PUSH2 0x3A JUMPI DUP1 PUSH4 0x5ED2B807 EQ PUSH2
+ 0x63 JUMPI DUP1 PUSH4 0xA9059CBB EQ PUSH2 0x96 JUMPI JUMPDEST PUSH2 0x0 JUMP JUMPDEST CALLVALUE PUSH2
+ 0x0 JUMPI PUSH2 0x47 PUSH2 0xB4 JUMP JUMPDEST PUSH1 0x40 DUP1 MLOAD PUSH1 0x1 PUSH1 0xA0 PUSH1 0x2 EX
+P SUB SWAP1 SWAP3 AND DUP3 MSTORE MLOAD SWAP1 DUP2 SWAP1 SUB PUSH1 0x20 ADD SWAP1 RETURN JUMPDEST CALL
+VALUE PUSH2 0x0 JUMPI PUSH2 0x73 PUSH1 0x4 CALLDATALOAD PUSH2 0xC3 JUMP JUMPDEST PUSH1 0x40 DUP1 MLOAD
+ PUSH1 0x1 PUSH1 0xA0 PUSH1 0x2 EXP SUB SWAP1 SWAP4 AND DUP4 MSTORE PUSH1 0x20 DUP4 ADD SWAP2 SWAP1 SW
+AP2 MSTORE DUP1 MLOAD SWAP2 DUP3 SWAP1 SUB ADD SWAP1 RETURN JUMPDEST CALLVALUE PUSH2 0x0 JUMPI PUSH2 0
+xB2 PUSH1 0x1 PUSH1 0xA0 PUSH1 0x2 EXP SUB PUSH1 0x4 CALLDATALOAD AND PUSH1 0x24 CALLDATALOAD PUSH2 0x
+F9 JUMP JUMPDEST STOP JUMPDEST PUSH1 0x0 SLOAD PUSH1 0x1 PUSH1 0xA0 PUSH1 0x2 EXP SUB AND DUP2 JUMP JU
+MPDEST PUSH1 0x1 DUP2 DUP2 SLOAD DUP2 LT ISZERO PUSH2 0x0 JUMPI SWAP1 PUSH1 0x0 MSTORE PUSH1 0x20 PUSH
+1 0x0 SHA3 SWAP1 PUSH1 0x2 MUL ADD PUSH1 0x0 JUMPDEST POP DUP1 SLOAD PUSH1 0x1 SWAP1 SWAP2 ADD SLOAD P
+USH1 0x1 PUSH1 0xA0 PUSH1 0x2 EXP SUB SWAP1 SWAP2 AND SWAP2 POP DUP3 JUMP JUMPDEST PUSH1 0x0 DUP1 DUP3
+ ISZERO DUP1 PUSH2 0x11A JUMPI POP CALLER PUSH1 0x1 PUSH1 0xA0 PUSH1 0x2 EXP SUB AND DUP5 PUSH1 0x1 PU
+SH1 0xA0 PUSH1 0x2 EXP SUB AND EQ JUMPDEST DUP1 PUSH2 0x12C JUMPI POP PUSH1 0x1 PUSH1 0xA0 PUSH1 0x2 E
+XP SUB DUP5 AND ISZERO JUMPDEST ISZERO PUSH2 0x136 JUMPI PUSH2 0x0 JUMP JUMPDEST POP PUSH1 0x0 SWAP1 P
+OP DUP1 JUMPDEST PUSH1 0x1 DUP3 DUP2 SLOAD DUP2 LT ISZERO PUSH2 0x0 JUMPI SWAP1 PUSH1 0x0 MSTORE PUSH1
+ 0x20 PUSH1 0x0 SHA3 SWAP1 PUSH1 0x2 MUL ADD PUSH1 0x0 JUMPDEST POP SLOAD CALLER PUSH1 0x1 PUSH1 0xA0
+PUSH1 0x2 EXP SUB SWAP1 DUP2 AND SWAP2 AND EQ DUP1 ISZERO SWAP1 PUSH2 0x179 JUMPI POP PUSH1 0x1 SLOAD
+DUP3 LT JUMPDEST ISZERO PUSH2 0x189 JUMPI PUSH1 0x1 SWAP1 SWAP2 ADD SWAP1 PUSH2 0x13D JUMP JUMPDEST JU
+MPDEST PUSH1 0x1 DUP2 DUP2 SLOAD DUP2 LT ISZERO PUSH2 0x0 JUMPI SWAP1 PUSH1 0x0 MSTORE PUSH1 0x20 PUSH
+1 0x0 SHA3 SWAP1 PUSH1 0x2 MUL ADD PUSH1 0x0 JUMPDEST POP SLOAD PUSH1 0x1 PUSH1 0xA0 PUSH1 0x2 EXP SUB
+ DUP6 DUP2 AND SWAP2 AND EQ DUP1 ISZERO SWAP1 PUSH2 0x1C5 JUMPI POP PUSH1 0x1 SLOAD DUP2 LT JUMPDEST I
+SZERO PUSH2 0x1D2 JUMPI PUSH1 0x1 ADD PUSH2 0x18A JUMP JUMPDEST DUP3 PUSH1 0x1 DUP4 DUP2 SLOAD DUP2 LT
+ ISZERO PUSH2 0x0 JUMPI SWAP1 PUSH1 0x0 MSTORE PUSH1 0x20 PUSH1 0x0 SHA3 SWAP1 PUSH1 0x2 MUL ADD PUSH1
+ 0x0 JUMPDEST POP PUSH1 0x1 ADD SLOAD LT ISZERO PUSH2 0x200 JUMPI PUSH2 0x0 JUMP JUMPDEST DUP3 PUSH1 0
+x1 DUP3 DUP2 SLOAD DUP2 LT ISZERO PUSH2 0x0 JUMPI SWAP1 PUSH1 0x0 MSTORE PUSH1 0x20 PUSH1 0x0 SHA3 SWA
+P1 PUSH1 0x2 MUL ADD PUSH1 0x0 JUMPDEST POP PUSH1 0x1 ADD PUSH1 0x0 DUP3 DUP3 SLOAD ADD SWAP3 POP POP
+DUP2 SWAP1 SSTORE POP DUP3 PUSH1 0x1 DUP4 DUP2 SLOAD DUP2 LT ISZERO PUSH2 0x0 JUMPI SWAP1 PUSH1 0x0 MS
+TORE PUSH1 0x20 PUSH1 0x0 SHA3 SWAP1 PUSH1 0x2 MUL ADD PUSH1 0x0 JUMPDEST POP PUSH1 0x1 ADD DUP1 SLOAD
+ SWAP2 SWAP1 SWAP2 SUB SWAP1 SSTORE JUMPDEST POP POP POP POP JUMP STOP LOG1 PUSH6 0x627A7A723058 SHA3
+LOG2 SWAP15 PUSH3 0x1E9842 0xc4 JUMP 0xbd 0x2d 0xeb MSTORE8 BYTE 0xe8 0x2a GT SWAP13 PUSH18 0xA13D1F0E
+7B778D6171D5E4F1F8AD00290000 ',
+        runtimeBytecode: '606060405263ffffffff60e060020a60003504166302d05d3f811461003a5780635ed2b80714
+610063578063a9059cbb14610096575b610000565b34610000576100476100b4565b60408051600160a060020a039092168252
+519081900360200190f35b34610000576100736004356100c3565b60408051600160a060020a03909316835260208301919091
+528051918290030190f35b34610000576100b2600160a060020a03600435166024356100f9565b005b600054600160a060020a
+031681565b600181815481101561000057906000526020600020906002020160005b508054600190910154600160a060020a03
+909116915082565b60008082158061011a575033600160a060020a031684600160a060020a0316145b8061012c5750600160a0
+60020a038416155b1561013657610000565b5060009050805b6001828154811015610000579060005260206000209060020201
+60005b505433600160a060020a03908116911614801590610179575060015482105b156101895760019091019061013d565b5b
+600181815481101561000057906000526020600020906002020160005b5054600160a060020a038581169116148015906101c5
+575060015481105b156101d25760010161018a565b82600183815481101561000057906000526020600020906002020160005b
+5060010154101561020057610000565b82600182815481101561000057906000526020600020906002020160005b5060010160
+00828254019250508190555082600183815481101561000057906000526020600020906002020160005b506001018054919091
+0390555b505050505600a165627a7a72305820a29e621e9842c456bd2deb531ae82a119c71a13d1f0e7b778d6171d5e4f1f8ad
+0029',
+        srcmap: '25:1665:0:-;;;375:272;;;;;;;;;;;;;;;;413:7;:20;;-1:-1:-1;;;;;;413:20:0;423:10;-1:-1:-
+1;;;;;413:20:0;;;;-1:-1:-1;440:48:0;;;;;;;;-1:-1:-1;440:48:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1
+:-1;;;;;;440:48:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;458:29:0;;;;;;;;;-1:-1:-1;470:7:0;-1:-1:-1;
+;;;;470:7:0;458:29;;;;;;;;;;440:48;;-1:-1:-1;;;;;;440:48:0;;;;470:7;440:48;;;;-1:-1:-1;375:272:0;;25:1
+665;;;;;;;',
+        srcmapRuntime: '25:1665:0:-;;;;-1:-1:-1;;;25:1665:0;;;;;;;;;;;;;;;;;;;;;;94:22;;;;;;;;;;;-1:-1
+:-1;;;;;94:22:0;;;;;;;;;;;;;;317:33;;;;;;;;;;;;;-1:-1:-1;;;;;317:33:0;;;;;;;;;;;;;;;;;;;;;679:1009;;;;
+;-1:-1:-1;;;;;679:1009:0;;;;;;;;;94:22;;;-1:-1:-1;;;;;94:22:0;;:::o;317:33::-;;;;;;;;;;;;;;;;;;;;;;-1:
+-1:-1;317:33:0;;;;;;;-1:-1:-1;;;;;317:33:0;;;;-1:-1:-1;317:33:0;:::o;679:1009::-;999:6;;764:11;;;763:3
+7;;;789:10;-1:-1:-1;;;;;781:18:0;:4;-1:-1:-1;;;;;781:18:0;;763:37;:54;;;-1:-1:-1;;;;;;805:11:0;;;763:5
+4;759:65;;;819:5;;759:65;-1:-1:-1;1008:1:0;;-1:-1:-1;1008:1:0;1067:92;1089:12;1102:1;1089:15;;;;;;;;;;
+;;;;;;;;;-1:-1:-1;1089:26:0;1075:10;-1:-1:-1;;;;;1075:40:0;;;1089:26;;1075:40;;;;1074:71;;-1:-1:-1;112
+5:12:0;:19;1121:23;;1074:71;1067:92;;;1151:3;;;;;1067:92;;;1200:86;1216:12;1229:1;1216:15;;;;;;;;;;;;;
+;;;;;;-1:-1:-1;1216:26:0;-1:-1:-1;;;;;1208:34:0;;;1216:26;;1208:34;;;;1207:65;;-1:-1:-1;1252:12:0;:19;
+1248:23;;1207:65;1200:86;;;1278:3;;1200:86;;;1356:6;1327:12;1340:1;1327:15;;;;;;;;;;;;;;;;;;;;:26;;;:3
+5;1323:46;;;1364:5;;1323:46;1638:6;1608:12;1621:1;1608:15;;;;;;;;;;;;;;;;;;;;:26;;;:36;;;;;;;;;;;1678:
+6;1648:12;1661:1;1648:15;;;;;;;;;;;;;;;;;;;-1:-1:-1;1648:26:0;;:36;;;;;;;;679:1009;;;;;:::o' } },
+  formal: { errors: [ ':5:5: Error: Type "address" not supported for state variable.\n    address publ
+ic creator;\n    ^--------------------^\n' ] },
+  sourceList: [ '' ],
+  sources: { '': { AST: [Object] } } }
+> var abi = compiledContract.contracts['Shares'].interface;
+undefined
+> abi
+'[{"constant":true,"inputs":[],"name":"creator","outputs":[{"name":"","type":"address"}],"payable":fal
+se,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"ShareHolders","
+outputs":[{"name":"sh_address","type":"address"},{"name":"sh_balance","type":"uint256"}],"payable":fal
+se,"type":"function"},{"constant":false,"inputs":[{"name":"dest","type":"address"},{"name":"tokens","t
+ype":"uint256"}],"name":"transfer","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":
+"ctokens","type":"uint256"}],"payable":false,"type":"constructor"}]'
+> var bytecode = compiledContract.contracts['Shares'].bytecode;
+undefined
+> bytecode
+'6060604052346100005760405160208061037b83398101604052515b60008054600160a060020a03191633600160a060020a0
+316179055600180548082018083558281838015829011610090576002028160020283600052602060002091820191016100909
+1905b8082111561008c578054600160a060020a031916815560006001820155600201610067565b5090565b5b5050509160005
+26020600020906002020160005b5060408051808201909152600054600160a060020a031680825260209091018490528154600
+160a060020a031916178155600101829055505b505b61028c806100ef6000396000f300606060405263ffffffff60e060020a6
+0003504166302d05d3f811461003a5780635ed2b80714610063578063a9059cbb14610096575b610000565b346100005761004
+76100b4565b60408051600160a060020a039092168252519081900360200190f35b34610000576100736004356100c3565b604
+08051600160a060020a03909316835260208301919091528051918290030190f35b34610000576100b2600160a060020a03600
+435166024356100f9565b005b600054600160a060020a031681565b60018181548110156100005790600052602060002090600
+2020160005b508054600190910154600160a060020a03909116915082565b60008082158061011a575033600160a060020a031
+684600160a060020a0316145b8061012c5750600160a060020a038416155b1561013657610000565b5060009050805b6001828
+15481101561000057906000526020600020906002020160005b505433600160a060020a0390811691161480159061017957506
+0015482105b156101895760019091019061013d565b5b600181815481101561000057906000526020600020906002020160005
+b5054600160a060020a038581169116148015906101c5575060015481105b156101d25760010161018a565b826001838154811
+01561000057906000526020600020906002020160005b5060010154101561020057610000565b8260018281548110156100005
+7906000526020600020906002020160005b5060010160008282540192505081905550826001838154811015610000579060005
+26020600020906002020160005b5060010180549190910390555b505050505600a165627a7a72305820a29e621e9842c456bd2
+deb531ae82a119c71a13d1f0e7b778d6171d5e4f1f8ad0029'
+> var gasEstimate = web3.eth.estimateGas({data: bytecode});
+undefined
+> gasEstimate
+304922
+> var MyContract = web3.eth.contract(JSON.parse(abi));
+undefined
+> MyContract
+ContractFactory {
+  eth:
+   Eth {
+     _requestManager: RequestManager { provider: [Object], polls: {}, timeout: null },
+     getBalance: { [Function: send] request: [Function: bound ], call: 'eth_getBalance' },
+     getStorageAt: { [Function: send] request: [Function: bound ], call: 'eth_getStorageAt' },
+     getCode: { [Function: send] request: [Function: bound ], call: 'eth_getCode' },
+     getBlock: { [Function: send] request: [Function: bound ], call: [Function: blockCall] },
+     getUncle: { [Function: send] request: [Function: bound ], call: [Function: uncleCall] },
+     getCompilers: { [Function: send] request: [Function: bound ], call: 'eth_getCompilers' },
+     getBlockTransactionCount:
+      { [Function: send]
+        request: [Function: bound ],
+        call: [Function: getBlockTransactionCountCall] },
+     getBlockUncleCount:
+      { [Function: send]
+        request: [Function: bound ],
+        call: [Function: uncleCountCall] },
+     getTransaction:
+      { [Function: send]
+        request: [Function: bound ],
+        call: 'eth_getTransactionByHash' },
+     getTransactionFromBlock:
+      { [Function: send]
+        request: [Function: bound ],
+        call: [Function: transactionFromBlockCall] },
+     getTransactionReceipt:
+      { [Function: send]
+        request: [Function: bound ],
+        call: 'eth_getTransactionReceipt' },
+     getTransactionCount: { [Function: send] request: [Function: bound ], call: 'eth_getTransactionCou
+nt' },
+     call: { [Function: send] request: [Function: bound ], call: 'eth_call' },
+     estimateGas: { [Function: send] request: [Function: bound ], call: 'eth_estimateGas' },
+     sendRawTransaction: { [Function: send] request: [Function: bound ], call: 'eth_sendRawTransaction
+' },
+     sendTransaction: { [Function: send] request: [Function: bound ], call: 'eth_sendTransaction' },
+     sign: { [Function: send] request: [Function: bound ], call: 'eth_sign' },
+     compile: { solidity: [Object], lll: [Object], serpent: [Object] },
+     submitWork: { [Function: send] request: [Function: bound ], call: 'eth_submitWork' },
+     getWork: { [Function: send] request: [Function: bound ], call: 'eth_getWork' },
+     coinbase: [Getter],
+     getCoinbase: { [Function: get] request: [Function: bound ] },
+     mining: [Getter],
+     getMining: { [Function: get] request: [Function: bound ] },
+     hashrate: [Getter],
+     getHashrate: { [Function: get] request: [Function: bound ] },
+     syncing: [Getter],
+     getSyncing: { [Function: get] request: [Function: bound ] },
+     gasPrice: [Getter],
+     getGasPrice: { [Function: get] request: [Function: bound ] },
+     accounts: [Getter],
+     getAccounts: { [Function: get] request: [Function: bound ] },
+     blockNumber: [Getter],
+     getBlockNumber: { [Function: get] request: [Function: bound ] },
+     protocolVersion: [Getter],
+     getProtocolVersion: { [Function: get] request: [Function: bound ] },
+     iban:
+      { [Function: Iban]
+        fromAddress: [Function],
+        fromBban: [Function],
+        createIndirect: [Function],
+        isValid: [Function] },
+     sendIBANTransaction: [Function: bound transfer] },
+  abi:
+   [ { constant: true,
+       inputs: [],
+       name: 'creator',
+       outputs: [Object],
+       payable: false,
+       type: 'function' },
+     { constant: true,
+       inputs: [Object],
+       name: 'ShareHolders',
+       outputs: [Object],
+       payable: false,
+       type: 'function' },
+     { constant: false,
+       inputs: [Object],
+       name: 'transfer',
+       outputs: [],
+       payable: false,
+       type: 'function' },
+     { inputs: [Object], payable: false, type: 'constructor' } ],
+  new: { [Function] getData: [Function: bound ] } }
+> web3.eth.defaultAccount = accounts[0]
+'0x6570ababca9a085693247d3b39771a6a4c1e104b'
+> var deployer = accounts[1];
+undefined
+> deployer
+'0xb9486939c8928390a84180edca05e3978ffbf115'
+> MyContract.address
+undefined
+> var myContractDeployed = MyContrat.new (123456, {from:deployeur, data:bytecode, gas:500000}, functio
+n (error, monContrat) {if (!error) {if (!MyContract.address) {console.log(MyContract.transactionHash);
+} else {console.log(MyContract.address);}}});
+ReferenceError: MyContrat is not defined
+    at repl:1:26
+    at realRunInThisContextScript (vm.js:22:35)
+    at sigintHandlersWrap (vm.js:98:12)
+    at ContextifyScript.Script.runInThisContext (vm.js:24:12)
+    at REPLServer.defaultEval (repl.js:346:29)
+    at bound (domain.js:280:14)
+    at REPLServer.runBound [as eval] (domain.js:293:12)
+    at REPLServer.onLine (repl.js:544:10)
+    at emitOne (events.js:101:20)
+    at REPLServer.emit (events.js:188:7)
+> var myContractDeployed = MyContract.new (123456, {from:deployeur, data:bytecode, gas:500000}, functi
+on (error, monContrat) {if (!error) {if (!MyContract.address) {console.log(MyContract.transactionHash)
+;} else {console.log(MyContract.address);}}});
+ReferenceError: deployeur is not defined
+    at repl:1:56
+    at realRunInThisContextScript (vm.js:22:35)
+    at sigintHandlersWrap (vm.js:98:12)
+    at ContextifyScript.Script.runInThisContext (vm.js:24:12)
+    at REPLServer.defaultEval (repl.js:346:29)
+    at bound (domain.js:280:14)
+    at REPLServer.runBound [as eval] (domain.js:293:12)
+    at REPLServer.onLine (repl.js:544:10)
+    at emitOne (events.js:101:20)
+    at REPLServer.emit (events.js:188:7)
+> var myContractDeployed = MyContract.new (123456, {from:deployer, data:bytecode, gas:500000}, functio
+n (error, monContrat) {if (!error) {if (!MyContract.address) {console.log(MyContract.transactionHash);
+} else {console.log(MyContract.address);}}});
+undefined
+> undefined
+undefined
+
+> abi
+'[{"constant":true,"inputs":[],"name":"creator","outputs":[{"name":"","type":"address"}],"payable":fal
+se,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"ShareHolders","
+outputs":[{"name":"sh_address","type":"address"},{"name":"sh_balance","type":"uint256"}],"payable":fal
+se,"type":"function"},{"constant":false,"inputs":[{"name":"dest","type":"address"},{"name":"tokens","t
+ype":"uint256"}],"name":"transfer","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":
+"ctokens","type":"uint256"}],"payable":false,"type":"constructor"}]'
+> var MyContract = web3.eth.contract(abi);
+undefined
+> MyContract
+ContractFactory {
+  eth:
+   Eth {
+     _requestManager: RequestManager { provider: [Object], polls: {}, timeout: null },
+     getBalance: { [Function: send] request: [Function: bound ], call: 'eth_getBalance' },
+     getStorageAt: { [Function: send] request: [Function: bound ], call: 'eth_getStorageAt' },
+     getCode: { [Function: send] request: [Function: bound ], call: 'eth_getCode' },
+     getBlock: { [Function: send] request: [Function: bound ], call: [Function: blockCall] },
+     getUncle: { [Function: send] request: [Function: bound ], call: [Function: uncleCall] },
+     getCompilers: { [Function: send] request: [Function: bound ], call: 'eth_getCompilers' },
+     getBlockTransactionCount:
+      { [Function: send]
+        request: [Function: bound ],
+        call: [Function: getBlockTransactionCountCall] },
+     getBlockUncleCount:
+      { [Function: send]
+        request: [Function: bound ],
+        call: [Function: uncleCountCall] },
+     getTransaction:
+      { [Function: send]
+        request: [Function: bound ],
+        call: 'eth_getTransactionByHash' },
+     getTransactionFromBlock:
+      { [Function: send]
+        request: [Function: bound ],
+        call: [Function: transactionFromBlockCall] },
+     getTransactionReceipt:
+      { [Function: send]
+        request: [Function: bound ],
+        call: 'eth_getTransactionReceipt' },
+     getTransactionCount: { [Function: send] request: [Function: bound ], call: 'eth_getTransactionCou
+nt' },
+     call: { [Function: send] request: [Function: bound ], call: 'eth_call' },
+     estimateGas: { [Function: send] request: [Function: bound ], call: 'eth_estimateGas' },
+     sendRawTransaction: { [Function: send] request: [Function: bound ], call: 'eth_sendRawTransaction
+' },
+     sendTransaction: { [Function: send] request: [Function: bound ], call: 'eth_sendTransaction' },
+     sign: { [Function: send] request: [Function: bound ], call: 'eth_sign' },
+     compile: { solidity: [Object], lll: [Object], serpent: [Object] },
+     submitWork: { [Function: send] request: [Function: bound ], call: 'eth_submitWork' },
+     getWork: { [Function: send] request: [Function: bound ], call: 'eth_getWork' },
+     coinbase: [Getter],
+     getCoinbase: { [Function: get] request: [Function: bound ] },
+     mining: [Getter],
+     getMining: { [Function: get] request: [Function: bound ] },
+     hashrate: [Getter],
+     getHashrate: { [Function: get] request: [Function: bound ] },
+     syncing: [Getter],
+     getSyncing: { [Function: get] request: [Function: bound ] },
+     gasPrice: [Getter],
+     getGasPrice: { [Function: get] request: [Function: bound ] },
+     accounts: [Getter],
+     getAccounts: { [Function: get] request: [Function: bound ] },
+     blockNumber: [Getter],
+     getBlockNumber: { [Function: get] request: [Function: bound ] },
+     protocolVersion: [Getter],
+     getProtocolVersion: { [Function: get] request: [Function: bound ] },
+     iban:
+      { [Function: Iban]
+        fromAddress: [Function],
+        fromBban: [Function],
+        createIndirect: [Function],
+        isValid: [Function] },
+     sendIBANTransaction: [Function: bound transfer] },
+  abi: '[{"constant":true,"inputs":[],"name":"creator","outputs":[{"name":"","type":"address"}],"payab
+le":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"ShareHolders","outputs":[{"name":"sh_address","type":"address"},{"name":"sh_balance","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"dest","type":"address"},{"name":"tokens","type":"uint256"}],"name":"transfer","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":"ctokens","type":"uint256"}],"payable":false,"type":"constructor"}]',
+  new: { [Function] getData: [Function: bound ] } }
+> var MyContract = web3.eth.contract(JSON.parse(abi));
+undefined
+> var myContractDeployed = MyContract.new (123456, {from:deployer, data:bytecode, gas:500000}, function (error, MyContract) {if (!error) {if (!MyContract.address) {console.log(MyContract.transactionHash);} else {console.log(MyContract.address);}}});
+undefined
+> 0x4c2491bc59e41fae3a643f53cb0e032fc72ec66180ac44a8baab24926aa525df
+0xe2f664e56ee9aeb4d1140fb577817dd2c52eb09c
+
+> myContractDeployed.address
+'0xe2f664e56ee9aeb4d1140fb577817dd2c52eb09c'
+> var myContractInstance = MyContract.at(myContractDeployed.address);
+undefined
+> var TEST = myContractInstance.ShareHolders(0);
+undefined
+> TEST
+[ '0xb9486939c8928390a84180edca05e3978ffbf115',
+  { [String: '123456'] s: 1, e: 5, c: [ 123456 ] } ]
+> accounts[1]
+'0xb9486939c8928390a84180edca05e3978ffbf115'
+>
