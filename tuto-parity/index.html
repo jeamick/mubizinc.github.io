@@ -1,0 +1,239 @@
+<html>
+<head>
+	<meta charset="UTF-8" />
+
+	<title>ESILV - Blockchain Programming - TP/TD 3e année | Mubiz</title>
+	<meta name="description"    content="Sujet de TP/TD Blockchain Programming pour les 3e année de l'ESILV"/>
+	<meta name="keywords"       content="ESILV, TP,"/>
+	
+	<meta name="robots"         content="index,follow"/>
+	<meta name="rating"         content="safe for kids"/>
+	<meta name="revisit-after"  content="14 days"/>
+	<meta name="author"         content="Mubiz"/>
+
+	<meta name="geo.placename"	content="France"/>
+
+	<meta property="og:type"		content="website"/>
+	<meta property="og:site_name"	content="GitHub - Albin CAUDERLIER"/>
+	<meta property="og:locale"		content="fr_FR"/>
+
+	<meta name="theme-color" content="#009999">
+	
+	<link rel="shortcut icon"   					type="image/ico"	href="/images/favicon.png" 	/>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, target-densitydpi=device-dpi"/>
+	
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	
+	<link rel="stylesheet"    		media="all"		type="text/css" 	href="../styles/design.css"   />
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="/" class="navbar-brand" rel="home" title=""><img style="max-width:100px;" src="http://mubiz.com/images/mubiz/mubiz-logo-white.png" alt="Mubiz logo"/></a>
+			</div>
+			<div class="navbar-collapse collapse" id="navbar">
+				<ul class="nav navbar-nav">
+					<li class="active"><a title="TP 3A">3e année</a></li>
+					<li><a href="/4a/" title="TP 4A">4e année</a></li>
+					<li><a href="/solidity" title="Bases concernant le language Solidity">Solidity</a></li>
+					<li><a href="/tuto-arc" title="Tutoriel ARC">Tutoriel ARC</a></li>
+					<li><a href="/tuto-doc-node-web3" title="Tutoriel Web3.js">Tutoriel Web3.js</a></li>
+					<li><a href="/lexique" title="Lexique Blockchain">Lexique Blockchain</a></li>
+					<li><a href="/tuto-parity" title="Tutoriel assethbox parity et testnet">Tutoriel testnet</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container theme-showcase" role="main">
+		<div class="jumbotron">
+			<h2>Installation de l'assethbox et parity sur testnet privé</h2>
+			<br/>
+			<p>
+				Ce tutoriel a pour but de vous permettre de tester les smarts contracts que vous aurez développé pendant les TP, chez vous.
+			</p>
+		</div>
+
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="#installation" title="Pré-requis">Pré-requis</a></li>
+						<li>
+							<a href="#assethbox" title="installation de l'assethbox">
+								Installation assethbox
+							</a>
+						</li>
+						<li>
+							<a href="#testnetSetup" title="Configuration du private testnet">
+								Configuration de parity
+							</a>
+						</li>
+						<li>
+							<a href="#parityUtilisation" title="Comment utiliser parity">
+								Comment utiliser parity
+							</a>
+						</li>
+						<li>
+							<a href="#tp4" title="TP 4 - Ethereum et Smart-contracts">TP 4 - Smart-contracts</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="page-header" id="installation">
+			<h3>Pré-requis - Installations</h3>
+		</div>
+
+		<p>
+			<li class="list-group-item">
+				avoir 
+				<a href="https://www.virtualbox.org/wiki/Downloads"> 
+					VirtualBox 5.1.14 platform packages
+				</a> 
+				d'installé
+			</li>
+			
+		</p>
+
+		<div class="page-header" id="assethbox">
+			<h3>Installation de l'assethbox</h3>
+		</div>
+		<ul class="list-group">
+			<li class="list-group-item">
+				Téléchargez le fichier contenant la machine virtuelle à l'adresse 
+				<a href="https://github.com/asseth/assethbox">
+					github.com/asseth/assethbox
+				</a>, 
+				dans la rubrique <strong>Get the image</strong> du README
+			</li>
+			<li class="list-group-item">
+				Importez dans virtualbox le fichier téléchargé en .ova 
+			</li>
+			<li class="list-group-item">
+				lancez la machine virtuelle, utilisez le compte vagrant avec le mot de passe vagrant 
+			</li>
+		</ul>
+
+		<div class="page-header" id="testnetSetup">
+			<h3>Configuration de parity en réseau privé</h3>
+		</div>
+
+		<ul class="list-group">
+			<li class="list-group-item">
+				copiez le code suivant : <br>
+				<code>
+					{
+    "name": "DevelopmentChain",
+    "engine": {
+        "instantSeal": null
+    },
+    "params": {
+        "accountStartNonce": "0x0",
+        "maximumExtraDataSize": "0x20",
+        "minGasLimit": "0x1388",
+        "networkID" : "0x11"
+    },
+    "genesis": {
+        "seal": {
+            "generic": "0x0"
+        },
+        "difficulty": "0x20000",
+        "author": "0x0000000000000000000000000000000000000000",
+        "timestamp": "0x00",
+        "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "extraData": "0x",
+        "gasLimit": "0x5B8D80"
+    },
+    "accounts": {
+        "0000000000000000000000000000000000000001": { "balance": "1", "builtin": { "name": "ecrecover", "pricing": { "linear": { "base": 3000, "word": 0 } } } },
+        "0000000000000000000000000000000000000002": { "balance": "1", "builtin": { "name": "sha256", "pricing": { "linear": { "base": 60, "word": 12 } } } },
+        "0000000000000000000000000000000000000003": { "balance": "1", "builtin": { "name": "ripemd160", "pricing": { "linear": { "base": 600, "word": 120 } } } },
+        "0000000000000000000000000000000000000004": { "balance": "1", "builtin": { "name": "identity", "pricing": { "linear": { "base": 15, "word": 3 } } } },
+        "0x002B9e4Ae2810F00156F0cA8384036FcC2B0019e": { "balance": "1606938044258990275541962092341162602522202993782792835301376" }
+    }
+}
+				</code>
+			</li>
+			<li class="list-group-item">
+				Lancez l'invite de commande terminator (Démarrer -> system tools -> terminator)
+			</li>
+			<li class="list-group-item">
+				Créez un fichier genesis personnalisé pour créer votre propre réseau ethereum : vim genesis.json
+			</li>
+			<li class="list-group-item">
+				Appuyez sur "i" pour pouvoir éditer
+			</li>
+			<li class="list-group-item">
+				Pour coller le contenu dans le terminal faites : ctrl + maj + v
+			</li>
+			<li class="list-group-item">
+				Appuyez sur echap pour quitter le mode édition
+			</li>
+			<li class="list-group-item">
+				Entrez ":wq" pour quitter vim et enregistrer les modifications
+			</li>
+			<li class="list-group-item">Dans le terminal, pour lancer parity entrez : parity --chain ~/genesis.json</li>
+			<li class="list-group-item">
+				Dans un navigateur (Démarer -> internet -> ...) allez à l'adresse 127.0.0.1:8080 
+			</li>
+			<li class="list-group-item">
+				Acceptez les CGU et créez un compte 
+			</li>
+			<li class="list-group-item">
+				copiez l'adresse de ce compte (elle commence par 0x....) 
+			</li>
+			<li class="list-group-item">
+				Coupez parity (dans le terminal ou il s'exécute faire : ctrl + c)
+			</li>
+			<li class="list-group-item">
+				Editez le fichier genesis.json et remplacer 0x002B9e4Ae2810F00156F0cA8384036FcC2B0019e par l'adresse récupérée précédemment. <br>
+				D'autres paramètres peuvent être modifiés sur ce fichier tel que le nombre de coins émis, le coût du gaz...	La documentation de ce fichier se trouve
+				<a href="https://github.com/ethcore/parity/wiki/Chain-specification">ici</a>
+			</li>
+			<li class="list-group-item">
+				Relancez parity
+			</li>
+			<li class="list-group-item">
+				Dans parity sur le navigateur, allez dans les option et cocher la case contrat, un nouvel onglet apparaîtra. 
+			</li>
+		</ul>
+
+		<div class="page-header" id="parityUtilisation">
+			<h3>Comment utiliser parity</h3>
+		</div>
+
+		<ul class="list-group">
+			<li class="list-group-item">
+				Dans l'onglet <code>CONTRACTS</code> cliquez sur <code>DEVELOP CONTRACT</code> pour accéder à l'IDE intégré à Parity.
+			</li>
+			<li class="list-group-item">
+				Vous pouvez dès maintenant tester de compiler votre smart contract et si celui ci ne contient pas d'erreur vous pourrez alors le déployer. Une fois déployé, retournez dans l'onglet <code>CONTRACTS</code> et sélectionnez le.
+			</li>
+			<li class="list-group-item">
+				Vous pouvez désormais en cliquant sue <code>EXECUTE</code> interagir avec les fonctoins de votre smart contract
+			</li>
+		</ul>
+	</div>
+	<footer class="footer">
+		<div class="container">
+			<a href="http://mubiz.com" title="Made by Albin CAUDERLIER for Mubiz">(c) Mubiz</a>
+		</div>
+		<ul class="footer-list">
+			<li class="footer-list-item"><a href="http://mubiz.com" title="Mubiz - Et vous ? Que vendez-vous ?">Mubiz</a></li>
+			<li class="footer-list-item"><a href="http://mubiz.com/about" title="A propos de Mubiz">A propos de Mubiz</a></li>
+			<li class="footer-list-item"><a href="http://mubiz.com/developers" title="API de Mubiz">API de Mubiz</a></li>
+		</ul>
+	</footer>
+	
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</body>
+</html>
