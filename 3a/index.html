@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8" />
@@ -19,19 +20,24 @@
 
 	<meta name="theme-color" content="#009999">
 	
-	<link rel="shortcut icon"   					type="image/ico"	href="/images/favicon.png" 	/>
+	<link rel="shortcut icon"   					type="image/ico"	href="http://mubiz.com/images/favicon.png" 	/>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, target-densitydpi=device-dpi"/>
+
 	
-	<script type="text/javascript" src="../js/jquery.js"></script>
+	<!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+	
+	
+	<!-- HIGHLIGHT -->	
+	<link rel="stylesheet" href="../styles/kimbie.light.css">
+	<script src="http://mubiz.com/lib/highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
 	
 	<link rel="stylesheet"    		media="all"		type="text/css" 	href="../styles/design.css"   />
 	
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -149,6 +155,7 @@
 			<li class="list-group-item">JS - Commencer les variables par une minuscule et les nommer en chameau</li>
 			<li class="list-group-item">JS - Commencer chaque fonction par un contrôle des paramètres fournis et des retours logiques.</li>
 			<li class="list-group-item">HTML SEO - Ajouter de méta-données dans les pages HTML, dans le respect de schema.org</li>
+			<li class="list-group-item">HTML SEO - Les balises doivent être en minusucule</li>
 			<li class="list-group-item">Performance - Vérifier la conformité W3C (HTML et CSS)</li>
 			<li class="list-group-item">Performance - Ne pas appeler des fichiers inutiles (JS, CSS, ...)</li>
 			<li class="list-group-item">UX - Ajouter d'icônes et d'images</li>
@@ -157,32 +164,141 @@
 			<li class="list-group-item">Organisation - Mettre les scripts dans des fichiers JS (rien en HTML)</li>
 		</ul>
 
+
+		<div class="page-header" id="livraison">
+			<h2>Livrable et notation</h2>
+		</div>
+		<p>
+			Aucun livrable n'est attendu à la fin de chaque séance.<br/>
+			<br/>
+			A la fin des 4 séances, vous devez transmettre à <a href="mailto:albin@mubiz.com">l'adresse de votre encadrant</a>, un e-mail :<br/>
+		</p>
+		<ul class="list-group">
+			<li class="list-group-item">Envoyé depuis votre adresse e-mail de l'école (@devinci.fr)</li>
+			<li class="list-group-item">Mettre en copie votre binôme</li>
+			<li class="list-group-item">Commencer le sujet par "[ESILV][TP][3A]"</li>
+			<li class="list-group-item">Indiquer votre site internet, avec un lien hypertexte.</li>
+		</ul>
+
+
 		<div class="page-header" id="tp1">
 			<h2>TP 1 - Appel JSON et page d'informations</h2>
 		</div>
+		<h3>Création d'une page pour les TP Bitcoin</h3>
+		<p>
+			<pre>
+				<code class="xml hljs">
+					<!DOCTYPE html>
+					<html>
+						<head>
+							<title></title>						
+						</head>
+						<body>
+							<h1>Explorateur Bitcoin</h1>
+						
+						</body>
+					</html>
+				</code>
+			</pre>
+		
+		
+		</p>
+		
+		
+		<h3>Un peu de couleur...</h3>
+		<p>
+			Pour ces TD, il est déconseillé d'utiliser des templates Bootstarp complets, car il n'est pas possible pour les encadrants de vous aider à débugger.<br/>
+			C'est pourquoi, nous vous invitons à utiliser uniquement <a href="http://getbootstrap.com/examples/theme/">le template de base</a>
+		
+		</p>
+		
 		<h3>Appel JSON depuis un navigateur</h3>
 		<ul class="list-group">
 			<li class="list-group-item">
 				Aller sur la documentation de l'API Bitcoin de votre choix (dans l'ordre de préférence des encadrants) :
 				<ul>
-					<li><a href="http://mubiz.com/developers/bitcoin/" title="Mubiz documentation" target="_blanck">Mubiz</a></li>
-					<li><a href="https://blockchain.info/fr/api/blockchain_api" title="Blockchain.info" rel="nofollow" target="_blanck">Blockchain.info</a></li>
-					<li><a href="https://www.blockcypher.com/dev/bitcoin/" rel="nofollow" target="_blanck">BlockCypher</a></li>
-					<li><a href="https://block.io/docs/basic" title="Block.io" rel="nofollow" target="_blanck">Block.io</a></li>
+					<li><a href="http://mubiz.com/developers/bitcoin/" title="Mubiz documentation" target="_blanck"><img src="http://mubiz.com/images/mubiz/mubiz-logo.png" class="logo"/></li>
+					<li><a href="https://blockchain.info/fr/api/blockchain_api" title="Blockchain.info" rel="nofollow" target="_blanck"><img src="http://www.e-mprovement.com/images/dashboard/blockchain-info-logo.png" class="logo"/></li>
+					<li><a href="https://www.blockcypher.com/dev/bitcoin/" rel="nofollow" target="_blanck"><img src="http://www.e-mprovement.com/images/dashboard/blockcypher-logo.png" class="logo"/></a></li>
+					<li><a href="https://block.io/docs/basic" title="Block.io" rel="nofollow" target="_blanck"><img src="http://bittrust.s3.amazonaws.com/1437541807.png" class="logo"/></a></li>
 				</ul>
-				<div class="alert alert-info" role="alert"><strong>TODO Albin</strong> Mettre les logos</div>
 			</li>
 			<li class="list-group-item">Faire les appels JSON des fonctions sans paramètres depuis un navigateur (mining par ex)</li>
 			<li class="list-group-item">
 				Appeler les données depuis la page créée + les afficher
 				<div class="alert alert-info" role="alert">
 					<strong>Amélioration - TODO Albin</strong><br/>
-					- Indiquer des fonctions JS que l'on pourra utiliser (AJAX, APPEND, ...)<br/>
 					- Fournir quelques fonctions de gestion des Unix Time Stamp
 				</div>
 			</li>
 		</ul>
-		
+		<p>
+			Appel d'un WebService en JavaScript
+			<pre>
+				<code class="javascript hljs">
+					var xmlhttp = new XMLHttpRequest();
+					xmlhttp.onreadystatechange = function() {
+					    if (this.readyState == 4 && this.status == 200) {
+					        var myObj = this.responseText;
+					        var jsonPretty = JSON.stringify(JSON.parse(myObj),null,2);
+					        document.getElementById("demo").innerHTML = jsonPretty;
+					    }
+					};
+					xmlhttp.open("GET", "https://api.blockcypher.com/v1/btc/main", true);
+					xmlhttp.send();
+				</code>
+			</pre>
+		</p>
+		<p>
+			Appel d'un WebService en JavaScript
+			<pre>
+				<code class="javascript hljs">
+					/********************************************
+					*      				UNIX TIME
+					*********************************************/
+					/**
+					 * Transforme un unix_time_stamp en une date lisible.
+					 */
+					function unixtime_to_date(unix_timestamp){
+						var a = new Date(unix_timestamp*1000);
+					
+						var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+						var year = a.getFullYear();
+						var month = months[a.getMonth()];
+						var date = a.getDate();
+						
+						// Hours part from the timestamp
+						var hours = a.getHours();
+						// Minutes part from the timestamp
+						var minutes = "0" + a.getMinutes();
+						// Seconds part from the timestamp
+						var seconds = "0" + a.getSeconds();
+					
+						return date + ' ' + month + ' ' + year + ' ' + hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+					}
+					
+					
+					function unixtime_to_delay(unix_timedelay){
+						var seconds = Math.floor(unix_timedelay/1000);
+						var minutes = Math.floor(seconds/60);
+						var hours = Math.floor(minutes/60);
+						var days = Math.floor(hours/24);
+					
+						hours = hours-(days*24);
+						minutes = minutes-(days*24*60)-(hours*60);
+						seconds = seconds-(days*24*60*60)-(hours*60*60)-(minutes*60);
+						
+						var result='';
+						if(days>0)		result = result + days + 'days ';
+						if(hours>0)		result = result + hours + 'hours ';
+						if(minutes>0)	result = result + minutes + 'min ';
+						if(seconds>0)	result = result + seconds + 'sec ';
+						
+						return result;
+					}
+				</code>
+			</pre>
+		</p>
 
 		
 		<h3>Création d'une page d'informations</h3>
@@ -252,9 +368,12 @@
 		
 		
 		<div class="page-header" id="tp4">
-			<h2>TP 4 - Ethereum</h2>
+			<h2>TP 4 - Optimisations, design et compatibilité</h2>
 		</div>
-		<p>Faire le maximum des TP précédents pour la blockchain d'Ethereum</p>
+		<ul class="list-group">
+			<li class="list-group-item">Vérifier que vos pages sont validées par W3C : <a href="http://validator.w3.org/">W3C Validator</a></li>
+			<li class="list-group-item">Améliorer la présentation des pages à l'aide de CSS, animations JS, ...</li>
+		</ul>
 
 		<div class="page-header">
 			<h2>Aller plus loin</h2>
@@ -301,8 +420,6 @@
 			<li class="list-group-item">TODO Albin - Compléter les étapes</li>
 			<li class="list-group-item"></li>
 			<li class="list-group-item"></li>
-			<li class="list-group-item"></li>
-			<li class="list-group-item"></li>
 		</ul>
 		
 	</div>
@@ -316,8 +433,5 @@
 			<li class="footer-list-item"><a href="http://mubiz.com/developers" title="API de Mubiz">API de Mubiz</a></li>
 		</ul>
 	</footer>
-	
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </body>
 </html>

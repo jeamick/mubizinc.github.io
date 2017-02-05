@@ -18,6 +18,24 @@ blockquote {
 }
 
 
+img.logo {
+	max-width: 320px;
+}
+
+
+pre {
+	padding: 0 0;
+	margin: 0 0;
+	background: transparent;
+	border: none;
+}
+
+code {
+	border-radius: 4px;
+	border: 1px solid #ccc;
+}
+
+
 /* ******** FOOTER HOMEPAGE ********  */
 footer {
 	width: 100%;
