@@ -118,7 +118,6 @@
 			<li class="list-group-item">(option) Installer <a href="https://desktop.github.com/" title="GitHub Desktop" rel="nofollow" target="_blanck">Github Desktop</a></li>
 			<li class="list-group-item">Commit + Push sur GitHub</li>
 		</ul>
-		<div class="alert alert-info" role="alert"><strong>TODO Albin</strong> Mettre les logos</div>
 		
 		<h3>Hébergement</h3>
 		<ul class="list-group">
@@ -184,10 +183,12 @@
 		<div class="page-header" id="tp1">
 			<h2>TP 1 - Appel JSON et page d'informations</h2>
 		</div>
-		<h3>Création d'une page pour les TP Bitcoin</h3>
-		<p>
+		<h3>Création d'une page d'accueil</h3>
+		<div class="highlight">
+			Afin d'avoir une page d'accueil à l'URL de votre site, créer un fichier "index.html" à la racine de votre repository.<br/>
+			Y indiquer les Prénom - NOM du Binome.
 			<pre>
-				<code class="xml hljs">
+				<code class="language-html">
 					&lt;!DOCTYPE html&gt;
 					&lt;html&gt;
 						&lt;head&gt;
@@ -195,21 +196,38 @@
 						&lt;/head&gt;
 						&lt;body&gt;
 							&lt;h1&gt;Explorateur Bitcoin&lt;/h1&gt;
-						
+							&lt;h2&gt;James BOND&lt;/h1&gt;
+							&lt;h2&gt;Explorateur Bitcoin&lt;/h1&gt;
 						&lt;/body&gt;
 					&lt;/html&gt;
 				</code>
-			</pre>
-		
+			</pre>		
 		
 		</p>
-		
-		
+
 		<h3>Un peu de couleur...</h3>
 		<p>
-			Pour ces TD, il est déconseillé d'utiliser des templates Bootstarp complets, car il n'est pas possible pour les encadrants de vous aider à débugger.<br/>
-			C'est pourquoi, nous vous invitons à utiliser uniquement <a href="http://getbootstrap.com/examples/theme/">le template de base de Bootstrap</a>
+			Il est déconseillé d'utiliser des templates Bootstrap complets, car les encadrants ne peuvent plus vous permettre de débugger facilement.<br/>
+			Nous vous invitons à utiliser uniquement <a href="http://getbootstrap.com/examples/theme/">le template de base de Bootstrap</a>
 		</p>
+		<img src="http://getlevelten.com/sites/default/files/styles/1200x675/public/content/blog/images/screen_shot_2014-04-11_at_4.28.22_pm.png" class="logo"/>
+		<p>
+			Pour inclure la mise en page de Bootstrap, inclure dans le head de chaque page : 
+			<pre>
+				<code class="xml hljs">
+				    &lt;link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+				    &lt;link href="http://getbootstrap.com/dist/css/bootstrap-theme.min.css" rel="stylesheet"&gt;
+				</code>
+			</pre>
+		</p>
+
+
+		<h3>Création d'une page pour les TP Bitcoin</h3>
+		<p>
+			Pour vous permettre d'utiliser ce site pour la rédaction d'un CV en ligne, d'un blog, pour le partage de photo/video, ..., les développements pour le TP se feront dans un sous-dossier.<br/>
+			Créer un nouveau fichier "bitcoin/index.html".
+		</p>
+		
 		
 		<h3>Appel JSON depuis un navigateur</h3>
 		<ul class="list-group">
@@ -225,10 +243,6 @@
 			<li class="list-group-item">Faire les appels JSON des fonctions sans paramètres depuis un navigateur (mining par ex)</li>
 			<li class="list-group-item">
 				Appeler les données depuis la page créée + les afficher
-				<div class="alert alert-info" role="alert">
-					<strong>Amélioration - TODO Albin</strong><br/>
-					- Fournir quelques fonctions de gestion des Unix Time Stamp
-				</div>
 			</li>
 		</ul>
 		<p>
@@ -248,8 +262,36 @@
 				</code>
 			</pre>
 		</p>
+		
+		<h3>Création d'une page d'informations</h3>
+		<ul class="list-group">
+			<li class="list-group-item">Créer une page /bitcoin + Créer un lien depuis la home page</li>
+			<li class="list-group-item">Afficher les données du WS /info</li>
+			<li class="list-group-item">Afficher les données du WS /blockchaininfo</li>
+			<li class="list-group-item">Afficher les données du WS /mininginfo</li>
+			<li class="list-group-item">Afficher les données du WS /peerinfo</li>
+		</ul>
+		<ul class="list-group">
+			<li class="list-group-item">Créer une page /bitcoin/currency/ + Créer un lien depuis la home page</li>
+			<li class="list-group-item">Afficher les données de /currency</li>
+		</ul>
+		
+		<div class="page-header" id="tp2">
+			<h2>TP 2 - Navigation Blocks, Address, Transactions, ...</h2>
+		</div>
+		<h3>Navigation par block</h3>
+		<ul class="list-group">
+			<li class="list-group-item">Dans /bitcoin, créer un formulaire de saisie d'un numéro</li>
+			<li class="list-group-item">Permettre la saisie d'une address</li>
+			<li class="list-group-item">Afficher le résultat pour l'address</li>
+			<li class="list-group-item">Idem, dans un autre champs pour les hash de transactions</li>
+			<li class="list-group-item">Idem, dans un autre champ pour le hash d'une bloc</li>
+			<li class="list-group-item">Idem, dans un autre champs pour l'index de bloc</li>
+			<li class="list-group-item">Fusionner les champs en un seul</li>
+			<li class="list-group-item">Ajouter des contrôles de vérification des données fournies</li>
+		</ul>
 		<p>
-			Appel d'un WebService en JavaScript
+			Quelques fonctions JavaScript d'affichage des Unix Time
 			<pre>
 				<code class="javascript hljs">
 					/********************************************
@@ -299,34 +341,7 @@
 			</pre>
 		</p>
 
-		
-		<h3>Création d'une page d'informations</h3>
-		<ul class="list-group">
-			<li class="list-group-item">Créer une page /bitcoin + Créer un lien depuis la home page</li>
-			<li class="list-group-item">Afficher les données du WS /info</li>
-			<li class="list-group-item">Afficher les données du WS /blockchaininfo</li>
-			<li class="list-group-item">Afficher les données du WS /mininginfo</li>
-			<li class="list-group-item">Afficher les données du WS /peerinfo</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item">Créer une page /bitcoin/currency/ + Créer un lien depuis la home page</li>
-			<li class="list-group-item">Afficher les données de /currency</li>
-		</ul>
-		
-		<div class="page-header" id="tp2">
-			<h2>TP 2 - Navigation Blocks, Address, Transactions, ...</h2>
-		</div>
-		<h3>Navigation par block</h3>
-		<ul class="list-group">
-			<li class="list-group-item">Dans /bitcoin, créer un formulaire de saisie d'un numéro</li>
-			<li class="list-group-item">Permettre la saisie d'une address</li>
-			<li class="list-group-item">Afficher le résultat pour l'address</li>
-			<li class="list-group-item">Idem, dans un autre champs pour les hash de transactions</li>
-			<li class="list-group-item">Idem, dans un autre champ pour le hash d'une bloc</li>
-			<li class="list-group-item">Idem, dans un autre champs pour l'index de bloc</li>
-			<li class="list-group-item">Fusionner les champs en un seul</li>
-			<li class="list-group-item">Ajouter des contrôles de vérification des données fournies</li>
-		</ul>
+
 		
 		<p>L'ajout de contrôle est nécessaire pour protéger le serveur<br/>
 		<ul class="list-group">
@@ -373,6 +388,7 @@
 			<li class="list-group-item">Vérifier que vos pages sont validées par W3C : <a href="http://validator.w3.org/">W3C Validator</a></li>
 			<li class="list-group-item">Améliorer la présentation des pages à l'aide de CSS, animations JS, ...</li>
 		</ul>
+		<div class="alert alert-info" role="alert"><strong>TODO Albin</strong> Lister l'ensemble des fonctionnalités possibles et souhaitées</div>
 
 		<div class="page-header">
 			<h2>Aller plus loin</h2>
@@ -420,7 +436,6 @@
 			<li class="list-group-item"></li>
 			<li class="list-group-item"></li>
 		</ul>
-		
 	</div>
 	<footer class="footer">
 		<div class="container">
