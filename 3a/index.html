@@ -26,8 +26,6 @@
 
 	
  	<!-- BOOTSTRAP -->
-<!--     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-<!--     <link href="http://getbootstrap.com/dist/css/bootstrap-theme.min.css" rel="stylesheet"> -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -50,8 +48,27 @@
 			</div>
 			<div class="navbar-collapse collapse" id="navbar">
 				<ul class="nav navbar-nav">
-					<li class="active"><a title="TP 3A">3e année</a></li>
-					<li><a href="/4a/" title="TP 4A">4e année</a></li>
+					<li class="active dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" role="button" title="TP 3A" aria-haspopup="true" aria-expanded="false">3e année</a>
+						<ul class="dropdown-menu">
+							<li><a href="#installation">Pré-requis</a></li>
+							<li><a href="#tp1">TP1</a></li>
+							<li><a href="#tp2">TP2</a></li>
+							<li><a href="#tp3">TP3</a></li>
+							<li><a href="#tp4">TP4</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" role="button" title="TP 3A" aria-haspopup="true" aria-expanded="false" href="/4a/" title="TP 4A">4e année</a>
+						<ul class="dropdown-menu">
+							<li><a href="/4a/#installation">Pré-requis</a></li>
+							<li><a href="/4a/#tp1">TP1</a></li>
+							<li><a href="/4a/#tp2">TP2</a></li>
+							<li><a href="/4a/#tp3">TP3</a></li>
+							<li><a href="/4a/#tp4">TP4</a></li>
+							<li><a href="/4a/#tp5">TP5</a></li>
+						</ul>
+					</li>
 					<li><a href="/solidity" title="Bases concernant le language Solidity">Solidity</a></li>
 					<li><a href="/tuto-arc" title="Tutoriel ARC">Tutoriel ARC</a></li>
 					<li><a href="/tuto-doc-node-web3" title="Tutoriel Web3.js">Tutoriel Web3.js</a></li>
@@ -191,38 +208,46 @@
 			Afin d'avoir une page d'accueil à l'URL de votre site, créer un fichier "index.html" à la racine de votre repository.<br/>
 			Y indiquer les Prénom - NOM du Binome.
 			<pre>
-				<code class="language-html">
-					&lt;!DOCTYPE html&gt;
-					&lt;html&gt;
-						&lt;head&gt;
-							&lt;title&gt; VOTRE TITRE &lt;/title&gt;						
-						&lt;/head&gt;
-						&lt;body&gt;
-							&lt;h1&gt;Explorateur Bitcoin&lt;/h1&gt;
-							&lt;h2&gt;James BOND&lt;/h1&gt;
-							&lt;h2&gt;Explorateur Bitcoin&lt;/h1&gt;
-						&lt;/body&gt;
-					&lt;/html&gt;
-				</code>
+<code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt; VOTRE TITRE &lt;/title&gt;						
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;h1&gt;Explorateur Bitcoin&lt;/h1&gt;
+		&lt;h2&gt;James BOND&lt;/h1&gt;
+		&lt;h2&gt;Explorateur Bitcoin&lt;/h1&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code>
 			</pre>		
 		
 		</p>
 
 		<h3>Un peu de couleur...</h3>
-		<p>
-			Il est déconseillé d'utiliser des templates Bootstrap complets, car les encadrants ne peuvent plus vous permettre de débugger facilement.<br/>
-			Nous vous invitons à utiliser uniquement <a href="http://getbootstrap.com/examples/theme/">le template de base de Bootstrap</a>
-		</p>
-		<img src="http://getlevelten.com/sites/default/files/styles/1200x675/public/content/blog/images/screen_shot_2014-04-11_at_4.28.22_pm.png" class="logo"/>
-		<p>
-			Pour inclure la mise en page de Bootstrap, inclure dans le head de chaque page : 
-			<pre>
-				<code class="xml hljs">
-				    &lt;link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
-				    &lt;link href="http://getbootstrap.com/dist/css/bootstrap-theme.min.css" rel="stylesheet"&gt;
-				</code>
-			</pre>
-		</p>
+		<div class="col-sm-8">
+			<p>
+				Il est déconseillé d'utiliser des templates Bootstrap complets, car les encadrants ne peuvent plus vous permettre de débugger facilement.<br/>
+				Nous vous invitons à utiliser uniquement <a href="http://getbootstrap.com/examples/theme/">le template de base de Bootstrap</a><br/>
+			</p>
+			<p>
+				Vous êtes invités à lire <a href="http://getbootstrap.com/getting-started/" title="Documentation complète de Bootstrap... en Anglais">la documentation</a> pour découvrir les capacités de ce framework, ... et les utiliser pour rendre la navigation agréable.
+			</p>
+			<p>
+				Pour inclure la mise en page de Bootstrap, inclure dans le head de chaque page :
+			</p>
+		</div>
+		<div class="col-sm-4">
+			<img src="http://getlevelten.com/sites/default/files/styles/1200x675/public/content/blog/images/screen_shot_2014-04-11_at_4.28.22_pm.png" class="logo"/>
+		</div>
+		<pre>
+<code class="xml hljs">
+&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"&gt;
+&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"&gt;
+&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"&gt;&lt;/script&gt;
+</code>
+		</pre>
 
 
 		<h3>Création d'une page pour les TP Bitcoin</h3>
@@ -251,18 +276,18 @@
 		<p>
 			Appel d'un WebService en JavaScript
 			<pre>
-				<code class="javascript hljs">
-					var xmlhttp = new XMLHttpRequest();
-					xmlhttp.onreadystatechange = function() {
-					    if (this.readyState == 4 && this.status == 200) {
-					        var myObj = this.responseText;
-					        var jsonPretty = JSON.stringify(JSON.parse(myObj),null,2);
-					        document.getElementById("demo").innerHTML = jsonPretty;
-					    }
-					};
-					xmlhttp.open("GET", "https://api.blockcypher.com/v1/btc/main", true);
-					xmlhttp.send();
-				</code>
+<code class="javascript hljs">
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var myObj = this.responseText;
+        var jsonPretty = JSON.stringify(JSON.parse(myObj),null,2);
+        document.getElementById("demo").innerHTML = jsonPretty;
+    }
+};
+xmlhttp.open("GET", "https://api.blockcypher.com/v1/btc/main", true);
+xmlhttp.send();
+</code>
 			</pre>
 		</p>
 		
