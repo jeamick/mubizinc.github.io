@@ -17,6 +17,10 @@ blockquote {
 	word-wrap: break-word;
 }
 
+blockquote footer{
+	background: inherit;
+}
+
 
 img.logo {
 	max-width: 320px;
@@ -27,6 +31,9 @@ code {
 	background-color: transparent;
 }
 
+h1 {
+	font-size: 12px;
+}
 
 /* ******** FOOTER HOMEPAGE ********  */
 footer {

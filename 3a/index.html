@@ -26,9 +26,9 @@
 
 	
  	<!-- BOOTSTRAP -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
- 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
- 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+ 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
 	
 	
@@ -79,8 +79,12 @@
 	</nav>
 	<div class="container theme-showcase" role="main">
 		<div class="jumbotron">
-			<img src="https://upload.wikimedia.org/wikipedia/fr/thumb/6/60/Logo_ESILV.svg/320px-Logo_ESILV.svg.png" alt="Logo ESILV"/>
-			<h1>TP Blockchain Programming<br/>3e Année</h1>
+			<div class="col-sm-4">
+				<img src="https://upload.wikimedia.org/wikipedia/fr/thumb/6/60/Logo_ESILV.svg/320px-Logo_ESILV.svg.png" alt="Logo ESILV"/>
+			</div>
+			<div class="col-sm-8">
+				<h1>Blockchain Programming<br/>3e Année</h1>
+			</div>
 			<h2>Objectif</h2>
 			<p>
 				Cette série de TP souhaite permettre à chaque étudiant le développement d'un exploreur de blockchain.<br/>
@@ -152,7 +156,7 @@
 		</div>
 		<p>
 			Il est recommandé de tester directement en local sur votre poste. Vous pouvez pour cela utiliser un navigateur web.<br/>
-			Pour tester les WS JSON, nous vous invitons à suivre le <a href="https://mubizinc.github.io/tuto-arc" title="Tutoriel ARC">tutoriel ARC</a>.
+			Pour tester les WS JSON, nous vous invitons à suivre le <a href="https://mubizinc.github.io/tuto-arc" title="Tutoriel ARC" rel="nofollow" target="_blanck">tutoriel ARC</a>.
 		</p>
 		
 		<h3>Rédaction de la home page</h3> 
@@ -163,10 +167,15 @@
 		</ul>
 
 		<h3>Qualité de code</h3>
+		<blockquote>
+		    <p>"Les fautes d'orthographe amoindrissent vos chances, même en amour. Une lettre d'amour avec des fautes, vous risquez d'être mal reçus."</p>
+		    <footer>Bernard PIVOT</footer>
+		</blockquote>
 		<p>
 			Nous nous concentrons sur les cas d'application de la technologie blockchain, mais cela ne doit pas justifier un code difficile à maintenir.<br/>
-			Nous vous invitons à respecter, autant que possible, les quelques bonnes pratiques suivantes.
+			Pour ne pas être mal reçu par Google, nous vous invitons à respecter, autant que possible, les quelques bonnes pratiques suivantes.
 		</p>
+		
 		<ul class="list-group">
 			<li class="list-group-item">* - Mettre des commentaires au fur et à mesure de vos développements</li>
 			<li class="list-group-item">JS - Faciliter la génération d'un documentation, par exemple en respectant le format APIDOC</li>
@@ -206,7 +215,8 @@
 		<h3>Création d'une page d'accueil</h3>
 		<div class="highlight">
 			Afin d'avoir une page d'accueil à l'URL de votre site, créer un fichier "index.html" à la racine de votre repository.<br/>
-			Y indiquer les Prénom - NOM du Binome.
+			Y indiquer les Prénom - NOM du Binome.<br/>
+			Afin d'utiliser la palette complète des balises HTML, vous êtes invité à consulter la documentation de W3C et <a href="http://www.w3schools.com/html/" rel="nofollow" target="_blanck">sa version plus pédagogique de W3School</a>
 			<pre>
 <code class="language-html">
 &lt;!DOCTYPE html&gt;
@@ -222,30 +232,31 @@
 &lt;/html&gt;
 </code>
 			</pre>		
-		
 		</p>
 
 		<h3>Un peu de couleur...</h3>
-		<div class="col-sm-8">
-			<p>
-				Il est déconseillé d'utiliser des templates Bootstrap complets, car les encadrants ne peuvent plus vous permettre de débugger facilement.<br/>
-				Nous vous invitons à utiliser uniquement <a href="http://getbootstrap.com/examples/theme/">le template de base de Bootstrap</a><br/>
-			</p>
-			<p>
-				Vous êtes invités à lire <a href="http://getbootstrap.com/getting-started/" title="Documentation complète de Bootstrap... en Anglais">la documentation</a> pour découvrir les capacités de ce framework, ... et les utiliser pour rendre la navigation agréable.
-			</p>
-			<p>
-				Pour inclure la mise en page de Bootstrap, inclure dans le head de chaque page :
-			</p>
+		<img src="http://getlevelten.com/sites/default/files/styles/1200x675/public/content/blog/images/screen_shot_2014-04-11_at_4.28.22_pm.png" class="logo"/>
+		<p>
+			Pour ne pas avoir à recoder toute la mise en page de vos pages, vous êtes invités à utiliser <a href="http://getbootstrap.com/examples/theme/" rel="nofollow" target="_blanck">le template de base de Bootstrap</a>. Ce template vous fournit une mise en page basique (celle de ce TP). Il vous suffit alors de mettre dans votre CSS les éléments que vous souhaitez modifier à votre style personnel.<br/> 
+			Une documentation complète, assez bien faite est disponible sur <a href="http://www.w3schools.com/bootstrap/" rel="nofollow" target="_blanck">W3School concernant Bootstrap</a>.
+		</p>
+		<div class="alert alert-warning" role="alert">
+			<strong>Warning</strong> Il est déconseillé d'utiliser des templates Bootstrap complets, car les encadrants ne peuvent plus vous permettre de débugger facilement.
 		</div>
-		<div class="col-sm-4">
-			<img src="http://getlevelten.com/sites/default/files/styles/1200x675/public/content/blog/images/screen_shot_2014-04-11_at_4.28.22_pm.png" class="logo"/>
-		</div>
+		<p>
+			Vous êtes invités à lire <a href="http://getbootstrap.com/getting-started/" title="Documentation complète de Bootstrap... en Anglais" rel="nofollow" target="_blanck">la documentation</a> pour découvrir les capacités de ce framework, ... et les utiliser pour rendre la navigation agréable.<br/>
+			Il est également plus agréable d'utiliser les icones pré-intégrés dans bootstrap, dont vous trouverez <a href="http://getbootstrap.com/components/" rel="nofollow" target="_blanck">la liste sur la page component</a>.<br/>
+			Enfin, des exemples de codes de modules sont disponibles sur <a href="http://bootsnipp.com/" rel="nofollow" target="_blanck">Bootsnipp</a>. Attention, les encadrants ne pourront pas vous aider à débugger ces modules. Il est donc conseillé de commencer par le fonctionnel, et d'utiliser ces modules ensuite.
+		</p>
+		<p>
+			Pour inclure la mise en page de Bootstrap, inclure dans le head de chaque page :
+		</p>
+		
 		<pre>
 <code class="xml hljs">
-&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"&gt;
-&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"&gt;
-&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/&gt;
+&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"/&gt;
+&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"&gt;&lt;/script&gt;
 </code>
 		</pre>
 
@@ -385,12 +396,21 @@ xmlhttp.send();
 			<li class="list-group-item">Permettre la navigation d'un block au suivant / précédent via les numéros d'index</li>
 			<li class="list-group-item">Permettre les passages :</li>
 		</ul>
+		<p>
+		
+		
+		</p>
 		--- Block -> Transactions
 		--- Transaction -> Block
 		--- Transaction -> Address
 		--- Address -> Transaction
 		
 		- Commit, push et modification du ReadMe
+
+		<p>
+			Pour faciliter la création de formulaires et éviter les erreurs de codes, vous pouvez utiliser sans scrupule <a href="http://bootsnipp.com/forms" rel="nofollow" target="_blanck">le générateur de formulaires de Bootsnipp</a>.<br/>
+			Cela vous fera gagner un peu de temps, mais ne vous évitera pas d'avoir à changer les libellés, le nom des variables, ... bref, tous les éléments spécifiques à votre formulaire.
+		</p>
 	
 		
 		<div class="page-header" id="tp3">
@@ -413,7 +433,7 @@ xmlhttp.send();
 			<h2>TP 4 - Optimisations, design et compatibilité</h2>
 		</div>
 		<ul class="list-group">
-			<li class="list-group-item">Vérifier que vos pages sont validées par W3C : <a href="http://validator.w3.org/">W3C Validator</a></li>
+			<li class="list-group-item">Vérifier que vos pages sont validées par W3C : <a href="http://validator.w3.org/" rel="nofollow" target="_blanck">W3C Validator</a></li>
 			<li class="list-group-item">Améliorer la présentation des pages à l'aide de CSS, animations JS, ...</li>
 		</ul>
 		<div class="alert alert-info" role="alert"><strong>TODO Albin</strong> Lister l'ensemble des fonctionnalités possibles et souhaitées</div>
@@ -424,7 +444,9 @@ xmlhttp.send();
 		<h3>Blockchain et Data Mining</h3>
 		<p>
 			Les blockchains offrent une BdD publiques pour le Data Mining.<br/>
-			Dès lors, il est intéressant de copier dans une même modélisation de BdD les différentes crypto-monnaies pour tenter d'y détecter des patterns.
+			Dès lors, il est intéressant de copier dans une même modélisation de BdD les différentes crypto-monnaies pour tenter d'y détecter des patterns.<br/>
+			Ici, pour faire plus simple, nous allons utiliser l'ensemble de technologies WAMP/LAMP (Linux - Apache - MySQL - PHP).
+			En entreprise, il est désormais plus courant d'utiliser les technologies MEAN (MongoDB - Express - AngularJS - NodeJS), mais les principes sont les mêmes.
 		</p>
 		<ul class="list-group">
 			<li class="list-group-item">Installer WAMP/LAMP</li>
