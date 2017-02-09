@@ -204,7 +204,7 @@
 		<ul class="list-group">
 			<li class="list-group-item">Envoyé depuis votre adresse e-mail de l'école (@devinci.fr)</li>
 			<li class="list-group-item">Mettre en copie votre binôme</li>
-			<li class="list-group-item">Commencer le sujet par "[ESILV][TP][3A]"</li>
+			<li class="list-group-item">Commencer le sujet par "[ESILV][TP][3A][IF-X]" et indiquer le groupe IF dans lequel vous êtes</li>
 			<li class="list-group-item">Indiquer votre site internet, avec un lien hypertexte.</li>
 		</ul>
 
@@ -249,45 +249,68 @@
 			Enfin, des exemples de codes de modules sont disponibles sur <a href="http://bootsnipp.com/" rel="nofollow" target="_blanck">Bootsnipp</a>. Attention, les encadrants ne pourront pas vous aider à débugger ces modules. Il est donc conseillé de commencer par le fonctionnel, et d'utiliser ces modules ensuite.
 		</p>
 		<p>
-			Pour inclure la mise en page de Bootstrap, inclure dans le head de chaque page :
+			Pour inclure la mise en page de Bootstrap, inclure dans le <code>head</code> de chaque page :
 		</p>
 		
 		<pre>
 <code class="xml hljs">
 &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/&gt;
-&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"/&gt;
-&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"&gt;&lt;/script&gt;
 </code>
+		</pre>
+		<p>
+			Et avant chaque fermeture de la balise <code>body</code>, ajouter :
+		</p>
+		<pre>
+			<code>
+&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="../custom.js"&gt;&lt;/script&gt;</code>
 		</pre>
 
 
 		<h3>Création d'une page pour les TP Bitcoin</h3>
 		<p>
-			Pour vous permettre d'utiliser ce site pour la rédaction d'un CV en ligne, d'un blog, pour le partage de photo/video, ..., les développements pour le TP se feront dans un sous-dossier.<br/>
-			Créer un nouveau fichier "bitcoin/index.html".
+			De manière à vous vous permettre d'utiliser ce site pour la rédaction d'un CV en ligne, d'un blog, pour le partage de photo/video, ..., les développements pour le TP se feront dans des sous-dossiers.
 		</p>
 		
 		
 		<h3>Appel JSON depuis un navigateur</h3>
+		<p>
+			Aller sur la documentation de l'API Bitcoin de votre choix :
+		</p>
 		<ul class="list-group">
 			<li class="list-group-item">
-				Aller sur la documentation de l'API Bitcoin de votre choix (dans l'ordre de préférence des encadrants) :
 				<ul>
-					<li><a href="http://mubiz.com/developers/bitcoin/" title="Mubiz documentation" target="_blanck"><img src="http://mubiz.com/images/mubiz/mubiz-logo.png" class="logo"/></li>
-					<li><a href="https://blockchain.info/fr/api/blockchain_api" title="Blockchain.info" rel="nofollow" target="_blanck"><img src="http://www.e-mprovement.com/images/dashboard/blockchain-info-logo.png" class="logo"/></li>
-					<li><a href="https://www.blockcypher.com/dev/bitcoin/" rel="nofollow" target="_blanck"><img src="http://www.e-mprovement.com/images/dashboard/blockcypher-logo.png" class="logo"/></a></li>
-					<li><a href="https://block.io/docs/basic" title="Block.io" rel="nofollow" target="_blanck"><img src="http://bittrust.s3.amazonaws.com/1437541807.png" class="logo"/></a></li>
+					<li>
+						<a href="http://mubiz.com/developers/bitcoin/" title="Mubiz documentation" target="_blanck">
+							<img src="http://mubiz.com/images/mubiz/mubiz-logo.png" class="logo"/>
+						</a>
+					</li>
+					<br>
+					<li>
+						<a href="https://www.blockcypher.com/dev/bitcoin/" rel="nofollow" target="_blanck">
+							<img src="http://www.e-mprovement.com/images/dashboard/blockcypher-logo.png" class="logo"/>
+						</a>
+					</li>
+					<br>
+					<li>
+						<a href="https://blockchain.info/fr/api/blockchain_api" title="Blockchain.info" rel="nofollow" target="_blanck">
+							<img src="http://www.e-mprovement.com/images/dashboard/blockchain-info-logo.png" class="logo"/>
+						</a>
+					</li>
+					<br>
+					<li>
+						<a href="https://block.io/docs/basic" title="Block.io" rel="nofollow" target="_blanck">
+							<img src="http://bittrust.s3.amazonaws.com/1437541807.png" class="logo"/>
+						</a>
+					</li>
 				</ul>
 			</li>
-			<li class="list-group-item">Faire les appels JSON des fonctions sans paramètres depuis un navigateur (mining par ex)</li>
-			<li class="list-group-item">
-				Appeler les données depuis la page créée + les afficher
-			</li>
-		</ul>
-		<p>
-			Appel d'un WebService en JavaScript
-			<pre>
-<code class="javascript hljs">
+			<br>
+			<p>
+				De manière a réaliser le TP, voici un exemple de code javascript pour réaliser l'appel des WebService :
+				<pre>
+					<code class="javascript hljs">
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -298,119 +321,227 @@ xmlhttp.onreadystatechange = function() {
 };
 xmlhttp.open("GET", "https://api.blockcypher.com/v1/btc/main", true);
 xmlhttp.send();
-</code>
+					</code>
+				</pre>
+			</p>
+			<p>
+				Et un exemple de code html pour afficher la réponse reçue du webService dans a page html :
+				<pre>
+					<code class="html hljs">
+&lt;div class="row"&gt;
+	&lt;div class="col-lg-12 col-xs-6"&gt;
+    	&lt;pre&gt;
+        	&lt;code id="demo" class="json kljs"&gt;&lt;/code&gt;
+    	&lt;/pre&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+					</code>
+				</pre>
+			</p>
+			<h3>Objectifs :</h3>
+			<li class="list-group-item">Faire les appels JSON des fonctions sans paramètres depuis un navigateur (mining par ex)</li>
+			<li class="list-group-item">
+				Appeler les données depuis la page créée et les afficher
+			</li>
+		</ul>
+		
+		
+		<h3>Instructions :</h3>
+		<ul class="list-group">
+		<li class="list-group-item">
+				Dans le répertoire local de votre projet, créer un nouveau fichier "index.html", ce sera la page d'accueil (homepage) de votre projet.
+			</li>
+			<li class="list-group-item">
+				Créer un nouveau fichier <code>bitcoin/index.html</code>.
+			</li>
+			<li class="list-group-item">
+				Depuis votre homepage faire un lien faire la page <code>bitcoin/index.html</code>.
+			</li>
+			<li class="list-group-item">
+				Sur votre page <code>bitcoin/index.html</code>, afficher les données du WS /info
+			</li>
+			<li class="list-group-item">
+				Afficher les données du WS /blockchaininfo
+			</li>
+			<li class="list-group-item">
+				Afficher les données du WS /mininginfo
+			</li>
+			<li class="list-group-item">
+				Afficher les données du WS /peerinfo
+			</li>
+			<li class="list-group-item">
+				Commit, push les modification
+			</li>
+		</ul>
+		<p>
+			De manière à optimiser votre code, le mettre dans une fonction qui prendra en paramètre l'<code>url</code> du webservice sur lequel sera faite la requête mais aussi l'<code>id</code> de l'élément html où la réponse sera affichée
+		</p>
+		<p>
+			De manière à s'assurer que les requêtes api soient bien faite s au chargement de la page, les placer dans une fonction de la manière suivante :
+			<pre>
+				<code class="javascript hljs">function homePageLoading() {
+    url = 'apiUrl';
+    elementID = 'idDeVotreElementHtml';
+    fonctionRequeteApi(url, elementID);
+
+    ...
+}</code>
 			</pre>
 		</p>
-		
-		<h3>Création d'une page d'informations</h3>
-		<ul class="list-group">
-			<li class="list-group-item">Créer une page /bitcoin + Créer un lien depuis la home page</li>
-			<li class="list-group-item">Afficher les données du WS /info</li>
-			<li class="list-group-item">Afficher les données du WS /blockchaininfo</li>
-			<li class="list-group-item">Afficher les données du WS /mininginfo</li>
-			<li class="list-group-item">Afficher les données du WS /peerinfo</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item">Créer une page /bitcoin/currency/ + Créer un lien depuis la home page</li>
-			<li class="list-group-item">Afficher les données de /currency</li>
-		</ul>
+		<p>
+			Qui peut être appelé dans la page html de la manière suivante : 
+			<pre>
+				<code class="html hljs">&lt;script type="text/javascript"&gt;homePageLoading();&lt;/script&gt;</code>
+			</pre>
+		</p>
+
 		
 		<div class="page-header" id="tp2">
 			<h2>TP 2 - Navigation Blocks, Address, Transactions, ...</h2>
 		</div>
-		<h3>Navigation par block</h3>
+		<h3>Objectifs :</h3>
 		<ul class="list-group">
-			<li class="list-group-item">Dans /bitcoin, créer un formulaire de saisie d'un numéro</li>
-			<li class="list-group-item">Permettre la saisie d'une address</li>
-			<li class="list-group-item">Afficher le résultat pour l'address</li>
-			<li class="list-group-item">Idem, dans un autre champs pour les hash de transactions</li>
-			<li class="list-group-item">Idem, dans un autre champ pour le hash d'une bloc</li>
-			<li class="list-group-item">Idem, dans un autre champs pour l'index de bloc</li>
-			<li class="list-group-item">Fusionner les champs en un seul</li>
-			<li class="list-group-item">Ajouter des contrôles de vérification des données fournies</li>
+			<li class="list-group-item">
+				Réaliser des formulaires de saisie
+			</li>
+			<li class="list-group-item">
+				Vérifier les données saisies et appliquer les évènements en conséquence
+			</li>
+			<li class="list-group-item">
+				Utiliser les propriété de javascript pour rendre la page interractive
+			</li>
+		</ul>
+		<h3>Partie 1 : utilisation de formulaire et contrôle des données</h3>
+		<ul class="list-group">
+			<li class="list-group-item">
+				Dans /bitcoin, créer un nouveau dossier /explorer et y créer un nouvelle page index.html
+			</li>
+			<li class="list-group-item">
+				Ajouter les liens de navigation
+			</li>
+			<li class="list-group-item">
+				Sur votre nouvelle page html, ajouter un formulaire de saisie (voir <a href="http://getbootstrap.com/css/#forms" alt="Bootstrap documentation, section forms">ici</a> pour l'exemple)
+			</li>
+			<li class="list-group-item">
+				Permettre la saisie d'une address et afficher le résultat de la requête
+			</li>
+			<li class="list-group-item">
+				Idem pour les hash de transactions
+			</li>
+			<li class="list-group-item">
+				Idem pour le hash d'un bloc
+			</li>
+			<li class="list-group-item">
+				Idem pour l'index (le numéro) de bloc
+			</li>
+			<li class="list-group-item">
+				Ajouter des contrôles de vérification des données entrées par l'utilisateur
+			</li>
+			<li class="list-group-item">
+				Commit, push les modification
+			</li>
 		</ul>
 		<p>
-			Quelques fonctions JavaScript d'affichage des Unix Time
+			L'ajout de contrôle est nécessaire pour protéger le serveur. Un message d'erreur doit être retourné si les informations entrée dans le formulaires sont inexactes<br/>
+			<ul class="list-group">
+				<li class="list-group-item">
+					Vérifier la validité de l'adresse
+				</li>
+				<li class="list-group-item">
+					Même chose pour le hash d'une transaction
+				</li>
+				<li class="list-group-item">...</li>
+			</ul>
+		</p>
+		<p>
+			De manière à réaliser le contrôle de vérification des données entrées par l'utilisateur, il faut inspecter les chaînes de caractère, tant leur contenu (format hexadecimal pour les hash, alphanumérique pour les adresses et chiffres pour les numéros de block) que leur taille : le hash d'une transaction ou d'un block fait 64 caractères hexadécimaux (la différence entre les 2 réside dans le fait qu'un hash de block contient une série de 0 au début), une adresse 34 caractères. Vous pouvez reprendre l'exemple suivant (<a href="http://stackoverflow.com/questions/8027423/how-to-check-if-a-string-is-a-valid-hex-color-representation">explications</a>) :
 			<pre>
-				<code class="javascript hljs">
-					/********************************************
-					*      				UNIX TIME
-					*********************************************/
-					/**
-					 * Transforme un unix_time_stamp en une date lisible.
-					 */
-					function unixtime_to_date(unix_timestamp){
-						var a = new Date(unix_timestamp*1000);
-					
-						var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-						var year = a.getFullYear();
-						var month = months[a.getMonth()];
-						var date = a.getDate();
-						
-						// Hours part from the timestamp
-						var hours = a.getHours();
-						// Minutes part from the timestamp
-						var minutes = "0" + a.getMinutes();
-						// Seconds part from the timestamp
-						var seconds = "0" + a.getSeconds();
-					
-						return date + ' ' + month + ' ' + year + ' ' + hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-					}
-					
-					
-					function unixtime_to_delay(unix_timedelay){
-						var seconds = Math.floor(unix_timedelay/1000);
-						var minutes = Math.floor(seconds/60);
-						var hours = Math.floor(minutes/60);
-						var days = Math.floor(hours/24);
-					
-						hours = hours-(days*24);
-						minutes = minutes-(days*24*60)-(hours*60);
-						seconds = seconds-(days*24*60*60)-(hours*60*60)-(minutes*60);
-						
-						var result='';
-						if(days>0)		result = result + days + 'days ';
-						if(hours>0)		result = result + hours + 'hours ';
-						if(minutes>0)	result = result + minutes + 'min ';
-						if(seconds>0)	result = result + seconds + 'sec ';
-						
-						return result;
-					}
-				</code>
+				<code class="javascript hljs">var isAddress = /^[0-9a-zA-Z]{34}$/.test(data);</code>
 			</pre>
 		</p>
-
-
-		
-		<p>L'ajout de contrôle est nécessaire pour protéger le serveur<br/>
 		<ul class="list-group">
-			<li class="list-group-item">Validité de l'adresse</li>
-			<li class="list-group-item">Validité du hash de la transaction</li>
-			<li class="list-group-item">...</li>
+			<li class="list-group-item">
+				Commit, push les modification
+			</li>
 		</ul>
-			L'ajout d'un message d'erreur est nécessaire (UX)<br/>
-		</p>
-		
-		<h3>Navigation</h3>
-		<ul class="list-group">
-			<li class="list-group-item">Permettre la navigation d'un block au suivant / précédent via les numéros d'index</li>
-			<li class="list-group-item">Permettre les passages :</li>
-		</ul>
+		<h3>Partie 2 : amélioration du rendu des réponses retournées</h3>
 		<p>
-		
-		
+			De manière à améliorer le rendu des JSON récupérés suite aux requêtes, mais surtout de manière à poser les bases du système de navigation (Partie 3), utiliser l'exemple suivant :
 		</p>
-		--- Block -> Transactions
-		--- Transaction -> Block
-		--- Transaction -> Address
-		--- Address -> Transaction
-		
-		- Commit, push et modification du ReadMe
+		<pre>
+			<code class="javascript hljs">
+function output(inp) {
+    document.body.appendChild(document.createElement('pre')).innerHTML = inp;
+}
 
+function syntaxHighlight(json) {
+    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+        var cls = 'number';
+        if (/^"/.test(match)) {
+            if (/:$/.test(match)) {
+                cls = 'key';
+            } else {
+                cls = 'string';
+            }
+        } else if (/true|false/.test(match)) {
+            cls = 'boolean';
+        } else if (/null/.test(match)) {
+            cls = 'null';
+        }
+        return '&lt;span class="' + cls + '"&gt;' + match + '&lt;/span&gt;';
+    });
+}
+
+output(str);
+output(syntaxHighlight(str));
+			</code>
+		</pre>
 		<p>
-			Pour faciliter la création de formulaires et éviter les erreurs de codes, vous pouvez utiliser sans scrupule <a href="http://bootsnipp.com/forms" rel="nofollow" target="_blanck">le générateur de formulaires de Bootsnipp</a>.<br/>
-			Cela vous fera gagner un peu de temps, mais ne vous évitera pas d'avoir à changer les libellés, le nom des variables, ... bref, tous les éléments spécifiques à votre formulaire.
+			Cet exemple provient d'
+			<a href="http://stackoverflow.com/questions/4810841/how-can-i-pretty-print-json-using-javascript">
+				ici
+			</a>
+			et vous pouvez utiliser ce 
+			<a href="http://jsfiddle.net/KJQ9K/554/">
+				site
+			</a> 
+			pour faire vos essais. Ce code fonctionne de la manière suivante : <code>syntaxHighlight(json)</code> va commencer par remplacer certains caractères du <code>json</code> qui est entré en paramètre. À la ligne suivante, une fonction est appelée pour analyser chaque éléments consituant le <code>json</code> et les identifier (une fois que la fonction à isolé chaque élément, utiliser la fonction de contrôle des données entrées par l'utilisateur pour identifier si c'est un block, une tx ...). À chaque fois qu'un élément dans le json est identifié, la fonction le remplace en ajoutant du html (voir <code>return</code>)
+			<br>
+			La fonction <code>output()</code> permet quand à elle de réaliser l'affichage en créant un nouvel élément sur la page. Ne pas oublier pas de vérifier si un éléments est déjà présent et le supprimer si c'est le cas
 		</p>
+		<ul class="list-group">
+			<li class="list-group-item">
+				Commit, push les modification
+			</li>
+		</ul>
+
+		<h3>Partie 3 : Navigation</h3>
+		<ul class="list-group">
+			<li class="list-group-item">
+				Permettre la navigation au travers des réponses fournies par l'API grâce à des liens hypertexte pour les transaction, adresses, hash de block et numéro de block tel que:
+			</li>
+		</ul>
+		<pre>
+			<code class="javascript hljs">Block -> Transactions
+Transaction -> Block
+Transaction -> Address
+Address -> Transaction</code>
+		</pre>
+		<p>
+			Pour ce faire il suffit d'ajouter une fonction qui sera chargé de détecter si <code>match</code> de la fonction <code>syntaxHighlight(json)</code> est bien du type hash, adresse ou nombre. Si c'est le cas, ajouter le html nécessaire tel que suggéré dans l'exemple suivant :
+		</p>
+		<pre>
+			<code class="html hljs">data = `&lt;a href="javascript:appelFonction('${data}')"&gt;"${data}"&lt;/a&gt;`</code>
+		</pre>
+		<p>
+			Sachez que la variable <code>match</code> contiendra des <code>"</code> en trop qu'il faudra retirer au préalable pour pouvoir faire la vérification, plus d'information par <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/replace">ici</a>
+		</p>
+		<ul class="list-group">
+			<li class="list-group-item">
+				Commit, push les modification
+			</li>
+		</ul>
 	
 		
 		<div class="page-header" id="tp3">
