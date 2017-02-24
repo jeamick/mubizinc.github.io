@@ -20,10 +20,28 @@ $(document).ready(function() {
 		},
 
 		error : function(xhr, status, err) {
-			$('#bitcoin_block_number').append("N/A");
-			$('#bitcoin_network_hash').append("N/A");
+			$('#bitcoin_block_number').append(err+" N/A");
 		}
 	});
+	
+	$.ajax({
+		url : "http://bitcoin.mubiz.com/blocks",
+		dataType : "json",
+		contentType : "application/json; charset=utf-8",
+		type : "GET",
+		timeout: "5000",
+		async : false,
+
+		success : function(data) {
+			$('#bitcoin_network_hash').append(data.blocks);
+		},
+
+		error : function(xhr, status, err) {
+			$('#bitcoin_network_hash').append(err+" N/A");
+		}
+	});
+	
+	
 	
 	$.ajax({
 		url : "https://blockchain.info/ticker",
@@ -38,10 +56,27 @@ $(document).ready(function() {
 		},
 
 		error : function(xhr, status, err) {
-			$('#bitcoin_usd_price').append("N/A");
+			$('#bitcoin_usd_price').append(err+" N/A");
 		}
 	});
 	
+
+	$.ajax({
+		url : "https://api.blockcypher.com/v1/btc/main",
+		dataType : "json",
+		contentType : "application/json; charset=utf-8",
+		type : "GET",
+		timeout:	"5000",
+		async : false,
+
+		success : function(data) {
+			$('#bitcoin_blocks').append(data.height);
+		},
+
+		error : function(xhr, status, err) {
+			$('#bitcoin_blocks').append(err+" N/A");
+		}
+	});
 	
 });
 
