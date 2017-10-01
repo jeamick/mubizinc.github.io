@@ -37,6 +37,9 @@
 	
 	<link rel="stylesheet"    		media="all"		type="text/css" 	href="../styles/design.css"   />
 	
+	<!-- BITCOIN -->
+	<script type="text/javascript" src="../js/bitcoin.js" defer></script>
+
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -144,7 +147,14 @@
 		</nav>
 
 		<div class="page-header" id="niveau1">
-			<h2>Niveau 1 - Troll - Création de la league</h2>
+			<h2>Niveau 0 - Equipement</h2>
+		</div>
+		<ul class="list-group">
+			<li class="list-group-item">Aller sur la <a href="./../">page d'accueil</a> pour vous équiper</li>
+		</ul>
+
+		<div class="page-header" id="niveau1">
+			<h2>Niveau 1 - Troll - Création de la league et du repository</h2>
 		</div>
 		<div class="progress">
 			<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:10%">
@@ -152,12 +162,12 @@
 			</div>
 		</div>
 		<p>
-			- 1 - Pas de souci, si, comme Batman et Superman, vous préférez travailler en solo.<br/>
-			- 2 - Idéalement, des binômes sont parfaits pour ces quêtes.<br/>
-			- 3 - Je suis contre les plans à trois... L'un des trois doit, soit trouver un binome dans un autre groupe de trois... soit commencer sa carrière en solo.
+			-> 1 étudiant - Pas de souci, si, comme Batman et Superman, vous préférez travailler en solo.<br/>
+			-> 2 étudiants - Idéalement, des binômes sont parfaits pour ces quêtes.<br/>
+			-> 3 étudiants - Je suis contre les plans à trois (et oui...). L'un des trois doit, soit trouver un binome dans un autre groupe de trois... soit commencer sa carrière en solo.
 		</p>
 		<ul class="list-group">
-			<li class="list-group-item">Créer une page HTML avec <a href="https://pages.github.com/" title="Github Pages" rel="nofollow" target="_blanck">Github Pages</a></li>
+			<li class="list-group-item">Créer un repository et une page HTML avec <a href="https://pages.github.com/" title="Github Pages" rel="nofollow" target="_blanck">Github Pages</a></li>
 			<li class="list-group-item">Indiquer dans le ReadMe les Prénom - NOM (adresse email @devinci) de chaque membre</li>
 			<li class="list-group-item">Inviter les membres de la league sur le repository Github</li>
 			<li class="list-group-item">Commit + Push sur GitHub</li>
@@ -178,30 +188,17 @@
 
 		<h3>Rédaction de la home page</h3> 
 		<ul class="list-group">
-			<li class="list-group-item">Les Prénom NOM (adresse e-mail) du binome sur la home page. Faire attention que ce soit les mêmes que dans le ReadMe...</li>
+			<li class="list-group-item"></li>
 		</ul>
 
 		<ul class="list-group">
 			<li class="list-group-item">
-				Dans le repository (répertoire local) de votre projet, créer un nouveau fichier "index.html".<br/>
+				Dans le repository de votre projet, créer un nouveau fichier "index.html".<br/>
 				A la racine du repository, il sera la page d'accueil (homepage) de votre projet.
 			</li>
 			<li class="list-group-item">
 				Copier le code ci-dessous de base d'une page HTML dans le fichier, via le site web de Github.
-			</li>
-			<li class="list-group-item">
-				Y indiquer les Prénom - NOM (adresse e-mail) du binome<br/>
-			</li>		
-			<li class="list-group-item">
-				Commit, push les modifications
-			</li>
-			<li class="list-group-item">
-				Aller sur votre site depuis un navigateur web
-			</li>
-		</ul>
 
-		<div class="highlight">
-			Afin d'utiliser la palette complète des balises HTML, vous êtes invité à consulter la documentation de W3C et <a href="http://www.w3schools.com/html/" rel="nofollow" target="_blanck">sa version plus pédagogique de W3School</a>
 			<pre>
 				<code class="language-html">
 &lt;!DOCTYPE html&gt;
@@ -217,7 +214,26 @@
 	&lt;/body&gt;
 &lt;/html&gt;
 				</code>
-			</pre>		
+			</pre>
+
+			</li>
+			<li class="list-group-item">
+				- Indiquer les Prénom - NOM (adresse e-mail) du binome<br/>
+				- Faire attention que ce soit les mêmes que dans le ReadMe...
+			</li>		
+			<li class="list-group-item">
+				Commit, push les modifications
+			</li>
+			<li class="list-group-item">
+				Aller sur votre site depuis un navigateur web
+			</li>
+		</ul>
+
+		<div class="highlight">
+			Afin d'utiliser la palette complète des balises HTML, vous êtes invité à :<br/>
+			- consulter <a href="https://www.w3.org/">la documentation de W3C</a><br/>
+			- passer régulièrement vos pages au <a href="https://validator.w3.org/">W3C Validator</a><br/>
+			- <a href="http://www.w3schools.com/html/" rel="nofollow" target="_blanck">sa version plus pédagogique de W3School</a><br/>
 		</div>
 		
 		<h3>Entrainement et Test en local</h3>
@@ -261,10 +277,6 @@
 
 
 
-
-
-
-
 		<div class="page-header" id="niveau3">
 			<h2>Niveau 3 - Elfs - Ajout de Bootstrap</h2>
 		</div>
@@ -276,11 +288,9 @@
 				10% Web
 			</div>
 		</div>
-
-		<ul class="list-group">
-			<li class="list-group-item">Ce n'est pas un TP de Web Design, ... mais intégrer Bootstrap et quelques icones à ce moment peut rendre le TP plus agréable pour la suite.</li>
-		</ul>
-		<h3>Un peu de couleur...</h3>
+		
+		Ce n'est pas un TP de Web Design, ... mais intégrer Bootstrap et quelques icones à ce moment peut rendre le TP plus agréable pour la suite.
+		
 		<img src="http://getlevelten.com/sites/default/files/styles/1200x675/public/content/blog/images/screen_shot_2014-04-11_at_4.28.22_pm.png" class="logo"/>
 		<p>
 			Pour ne pas avoir à recoder toute la mise en page de vos pages, vous êtes invités à utiliser <a href="http://getbootstrap.com/examples/theme/" rel="nofollow" target="_blanck">le template de base de Bootstrap</a>. Ce template vous fournit une mise en page basique (celle de ce TP). Il vous suffit alors de mettre dans votre CSS les éléments que vous souhaitez modifier à votre style personnel.<br/> 
@@ -290,33 +300,38 @@
 			<strong>Warning</strong> Il est déconseillé d'utiliser des templates Bootstrap complets, car les encadrants ne peuvent plus vous permettre de débugger facilement.
 		</div>
 		<p>
-			Vous êtes invités à lire <a href="http://getbootstrap.com/getting-started/" title="Documentation complète de Bootstrap... en Anglais" rel="nofollow" target="_blanck">la documentation</a> pour découvrir les capacités de ce framework, ... et les utiliser pour rendre la navigation agréable.<br/>
-			Il est également plus agréable d'utiliser les icones pré-intégrés dans bootstrap, dont vous trouverez <a href="http://getbootstrap.com/components/" rel="nofollow" target="_blanck">la liste sur la page component</a>.<br/>
+			Lire <a href="http://getbootstrap.com/getting-started/" title="Documentation complète de Bootstrap... en Anglais" rel="nofollow" target="_blanck">la documentation</a> pour découvrir les capacités de ce framework, ... et les utiliser pour rendre la navigation agréable.<br/>
+			Il est plus agréable d'utiliser les icones pré-intégrés dans bootstrap, dont vous trouverez <a href="http://getbootstrap.com/components/" rel="nofollow" target="_blanck">la liste sur la page component</a>.<br/>
 			Enfin, des exemples de codes de modules sont disponibles sur <a href="http://bootsnipp.com/" rel="nofollow" target="_blanck">Bootsnipp</a>. Attention, les encadrants ne pourront pas vous aider à débugger ces modules. Il est donc conseillé de commencer par le fonctionnel, et d'utiliser ces modules ensuite.
 		</p>
-		<p>
-			Pour inclure la mise en page de Bootstrap, inclure dans le <code>head</code> de chaque page :
-		</p>
-		
-		<pre>
-<code class="xml hljs">
+
+		<ul class="list-group">
+			<li class="list-group-item">
+				Pour inclure la mise en page de Bootstrap, inclure dans le <code>head</code> <strong>de chaque page</strong>
+				<pre>
+					<code class="xml hljs">
 &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/&gt;
-</code>
-		</pre>
-		<p>
-			Et avant chaque fermeture de la balise <code>body</code>, ajouter :
-		</p>
-		<pre>
-			<code>
+					</code>
+				</pre>
+			</li>
+			<li class="list-group-item">
+				<p>
+					Et avant la fermeture de la balise <code>body</code>, ajouter :
+				</p>
+				<pre>
+					<code>
 &lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script src="../custom.js"&gt;&lt;/script&gt;</code>
-		</pre>
+				</pre>
+			</li>
+		</ul>
+
 
 
 
 		<div class="page-header" id="niveau4">
-			<h2>Niveau 4 - Nains - Ajout d'un CSS</h2>
+			<h2>Niveau 4 - Nains - Ajout d'un CSS et d'un peu de couleur</h2>
 		</div>
 		<div class="progress">
 			<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:30%">
@@ -326,6 +341,26 @@
 				10% Web
 			</div>
 		</div>
+
+		<p>
+			C'est le moment de personnaliser un peu votre site.<br/>
+			L'objectif n'est pas de faire du graphisme, mais simplement de rendre la navigation agréable.
+		</p>
+		<ul class="list-group">
+			<li class="list-group-item">
+				- Créer un nouveau fichier <code>style/style.css</code> (dans Github en difficulté=débutant, dans votre dossier local en difficulté=expert ).<br/>
+				- Mettre quelques éléments en couleurs
+			</li>
+			<li class="list-group-item">
+				Ajouter une photo à côté de chaque étudiant (celle de votre profil LinkedIn ou compte Twitter sera parfaite)
+			</li>
+			<li class="list-group-item">
+				Mettre des liens vers vos comptes Twitter et LinkedIn en dessous de votre Prénom NOM <strong>en gris</strong>
+			</li>
+			<li class="list-group-item">
+				Ajouter un menu de navigation, en utilisant les <code>.navbar</code> de Bootstrap
+			</li>
+		</ul>
 
 
 
@@ -347,28 +382,31 @@
 		</p>
 		<ul class="list-group">
 			<li class="list-group-item">
-				Dans le répertoire local de votre projet, créer un nouveau fichier "index.html", ce sera la page d'accueil (homepage) de votre projet.
+				- Créer un nouveau fichier <code>bitcoin/index.html</code> (dans Github en difficulté=débutant, dans votre dossier local en difficulté=expert ).<br/>
+				- Y copier le contenu de la homepage + y faire les modifications nécessaires (titre de la page, contenu, ...)
 			</li>
 			<li class="list-group-item">
-				Créer un nouveau fichier <code>bitcoin/index.html</code>.
+				Dans la homepage, ajouter un lien faire la page <code>/bitcoin/</code>.<br/>
+				<pre>
+				<code class="language-html">
+&lt;a href=" URL_DE_DESTINATION " title=" UNE_INDICATION " &gt;	LE_TEXTE_CLIQUABLE	&lt;/a&gt;
+				</code>
+			</pre>
+
+
+
 			</li>
 			<li class="list-group-item">
-				Depuis votre homepage faire un lien faire la page <code>bitcoin/index.html</code>.
-			</li>
-			<li class="list-group-item">
-				Sur votre page <code>bitcoin/index.html</code>, afficher les données du WS /info
-			</li>
-			<li class="list-group-item">
-				Afficher les données du WS /blockchaininfo
-			</li>
-			<li class="list-group-item">
-				Afficher les données du WS /mininginfo
-			</li>
-			<li class="list-group-item">
-				Afficher les données du WS /peerinfo
+				Depuis votre page <code>/bitcoin/</code> faire un lien retour vers la homepage.
 			</li>
 			<li class="list-group-item">
 				Commit, push les modification
+			</li>
+			<li class="list-group-item">
+				Test - Sur le navigateur web :<br/>
+				- Vérifier que le lien vers la page bitcoin est présent<br/>
+				- Cliquer et vérifier qu'il affiche la page bitcoin, avec le lien retour<br/>
+				- Cliquer sur le lien retour et vérifier que vous êtes bien de retour sur la homepage<br/>
 			</li>
 		</ul>
 
@@ -403,16 +441,16 @@
 							<img src="http://mubiz.com/images/mubiz/mubiz-logo.png" class="logo"/>
 						</a>
 					</li>
-					<br>
+					<br/>
 					<li>
 						<a href="https://www.blockcypher.com/dev/bitcoin/" rel="nofollow" target="_blanck">
-							<img src="http://www.e-mprovement.com/images/dashboard/blockcypher-logo.png" class="logo"/>
+							<img src="http://e-mprovement.com/images/dashboard/blockcypher-logo.png" class="logo" alt="Blockcypher"/>
 						</a>
 					</li>
 					<br>
 					<li>
 						<a href="https://blockchain.info/fr/api/blockchain_api" title="Blockchain.info" rel="nofollow" target="_blanck">
-							<img src="http://www.e-mprovement.com/images/dashboard/blockchain-info-logo.png" class="logo"/>
+							<img src="http://e-mprovement.com/images/dashboard/blockchain-info-logo.png" class="logo" alt="Blockchain API"/>
 						</a>
 					</li>
 					<br>
@@ -462,8 +500,46 @@ xmlhttp.send();
 			</li>
 		</ul>
 
+		<ul class="list-group">
+			<li class="list-group-item">
+				Sur votre page <code>bitcoin/index.html</code>, afficher les données du WS /info
+			</li>
+			<li class="list-group-item">
+				Afficher les données du WS /blockchaininfo
+			</li>
+			<li class="list-group-item">
+				Afficher les données du WS /mininginfo
+			</li>
+			<li class="list-group-item">
+				Afficher les données du WS /peerinfo
+			</li>
+			<li class="list-group-item">
+				Commit, push les modification
+			</li>
+		</ul>
 
-
+		<p>
+			Exemple :
+		</p>
+		<div class="row">
+			<div class="col-lg-4 col-md-6">
+				<div class="panel panel-yellow">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-3">
+								<i class="fa fa-tasks fa-5x"></i>
+							</div>
+							<div class="col-xs-9 text-right">
+								<h2>
+									<span id="bitcoin_block_number"></span>
+								</h2>
+								<div>Blocks</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 
 
@@ -544,32 +620,6 @@ xmlhttp.send();
 
 			
 		<h3>Instructions :</h3>
-		<ul class="list-group">
-			<li class="list-group-item">
-				Dans le répertoire local de votre projet, créer un nouveau fichier "index.html", ce sera la page d'accueil (homepage) de votre projet.
-			</li>
-			<li class="list-group-item">
-				Créer un nouveau fichier <code>bitcoin/index.html</code>.
-			</li>
-			<li class="list-group-item">
-				Depuis votre homepage faire un lien faire la page <code>bitcoin/index.html</code>.
-			</li>
-			<li class="list-group-item">
-				Sur votre page <code>bitcoin/index.html</code>, afficher les données du WS /info
-			</li>
-			<li class="list-group-item">
-				Afficher les données du WS /blockchaininfo
-			</li>
-			<li class="list-group-item">
-				Afficher les données du WS /mininginfo
-			</li>
-			<li class="list-group-item">
-				Afficher les données du WS /peerinfo
-			</li>
-			<li class="list-group-item">
-				Commit, push les modification
-			</li>
-		</ul>
 		<p>
 			De manière à optimiser votre code, le mettre dans une fonction qui prendra en paramètre l'<code>url</code> du webservice sur lequel sera faite la requête mais aussi l'<code>id</code> de l'élément html où la réponse sera affichée
 		</p>
@@ -592,10 +642,6 @@ xmlhttp.send();
 			</pre>
 		</p>
 
-		
-		<div class="page-header" id="tp2">
-			<h2>Niveau 2 - Elfs - Navigation Blocks, Address, Transactions, ...</h2>
-		</div>
 		<h3>Objectifs :</h3>
 		<ul class="list-group">
 			<li class="list-group-item">
@@ -741,14 +787,10 @@ Address -> Transaction</code>
 		</ul>
 	
 		
-
-
-
-
 		
 		
-		<div class="page-header" id="tp4">
-			<h2>Niveau 4 - Optimisations, design et compatibilité</h2>
+		<div class="page-header">
+			<h2>Optimisations, design et compatibilité</h2>
 		</div>
 		<ul class="list-group">
 			<li class="list-group-item">Vérifier que vos pages sont validées par W3C : <a href="http://validator.w3.org/" rel="nofollow" target="_blanck">W3C Validator</a></li>
