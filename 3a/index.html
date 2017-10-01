@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
 	<meta charset="UTF-8" />
 
@@ -49,11 +49,15 @@
 					<li class="active dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" role="button" title="TP 3A" aria-haspopup="true" aria-expanded="false">Exploreur d'une blockchain</a>
 						<ul class="dropdown-menu">
-							<li><a href="#installation">Préparation de l'équipement</a></li>
-							<li><a href="#tp1">TP1</a></li>
-							<li><a href="#tp2">TP2</a></li>
-							<li><a href="#tp3">TP3</a></li>
-							<li><a href="#tp4">TP4</a></li>
+							<li><a href="#lancement" title="Création de la league et lancement du site">Création de la league et lancement du site</a></li>
+							<li><a href="#niveau1" title="Niveau 1 - Newbies - Création de la page d'accueil">Niveau 1 - Newbies - Création de la page d'accueil</a></li>
+							<li><a href="#niveau2" title="Niveau 2 - Elfs - Ajout de Bootstrap">Niveau 2 - Elfs - Ajout de Bootstrap</a></li>
+							<li><a href="#niveau3" title="Niveau 3 - Nains - Ajout d'un CSS">Niveau 3 - Nains - Ajout d'un CSS</a></li>
+							<li><a href="#niveau4" title="Niveau 4 - Aventuriers - Navigation entre pages web">Niveau 4 - Aventuriers - Navigation entre pages web</a></li>
+							<li><a href="#niveau5" title="Niveau 5 - Magiciens - Appel et affichage de données extérieurs">Niveau 5 - Magiciens - Appel et affichage de données extérieurs</a></li>
+							<li><a href="#niveau6" title="Niveau 6 - Barbares - Ajout d'un formulaire et appel d'une transaction">Niveau 6 - Barbares - Ajout d'un formulaire et appel d'une transaction, d'un block, d'une adresse</a></li>
+							<li><a href="#niveau7" title="Niveau 7 - Géants - Affichage de QR Code">Niveau 7 - Géants - Affichage des adresses dans des QR Code</a></li>				
+							<li><a href="#niveau8" title="Niveau 8 - Demi-Dieu - Proof of Existence">Niveau 8 - Demi-Dieu - QR Code et Proof of Existence</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -84,7 +88,7 @@
 				<img src="https://upload.wikimedia.org/wikipedia/fr/thumb/6/60/Logo_ESILV.svg/320px-Logo_ESILV.svg.png" alt="Logo ESILV"/>
 			</div>
 			<div class="col-sm-8">
-				<h1>Blockchain Programming<br/>Exploreur d'une blockchain</h1>
+				<h1>Blockchain Programming</h1>
 			</div>
 			<h2>Quête</h2>
 			<p>
@@ -106,100 +110,128 @@
 			<p>
 				Constituez-vous l'équipement indiqué en <a href="./../">page d'accueil</a>
 			</p>
+
+			<h2>Livrable et notation</h2>
+			<p>
+				Aucun livrable n'est attendu à la fin de chaque séance.<br/>
+				<br/>
+				A la fin des 4 séances, vous devez transmettre à <a href="mailto:albin@mubiz.com">l'adresse de votre encadrant</a>, un e-mail :<br/>
+			</p>
+			<ul class="list-group">
+				<li class="list-group-item">Envoyé depuis votre adresse e-mail de l'école (@devinci.fr)</li>
+				<li class="list-group-item">Mettre en copie votre binôme</li>
+				<li class="list-group-item">Commencer le sujet par "[ESILV][TP][3A][IF-X]" et indiquer le groupe IF dans lequel vous êtes</li>
+				<li class="list-group-item">Indiquer votre site internet, avec un lien hypertexte.</li>
+			</ul>
 		</div>
 
 		<nav class="navbar navbar-default">
 			<div class="container">
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="#lancement" title="Création de la league et lancement du site">Création de la league et lancement du site</a></li>
-						<li><a href="#niveau1" title="Niveau 1 - Newbies - Création de la page d'accueil">Niveau 1 - Newbies - Création de la page d'accueil</a></li>
-						<li><a href="#niveau2" title="Niveau 2 - Elfs - Ajout de Bootstrap">Niveau 2 - Elfs - Ajout de Bootstrap</a></li>
-						<li><a href="#niveau3" title="Niveau 3 - Nains - Ajout d'un CSS">Niveau 3 - Nains - Ajout d'un CSS</a></li>
-						<li><a href="#niveau4" title="Niveau 4 - Aventuriers - Navigation entre pages web">Niveau 4 - Aventuriers - Navigation entre pages web</a></li>
-						<li><a href="#niveau5" title="Niveau 5 - Magiciens - Appel et affichage de données extérieurs">Niveau 5 - Magiciens - Appel et affichage de données extérieurs</a></li>
-						<li><a href="#niveau6" title="Niveau 6 - Barbares - Ajout d'un formulaire et appel d'une transaction">Niveau 6 - Barbares - Ajout d'un formulaire et appel d'une transaction, d'un block, d'une adresse</a></li>
-						<li><a href="#niveau7" title="Niveau 7 - Géants - Affichage de QR Code">Niveau 7 - Géants - Affichage des adresses dans des QR Code</a></li>				
-						<li><a href="#niveau8" title="Niveau 8 - Demi-Dieu - Proof of Existence">Niveau 8 - Demi-Dieu - QR Code et Proof of Existence</a></li>
+						<li><a href="#niveau1" title="Niveau 1 - Troll - Création de la league et lancement du site">Niveau 1 - Troll - Création de la league</a></li>
+						<li><a href="#niveau2" title="Niveau 2 - Gobelin - Création de la page d'accueil">Niveau 2 - Gobelin - Création de la page d'accueil</a></li>
+						<li><a href="#niveau3" title="Niveau 3 - Elfs - Ajout de Bootstrap">Niveau 3 - Elf - Ajout de Bootstrap</a></li>
+						<li><a href="#niveau4" title="Niveau 4 - Nains - Ajout d'un CSS">Niveau 4 - Nain - Ajout d'un CSS</a></li>
+						<li><a href="#niveau5" title="Niveau 5 - Aventuriers - Navigation entre pages web">Niveau 5 - Aventurier - Navigation entre pages web</a></li>
+						<li><a href="#niveau6" title="Niveau 6 - Magiciens - Appel et affichage de données extérieurs">Niveau 6 - Magicien - Appel et affichage de données extérieurs</a></li>
+						<li><a href="#niveau7" title="Niveau 7 - Barbares - Ajout d'un formulaire et appel d'une transaction">Niveau 7 - Barbare - Ajout d'un formulaire et appel d'une transaction, d'un block, d'une adresse</a></li>
+						<li><a href="#niveau8" title="Niveau 8 - Ogres - Affichage de QR Code">Niveau 8 - Ogres - Affichage des adresses dans des QR Code</a></li>				
+						<li><a href="#niveau9" title="Niveau 9 - ZamgdarDemi-Dieu - Proof of Existence">Niveau 9 - Zamgdar - QR Code et Proof of Existence</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 
-		<div class="page-header" id="lancement">
-			<h2>Création de la league et lancement du site</h2>
+		<div class="page-header" id="niveau1">
+			<h2>Niveau 1 - Troll - Création de la league</h2>
+		</div>
+		<div class="progress">
+			<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:10%">
+		    	10% Web
+			</div>
 		</div>
 		<p>
 			- 1 - Pas de souci, si, comme Batman et Superman, vous préférez travailler en solo.<br/>
 			- 2 - Idéalement, des binômes sont parfaits pour ces quêtes.<br/>
 			- 3 - Je suis contre les plans à trois... L'un des trois doit, soit trouver un binome dans un autre groupe de trois... soit commencer sa carrière en solo.
 		</p>
-
-		<h3>Hébergement</h3>
 		<ul class="list-group">
 			<li class="list-group-item">Créer une page HTML avec <a href="https://pages.github.com/" title="Github Pages" rel="nofollow" target="_blanck">Github Pages</a></li>
 			<li class="list-group-item">Indiquer dans le ReadMe les Prénom - NOM (adresse email @devinci) de chaque membre</li>
+			<li class="list-group-item">Inviter les membres de la league sur le repository Github</li>
 			<li class="list-group-item">Commit + Push sur GitHub</li>
 		</ul>
+
+		
+		<div class="page-header" id="niveau2">
+			<h2>Niveau 2 - Gobelin - Création de la page d'accueil</h2>
+		</div>
+		<div class="progress">
+			<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:10%">
+		    	10% Web
+			</div>
+			<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:10%">
+				10% Web
+			</div>
+		</div>
+
+		<h3>Rédaction de la home page</h3> 
+		<ul class="list-group">
+			<li class="list-group-item">Les Prénom NOM (adresse e-mail) du binome sur la home page. Faire attention que ce soit les mêmes que dans le ReadMe...</li>
+		</ul>
+
+		<div class="highlight">
+			Afin d'avoir une page d'accueil à l'URL de votre site, créer un fichier "index.html" à la racine de votre repository.<br/>
+			Y indiquer les Prénom - NOM du Binome.<br/>
+			Afin d'utiliser la palette complète des balises HTML, vous êtes invité à consulter la documentation de W3C et <a href="http://www.w3schools.com/html/" rel="nofollow" target="_blanck">sa version plus pédagogique de W3School</a>
+			<pre>
+				<code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt; VOTRE TITRE &lt;/title&gt;			
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;h1&gt;Explorateur Bitcoin&lt;/h1&gt;
+		&lt;h2&gt;James BOND (james.bond@devinci.fr)&lt;/h2&gt;
+		&lt;h2&gt;James BOND (james.bond@devinci.fr)&lt;/h2&gt;
+		&lt;h2&gt;Explorateur Bitcoin&lt;/h1&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+				</code>
+			</pre>		
+		</div>
 		
 		<h3>Entrainement et Test en local</h3>
 		<div class="alert alert-warning" role="alert">
 			<strong>Warning ! </strong>
 			GitHub Pages impose un délai de mise à jour de quelques minutes. Il est recommandé de tester avant sur son poste afin de limiter les commits aux évolutions stables.
 		</div>
-		<p>
-			Il est recommandé de tester directement en local sur votre poste. Vous pouvez pour cela utiliser un navigateur web.<br/>
-			Pour tester les WS JSON, nous vous invitons à suivre le <a href="https://mubizinc.github.io/tuto-arc" title="Tutoriel ARC" rel="nofollow" target="_blanck">tutoriel ARC</a>.
-		</p>
-		
-		<h3>Rédaction de la home page</h3> 
-		<ul class="list-group">
-			<li class="list-group-item">Les Prénom NOM du binome</li>
-			<li class="list-group-item">Indiquer l'URL de votre Github Page par e-mail à votre encadrant</li>
-			<li class="list-group-item">(option) Ce n'est pas un TP de Web Design, ... mais intégrer Bootstrap et quelques icones à ce moment peut rendre le TP plus agréable pour la suite.</li>
-		</ul>
 
-		<div class="page-header" id="livraison">
-			<h2>Livrable et notation</h2>
+
+
+
+
+
+
+
+
+		<div class="page-header" id="niveau3">
+			<h2>Niveau 3 - Elfs - Ajout de Bootstrap</h2>
 		</div>
-		<p>
-			Aucun livrable n'est attendu à la fin de chaque séance.<br/>
-			<br/>
-			A la fin des 4 séances, vous devez transmettre à <a href="mailto:albin@mubiz.com">l'adresse de votre encadrant</a>, un e-mail :<br/>
-		</p>
-		<ul class="list-group">
-			<li class="list-group-item">Envoyé depuis votre adresse e-mail de l'école (@devinci.fr)</li>
-			<li class="list-group-item">Mettre en copie votre binôme</li>
-			<li class="list-group-item">Commencer le sujet par "[ESILV][TP][3A][IF-X]" et indiquer le groupe IF dans lequel vous êtes</li>
-			<li class="list-group-item">Indiquer votre site internet, avec un lien hypertexte.</li>
-		</ul>
-
-
-		<div class="page-header" id="tp1">
-			<h2>Niveau 1 - Newbies - Appel JSON et page d'informations</h2>
+		<div class="progress">
+			<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:20%">
+				20% Web
+			</div>
+			<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:10%">
+				10% Web
+			</div>
 		</div>
-		<h3>Création d'une page d'accueil</h3>
-		<div class="highlight">
-			Afin d'avoir une page d'accueil à l'URL de votre site, créer un fichier "index.html" à la racine de votre repository.<br/>
-			Y indiquer les Prénom - NOM du Binome.<br/>
-			Afin d'utiliser la palette complète des balises HTML, vous êtes invité à consulter la documentation de W3C et <a href="http://www.w3schools.com/html/" rel="nofollow" target="_blanck">sa version plus pédagogique de W3School</a>
-			<pre>
-<code class="language-html">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-	&lt;head&gt;
-		&lt;title&gt; VOTRE TITRE &lt;/title&gt;						
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;h1&gt;Explorateur Bitcoin&lt;/h1&gt;
-		&lt;h2&gt;James BOND&lt;/h1&gt;
-		&lt;h2&gt;Explorateur Bitcoin&lt;/h1&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-</code>
-			</pre>		
-		</p>
 
+		<ul class="list-group">
+			<li class="list-group-item">Ce n'est pas un TP de Web Design, ... mais intégrer Bootstrap et quelques icones à ce moment peut rendre le TP plus agréable pour la suite.</li>
+		</ul>
 		<h3>Un peu de couleur...</h3>
 		<img src="http://getlevelten.com/sites/default/files/styles/1200x675/public/content/blog/images/screen_shot_2014-04-11_at_4.28.22_pm.png" class="logo"/>
 		<p>
@@ -234,12 +266,57 @@
 		</pre>
 
 
+
+		<div class="page-header" id="niveau4">
+			<h2>Niveau 4 - Nains - Ajout d'un CSS</h2>
+		</div>
+		<div class="progress">
+			<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:30%">
+				30% Web
+			</div>
+			<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:10%">
+				10% Web
+			</div>
+		</div>
+
+
+
+		<div class="page-header" id="niveau5">
+			<h2>Niveau 5 - Aventuriers du Web - Navigation entre pages web</h2>
+		</div>
+		<div class="progress">
+		  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width:30%">
+		    30% Web
+		  </div>
+		  <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:10%">
+		    10%
+		  </div>
+		</div>
+
 		<h3>Création d'une page pour les TP Bitcoin</h3>
 		<p>
 			De manière à vous vous permettre d'utiliser ce site pour la rédaction d'un CV en ligne, d'un blog, pour le partage de photo/video, ..., les développements pour le TP se feront dans des sous-dossiers.
 		</p>
-		
-		
+
+
+
+
+		<div class="page-header" id="niveau6">
+			<h2>Niveau 6 - Magiciens - Appel et affichage de données extérieurs</h2>
+		</div>
+		<div class="progress">
+		  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+		    40% Web Complete !
+		  </div>
+		  <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:10%">
+		    10% Blockchain
+		  </div>
+		</div>
+
+		<p>
+			Il est recommandé de tester directement en local sur votre poste. Vous pouvez pour cela utiliser un navigateur web.<br/>
+			Pour tester les WS JSON, nous vous invitons à suivre le <a href="https://mubizinc.github.io/tuto-arc" title="Tutoriel ARC" rel="nofollow" target="_blanck">tutoriel ARC</a>.
+		</p>
 		<h3>Appel JSON depuis un navigateur</h3>
 		<p>
 			Aller sur la documentation de l'API Bitcoin de votre choix :
@@ -310,6 +387,87 @@ xmlhttp.send();
 				Appeler les données depuis la page créée et les afficher
 			</li>
 		</ul>
+
+
+
+
+
+
+
+		<div class="page-header" id="niveau7">
+			<h2>Niveau 7 - Barbares - Ajout d'un formulaire et appel d'une transaction</h2>
+		</div>
+		<div class="progress">
+			<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+		    	40% Web
+		  	</div>
+		  	<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:10%">
+		    	10% Blockchain
+		  	</div>
+		  	<div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:10%">
+		    	10% Blockchain
+		  	</div>
+		</div>
+
+
+		<div class="page-header" id="niveau8">
+			<h2>Niveau 8 - Ogres - Affichage de QR Code + Navigation entre les pages de l'exploreur</h2>
+		</div>
+		<div class="progress">
+		  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+		    70% Complete
+		  </div>
+		</div>
+		<h3>Générateur de QR Code</h3>
+		<ul class="list-group">
+			<li class="list-group-item">A l'aide de la librairie <a href="https://github.com/davidshimjs/qrcodejs" title="QR Code for JS" rel="nofollow" target="_blanck">QR Code for JS (MIT Licence)</a>, générer un QR Code respectant le BIP ...</li>
+			<li class="list-group-item">Tester le QR Code généré à l'aide d'une application mobile.</li>
+		</ul>
+
+
+
+
+		<div class="page-header" id="niveau9">
+			<h2>Niveau 9 - Menestrels - Proof of Existence et SHA256 de données (cf Coinb.in)</h2>
+		</div>
+		<div class="progress">
+		  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:80%">
+		    80% Complete
+		  </div>
+		</div>
+		<h3>Proof of Existence</h3>
+		<ul class="list-group">
+			<li class="list-group-item">Signature d'un document => Génération d'un hash</li>
+			<li class="list-group-item">Vérification d'un document => Recevoir hash + document ET répondre si matching</li>
+		</ul>
+
+
+
+
+		<div class="page-header" id="niveau10">
+			<h2>Niveau 10 - Voleurs - PaperWallet</h2>
+		</div>
+		<div class="progress">
+		  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+		    90% Complete
+		  </div>
+		</div>
+
+
+		<div class="page-header" id="niveau11">
+			<h2>Niveau 11 - Vampires - Génération de clés et HD Wallet (BIP32 - BIP 39)</h2>
+		</div>
+		<div class="progress">
+		  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+		    100% Complete
+		  </div>
+		</div>
+
+		<div class="page-header" id="niveau11">
+			<h2>Niveau 11 - Dragon - Bonus - Signature d'une transaction</h2>
+		</div>
+
+
 		
 		
 		<h3>Instructions :</h3>
@@ -510,20 +668,10 @@ Address -> Transaction</code>
 		</ul>
 	
 		
-		<div class="page-header" id="tp3">
-			<h2>Niveau 3 - Générateur de QR Code et Proof of Existence</h2>
-		</div>
-		<h3>Générateur de QR Code</h3>
-		<ul class="list-group">
-			<li class="list-group-item">A l'aide de la librairie <a href="https://github.com/davidshimjs/qrcodejs" title="QR Code for JS" rel="nofollow" target="_blanck">QR Code for JS (MIT Licence)</a>, générer un QR Code respectant le BIP ...</li>
-			<li class="list-group-item">Tester le QR Code généré à l'aide d'une application mobile.</li>
-		</ul>
 
-		<h3>Proof of Existence</h3>
-		<ul class="list-group">
-			<li class="list-group-item">Signature d'un document => Génération d'un hash</li>
-			<li class="list-group-item">Vérification d'un document => Recevoir hash + document ET répondre si matching</li>
-		</ul>
+
+
+
 		
 		
 		<div class="page-header" id="tp4">
@@ -578,11 +726,6 @@ Address -> Transaction</code>
 			L'entreprise souhaitant faire auditer ses comptes fourni l'adresse racine à l'auditeur.<br/>
 			Ce dernier est alors en mesure d'extraire l'ensemble des écritures.
 		</p>
-		<ul class="list-group">
-			<li class="list-group-item">TODO Albin - Compléter les étapes</li>
-			<li class="list-group-item"></li>
-			<li class="list-group-item"></li>
-		</ul>
 	</div>
 	<footer class="footer">
 		<div class="container">
