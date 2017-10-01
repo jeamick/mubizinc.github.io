@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8" />
 
-	<title>ESILV - Blockchain Programming - TP/TD 3e année | Mubiz</title>
-	<meta name="description"    content="Sujet de TP/TD Blockchain Programming pour les 3e année de l'ESILV"/>
-	<meta name="keywords"       content="ESILV, TP,"/>
+	<title>ESILV - Blockchain Programming - Exploreur Blockchain | Mubiz</title>
+	<meta name="description"    content="Blockchain Programming - Exploreur d'une blockchain"/>
+	<meta name="keywords"       content="Blockchain, exploreur"/>
 	
 	<meta name="robots"         content="index,follow"/>
 	<meta name="rating"         content="safe for kids"/>
@@ -30,8 +30,6 @@
  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
-	
-	
 	<!-- HIGHLIGHT -->	
 	<link rel="stylesheet" href="../styles/atelier-cave-light.css">
 	<script src="http://mubiz.com/lib/highlight/highlight.pack.js"></script>
@@ -44,14 +42,14 @@
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
-				<a href="/" class="navbar-brand" rel="home" title=""><img style="max-width:100px;" src="http://mubiz.com/images/mubiz/mubiz-logo-white.png" alt="Mubiz logo"/></a>
+				<a href="./../" class="navbar-brand" rel="home" title=""><img style="max-width:100px;" src="http://mubiz.com/images/mubiz/mubiz-logo-white.png" alt="Mubiz logo"/></a>
 			</div>
 			<div class="navbar-collapse collapse" id="navbar">
 				<ul class="nav navbar-nav">
 					<li class="active dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" role="button" title="TP 3A" aria-haspopup="true" aria-expanded="false">3e année</a>
+						<a class="dropdown-toggle" data-toggle="dropdown" role="button" title="TP 3A" aria-haspopup="true" aria-expanded="false">Exploreur d'une blockchain</a>
 						<ul class="dropdown-menu">
-							<li><a href="#installation">Pré-requis</a></li>
+							<li><a href="#installation">Préparation de l'équipement</a></li>
 							<li><a href="#tp1">TP1</a></li>
 							<li><a href="#tp2">TP2</a></li>
 							<li><a href="#tp3">TP3</a></li>
@@ -74,8 +72,8 @@
 					<li><a href="/tuto-doc-node-web3" title="Tutoriel Web3.js">Tutoriel Web3.js</a></li>
 					<li><a href="/lexique" title="Lexique Blockchain">Lexique Blockchain</a></li>
 					<li><a href="/bitcoin" title="Bitcoin exploreur">Bitcoin</a></li>
-					<li><a href="/smoothie" title="Smoothie">Maintenance Smoothie</a></li>
-					<li><a href="/tuto-arc" title="Tuto ARC">Tutorial ARC</a></li>
+					<li><a href="/smoothie" title="Smoothie">Smoothie</a></li>
+					<li><a href="/tuto-arc" title="Tuto ARC">ARC</a></li>
 				</ul>
 			</div>
 		</div>
@@ -86,73 +84,65 @@
 				<img src="https://upload.wikimedia.org/wikipedia/fr/thumb/6/60/Logo_ESILV.svg/320px-Logo_ESILV.svg.png" alt="Logo ESILV"/>
 			</div>
 			<div class="col-sm-8">
-				<h1>Blockchain Programming<br/>3e Année</h1>
+				<h1>Blockchain Programming<br/>Exploreur d'une blockchain</h1>
 			</div>
-			<h2>Objectif</h2>
+			<h2>Quête</h2>
 			<p>
 				Cette série de TP souhaite permettre à chaque étudiant le développement d'un exploreur de blockchain.<br/>
 				Pour commencer, il a été choisi d'utiliser la blockchain bitcoin, et d'offrir la possibilité aux étudiants de proposer le maximum de services associés.
 			</p>
-			<h2>Démarche</h2>
+			<h2>Parcours</h2>
 			<p>
 				Dans un 1er temps, l'objectif est de se créer une page et d'y afficher les résultats des WS les plus simples (TP1). 
 				Ensuite, à l'aide d'un formulaire, l'exploration de la blockchain pourra être plus détaillée. (TP 2)<br/>
 				Enfin, on pourra utiliser les services plus complexes et apporter des améliorations à l'expérience utilisateur. (TP 3 et 4)
 			</p>
-			<h2>Intérêt</h2>
+			<h2>Objectif</h2>
 			<p>
 				Pouvoir mettre en évidence sur son CV ses réalisations lors des TP, et justifier ainsi de ses compétences en développement Web en lien avec la technologie Blockchain.<br/>
 				Cela peut aussi vous permettre de vous réaliser des pages pour votre CV en ligne, vos liens fréquents, des prototypes d'idées, des projets, ...
 			</p>
-			<h2>Outils utilisés lors des TP</h2>
-			<ul>
-				<li><a href="https://eclipse.org/downloads/" title="Eclipse" rel="nofollow" target="_blanck">Eclipse</a> ou <a href="https://www.sublimetext.com/" title="Sublime Text" rel="nofollow" target="_blanck">Sublime</a></li>
-				<li><a href="https://desktop.github.com/" title="GitHub Desktop" rel="nofollow" target="_blanck">Github Desktop</a></li>
-				<li><a href="https://pages.github.com/" title="" rel="nofollow" target="_blanck">Github Pages</a></li>
-				<li><a href="https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo" title="ARC" rel="nofollow" target="_blanck">ARC - Application Google Chrome pour Web Service</a></li>
-				<li><a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa" title="JSON Formatter" rel="nofollow" target="_blanck">JSON Formatter - Plug-in Google Chrome</a></li>
-				<li><a href="http://getbootstrap.com/" title="Bootstrap" rel="nofollow" target="_blanck">(option) Bootstrap</a></li>
-				<li><a href="http://www.wampserver.com/" title="" rel="nofollow" target="_blanck">(option) Développement en local - WAMP/LAMP</a></li>
-			</ul>
+			<h2>Equipement</h2>
+			<p>
+				Constituez-vous l'équipement indiqué en <a href="./../">page d'accueil</a>
+			</p>
 		</div>
 
 		<nav class="navbar navbar-default">
 			<div class="container">
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="#installation" title="Installation">Installation</a></li>
-						<li><a href="#tp1" title="TP 1 - Appel JSON et page d'informations">TP 1 - Home Page et WS JSON</a></li>
-						<li><a href="#tp2" title="TP 2 - Navigation Blocks, Address, Transactions, ...">TP 2 - Navigation Blocks, Address, Transactions</a></li>
-						<li><a href="#tp3" title="TP 3 - Générateur de QR Code et Proof of Existence">TP 3 - QR Code et Proof of Existence</a></li>
-						<li><a href="#tp4" title="TP 4 - Ethereum et Smart-contracts">TP 4 - Smart-contracts</a></li>
+						<li><a href="#lancement" title="Création de la league et lancement du site">Création de la league et lancement du site</a></li>
+						<li><a href="#niveau1" title="Niveau 1 - Newbies - Création de la page d'accueil">Niveau 1 - Newbies - Création de la page d'accueil</a></li>
+						<li><a href="#niveau2" title="Niveau 2 - Elfs - Ajout de Bootstrap">Niveau 2 - Elfs - Ajout de Bootstrap</a></li>
+						<li><a href="#niveau3" title="Niveau 3 - Nains - Ajout d'un CSS">Niveau 3 - Nains - Ajout d'un CSS</a></li>
+						<li><a href="#niveau4" title="Niveau 4 - Aventuriers - Navigation entre pages web">Niveau 4 - Aventuriers - Navigation entre pages web</a></li>
+						<li><a href="#niveau5" title="Niveau 5 - Magiciens - Appel et affichage de données extérieurs">Niveau 5 - Magiciens - Appel et affichage de données extérieurs</a></li>
+						<li><a href="#niveau6" title="Niveau 6 - Barbares - Ajout d'un formulaire et appel d'une transaction">Niveau 6 - Barbares - Ajout d'un formulaire et appel d'une transaction, d'un block, d'une adresse</a></li>
+						<li><a href="#niveau7" title="Niveau 7 - Géants - Affichage de QR Code">Niveau 7 - Géants - Affichage des adresses dans des QR Code</a></li>				
+						<li><a href="#niveau8" title="Niveau 8 - Demi-Dieu - Proof of Existence">Niveau 8 - Demi-Dieu - QR Code et Proof of Existence</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 
-		<div class="page-header" id="installation">
-			<h2>Pré-requis - Installations</h2>
+		<div class="page-header" id="lancement">
+			<h2>Création de la league et lancement du site</h2>
 		</div>
+		<p>
+			- 1 - Pas de souci, si, comme Batman et Superman, vous préférez travailler en solo.<br/>
+			- 2 - Idéalement, des binômes sont parfaits pour ces quêtes.<br/>
+			- 3 - Je suis contre les plans à trois... L'un des trois doit, soit trouver un binome dans un autre groupe de trois... soit commencer sa carrière en solo.
+		</p>
 
-		<h3>Plateforme de développement et éditeur de texte</h3>
-		<ul class="list-group">
-			<li class="list-group-item">Installer une plateforme de programmation (Eclipse, Sublime, CodeBlock, ...)</li>
-		</ul>
-
-		<h3>Versionning</h3>
-		<ul class="list-group">
-			<li class="list-group-item">Se créer un compte public <a href="https://github.com/join" title="Sign up GitHub" rel="nofollow" target="_blanck">GitHub</a></li>
-			<li class="list-group-item">(option) Installer <a href="https://desktop.github.com/" title="GitHub Desktop" rel="nofollow" target="_blanck">Github Desktop</a></li>
-			<li class="list-group-item">Commit + Push sur GitHub</li>
-		</ul>
-		
 		<h3>Hébergement</h3>
 		<ul class="list-group">
 			<li class="list-group-item">Créer une page HTML avec <a href="https://pages.github.com/" title="Github Pages" rel="nofollow" target="_blanck">Github Pages</a></li>
+			<li class="list-group-item">Indiquer dans le ReadMe les Prénom - NOM (adresse email @devinci) de chaque membre</li>
 			<li class="list-group-item">Commit + Push sur GitHub</li>
 		</ul>
 		
-		<h3>Test en local</h3>
+		<h3>Entrainement et Test en local</h3>
 		<div class="alert alert-warning" role="alert">
 			<strong>Warning ! </strong>
 			GitHub Pages impose un délai de mise à jour de quelques minutes. Il est recommandé de tester avant sur son poste afin de limiter les commits aux évolutions stables.
@@ -168,33 +158,6 @@
 			<li class="list-group-item">Indiquer l'URL de votre Github Page par e-mail à votre encadrant</li>
 			<li class="list-group-item">(option) Ce n'est pas un TP de Web Design, ... mais intégrer Bootstrap et quelques icones à ce moment peut rendre le TP plus agréable pour la suite.</li>
 		</ul>
-
-		<h3>Qualité de code</h3>
-		<blockquote>
-		    <p>"Les fautes d'orthographe amoindrissent vos chances, même en amour. Une lettre d'amour avec des fautes, vous risquez d'être mal reçus."</p>
-		    <footer>Bernard PIVOT</footer>
-		</blockquote>
-		<p>
-			Nous nous concentrons sur les cas d'application de la technologie blockchain, mais cela ne doit pas justifier un code difficile à maintenir.<br/>
-			Pour ne pas être mal reçu par Google, nous vous invitons à respecter, autant que possible, les quelques bonnes pratiques suivantes.
-		</p>
-		
-		<ul class="list-group">
-			<li class="list-group-item">* - Mettre des commentaires au fur et à mesure de vos développements</li>
-			<li class="list-group-item">JS - Faciliter la génération d'un documentation, par exemple en respectant le format APIDOC</li>
-			<li class="list-group-item">JS - Commencer les paramètres par "_"</li>
-			<li class="list-group-item">JS - Commencer les variables par une minuscule et les nommer en chameau</li>
-			<li class="list-group-item">JS - Commencer chaque fonction par un contrôle des paramètres fournis et des retours logiques.</li>
-			<li class="list-group-item">HTML SEO - Ajouter de méta-données dans les pages HTML, dans le respect de schema.org</li>
-			<li class="list-group-item">HTML SEO - Les balises doivent être en minusucule</li>
-			<li class="list-group-item">Performance - Vérifier la conformité W3C (HTML et CSS)</li>
-			<li class="list-group-item">Performance - Ne pas appeler des fichiers inutiles (JS, CSS, ...)</li>
-			<li class="list-group-item">UX - Ajouter d'icônes et d'images</li>
-			<li class="list-group-item">UX - Intégrer un minimum d'ergonomie "standard" des pages (Bootstrap ou autre)</li>
-			<li class="list-group-item">Organisation - Mettre la mise en page dans des fichiers CSS (rien en HTML)</li>
-			<li class="list-group-item">Organisation - Mettre les scripts dans des fichiers JS (rien en HTML)</li>
-		</ul>
-
 
 		<div class="page-header" id="livraison">
 			<h2>Livrable et notation</h2>
@@ -213,7 +176,7 @@
 
 
 		<div class="page-header" id="tp1">
-			<h2>TP 1 - Appel JSON et page d'informations</h2>
+			<h2>Niveau 1 - Newbies - Appel JSON et page d'informations</h2>
 		</div>
 		<h3>Création d'une page d'accueil</h3>
 		<div class="highlight">
@@ -400,7 +363,7 @@ xmlhttp.send();
 
 		
 		<div class="page-header" id="tp2">
-			<h2>TP 2 - Navigation Blocks, Address, Transactions, ...</h2>
+			<h2>Niveau 2 - Elfs - Navigation Blocks, Address, Transactions, ...</h2>
 		</div>
 		<h3>Objectifs :</h3>
 		<ul class="list-group">
@@ -548,7 +511,7 @@ Address -> Transaction</code>
 	
 		
 		<div class="page-header" id="tp3">
-			<h2>TP 3 - Générateur de QR Code et Proof of Existence</h2>
+			<h2>Niveau 3 - Générateur de QR Code et Proof of Existence</h2>
 		</div>
 		<h3>Générateur de QR Code</h3>
 		<ul class="list-group">
@@ -564,7 +527,7 @@ Address -> Transaction</code>
 		
 		
 		<div class="page-header" id="tp4">
-			<h2>TP 4 - Optimisations, design et compatibilité</h2>
+			<h2>Niveau 4 - Optimisations, design et compatibilité</h2>
 		</div>
 		<ul class="list-group">
 			<li class="list-group-item">Vérifier que vos pages sont validées par W3C : <a href="http://validator.w3.org/" rel="nofollow" target="_blanck">W3C Validator</a></li>
