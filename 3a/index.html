@@ -411,13 +411,14 @@
 					<li class="list-group-item">
 						Mettre quelques images :<br/>
 						- Remplacer les liens vers vos réseaux sociaux par les icones twitter et linkedin de font-awesome<br/>
-						- Mettre quelques images en remplacement de label et textes
+						- Mettre quelques images en remplacement de label et textes<br/>
+						<br/>
+						Exemple de code <pre><code>
+&lt;i class="fa fa-th fa-5x"&gt;&lt;/i&gt;
+						</code></pre><br/>
+						Outil : <a href="http://fontawesome.io/icons/">Librairie des images Font Awesome 4.7.0</a>
 					</li>
-					
 				</ul>
-
-
-
 			</div>
 			<div class="col-md-3">
 				<img src="./../images/explorer/nain.jpg"/>
@@ -497,78 +498,117 @@
 				  </div>
 				</div>
 
-				<p>
-					Il est recommandé de tester directement en local sur votre poste. Vous pouvez pour cela utiliser un navigateur web.<br/>
-					Pour tester les WS JSON, nous vous invitons à suivre le <a href="https://mubizinc.github.io/tuto-arc" title="Tutoriel ARC" rel="nofollow" target="_blanck">tutoriel ARC</a>.
-				</p>
-				<h3>Appel JSON depuis un navigateur</h3>
-				<p>
-					Aller sur la documentation de l'API Bitcoin de votre choix :
-				</p>
 				<ul class="list-group">
 					<li class="list-group-item">
+						<h3>Choisir les données souhaitées</h3>
+						Choisir les informations extérieures que vous souhaitez afficher sur votre page <code>bitcoin</code><br/>
+						<br/>
+						Supermarché des Web Services :<br/>
 						<ul>
 							<li>
 								<a href="http://mubiz.com/developers/bitcoin/" title="Mubiz documentation" target="_blanck">
-									<img src="http://mubiz.com/images/mubiz/mubiz-logo.png" class="logo"/>
+									<img src="https://mubiz.com/images/mubiz/mubiz-logo.png" class="logo"/>
 								</a>
 							</li>
 							<br/>
 							<li>
 								<a href="https://www.blockcypher.com/dev/bitcoin/" rel="nofollow" target="_blanck">
-									<img src="http://e-mprovement.com/images/dashboard/blockcypher-logo.png" class="logo" alt="Blockcypher"/>
+									<img src="https://mubiz.com/images/dashboard/blockcypher-logo.png" class="logo" alt="Blockcypher"/>
 								</a>
 							</li>
-							<br>
+							<br/>
 							<li>
 								<a href="https://blockchain.info/fr/api/blockchain_api" title="Blockchain.info" rel="nofollow" target="_blanck">
-									<img src="http://e-mprovement.com/images/dashboard/blockchain-info-logo.png" class="logo" alt="Blockchain API"/>
+									<img src="https://mubiz.com/images/dashboard/blockchain-info-logo.png" class="logo" alt="Blockchain API"/>
 								</a>
 							</li>
-							<br>
+							<br/>
 							<li>
 								<a href="https://block.io/docs/basic" title="Block.io" rel="nofollow" target="_blanck">
 									<img src="http://bittrust.s3.amazonaws.com/1437541807.png" class="logo"/>
 								</a>
 							</li>
+							<br/>
+							<li>
+								<a href="https://coinmarketcap.com" title="CoinMarketCap" rel="nofollow" target="_blanck">
+									CoinMarketCap
+								</a>
+							</li>
+						</ul>
+						Remarques :<br/>
+						- Les Web Services peuvent être disponible via des API, post sign up.<br/>
+						- Les Web Services sont quasiment tous au format JSON. Vous êtes invités à regarder comment ce format de données fonctionne.
+					</li>
+					<li class="list-group-item">
+						<h3>Tester avec votre navigateur</h3>
+						Tester depuis sur votre navigateur l'appel des web services que vous souhaitez utiliser.<br/>
+						Certains sites proposent directement des pages de tests et des formulaires sur pages web. <br/>
+						C'est un bon moyen de comprendre ce que retourne le Web Service.<br/>
+					</li>
+					<li class="list-group-item">
+						<h3>Tester avec Postman</h3>
+						Pour tester les WS JSON, nous vous invitons à suivre le <a href="https://mubizinc.github.io/tuto-arc" title="Tutoriel ARC" rel="nofollow" target="_blanck">tutoriel ARC</a>.<br/>
+						<hr>
+						Vous faire une liste regroupant, par donnée souhaitée, les 4 variables :<br/>
+						<ul>
+							<li>Nom de la variable</li>
+							<li>[URL_DE_VOTRE_WEB_SERVICE] => l'URL retournant cette information (potentiellement avec des paramètres)</li>
+							<li>[VARIABLE_RECUE] = la position de la donnée dans la réponse</li>
+							<li>[ID_DE_VOTRE_BALISE_D_AFFICHAGE] = Id html = balise d'affichage dans votre page</li>
 						</ul>
 					</li>
-					<br>
-					<p>
-						De manière a réaliser le TP, voici un exemple de code javascript pour réaliser l'appel des WebService :
-						<pre>
-							<code class="javascript hljs">
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        var myObj = this.responseText;
-        var jsonPretty = JSON.stringify(JSON.parse(myObj),null,2);
-        document.getElementById("demo").innerHTML = jsonPretty;
-    }
-};
-xmlhttp.open("GET", "https://api.blockcypher.com/v1/btc/main", true);
-xmlhttp.send();
-							</code>
-						</pre>
-					</p>
-					<p>
-						Et un exemple de code html pour afficher la réponse reçue du webService dans a page html :
-						<pre>
-							<code class="html hljs">
-&lt;div class="row"&gt;
-	&lt;div class="col-lg-12 col-xs-6"&gt;
-    	&lt;pre&gt;
-        	&lt;code id="demo" class="json kljs"&gt;&lt;/code&gt;
-    	&lt;/pre&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-							</code>
-						</pre>
-					</p>
-					<h3>Objectifs :</h3>
-					<li class="list-group-item">Faire les appels JSON des fonctions sans paramètres depuis un navigateur (mining par ex)</li>
 					<li class="list-group-item">
-						Appeler les données depuis la page créée et les afficher
+						<h3>Faire évoluer votre page</h3>
+						<p>
+							Voici un exemple de code JavaScript/JQuery pour réaliser l'appel des WebService  :
+							<pre>
+								<code class="javascript hljs">
+$(document).ready(function() {
+	$.ajax({
+		url : " [URL_DE_VOTRE_WEB_SERVICE] ",
+		dataType : "json",
+		contentType : "application/json; charset=utf-8",
+		type : "GET",
+		timeout:	"5000",
+		async : false,
+
+		success : function(data) {
+			$(' [ID_DE_VOTRE_BALISE_D_AFFICHAGE] ').append(data.[VARIABLE_RECUE]);
+		},
+
+		error : function(xhr, status, err) {
+			$(' [ID_DE_VOTRE_BALISE_D_AFFICHAGE] ').append(err+" N/A");
+		}
+	});
+});
+								</code>
+							</pre>
+						</p>
+						<p>
+							Et un exemple de code html pour afficher la réponse reçue du WebService dans la page html :
+							<pre>
+								<code class="html hljs">
+&lt;span id="[ID_DE_VOTRE_BALISE_D_AFFICHAGE]"&gt;&lt;/span&gt;
+								</code>
+							</pre>
+							On utilise ici l'id <code>[ID_DE_VOTRE_BALISE_D_AFFICHAGE]</code> pour afficher la donnée reçue dans le champs <code>[VARIABLE_RECUE]</code>.<br/>
+							A vous de créer plusieurs balises avec plusieurs id, afin d'afficher les informations qui vous semblent pertinantes sur vos pages.
+						</p>
+					</li>
+					<li class="list-group-item">
+						<h3>Ajouter des données</h3>
+						<ul>
+							<li>Ajouter des Id d'affichage dans votre page <code>bitcoin</code></li>
+							<li>Editer la partie "success" du JavaScript pour ajouter l'affichage de résultat</li>
+							<li>Tester la page modifiée sur votre navigateur</li>
+							<li>Commit et push les modifications</li>
+						</ul>
+						<hr>
+						Réitérer la liste précédente jusqu'à avoir un nombre intéressant d'informations/de données sur votre page.
+					</li>
+					<li class="list-group-item">
+						<h3>Organiser votre page par domaines</h3>
+						Organiser les données affichées par domaines : Monnaie, trading, transaction, minage, node, ...<br/>
 					</li>
 				</ul>
 			</div>
@@ -576,7 +616,8 @@ xmlhttp.send();
 				<img src="./../images/explorer/magicienne.png" />
 			</div>
 		</div>
-		<ul class="list-group">
+
+<!-- 		<ul class="list-group">
 			<li class="list-group-item">
 				Sur votre page <code>bitcoin/index.html</code>, afficher les données du WS /info
 			</li>
@@ -589,10 +630,7 @@ xmlhttp.send();
 			<li class="list-group-item">
 				Afficher les données du WS /peerinfo
 			</li>
-			<li class="list-group-item">
-				Commit, push les modification
-			</li>
-		</ul>
+		</ul> -->
 
 		<div class="row">
 			<div class="col-md-3">
