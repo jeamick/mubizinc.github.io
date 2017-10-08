@@ -90,10 +90,10 @@
 	</nav>
 	<div class="container theme-showcase" role="main">
 		<div class="jumbotron">
-			<div class="col-sm-4">
+			<div class="col-sm-3">
 				<img src="https://upload.wikimedia.org/wikipedia/fr/thumb/6/60/Logo_ESILV.svg/320px-Logo_ESILV.svg.png" alt="Logo ESILV"/>
 			</div>
-			<div class="col-sm-8">
+			<div class="col-sm-9">
 				<h1>Blockchain Programming</h1>
 			</div>
 			<h2>Quête</h2>
@@ -244,8 +244,8 @@
 			- <a href="http://www.w3schools.com/html/" rel="nofollow" target="_blanck">sa version plus pédagogique de W3School</a><br/>
 		</div>
 		
-		<h3>Entrainement en local</h3>
 		<div class="alert alert-warning" role="alert">
+			<h3>Entrainement en local</h3>
 			<strong>Warning ! </strong>
 			GitHub Pages impose un délai de mise à jour de quelques minutes. Il est recommandé de tester avant sur son poste afin de limiter les commits aux évolutions stables.
 
@@ -340,7 +340,7 @@
 				</pre>
 			</li>
 		</ul>
-
+		<img src="./../images/explorer/elfe_fin-de-niveau.jpg" />
 
 
 
@@ -424,14 +424,13 @@
 				<img src="./../images/explorer/nain.jpg"/>
 			</div>
 		</div>
-
+		<img src="./../images/explorer/nain_fin-de-niveau.jpg" />
 
 
 
 		<div class="page-header" id="niveau5">
 			<h2>Niveau 5 - Aventurier du Web - Navigation entre pages web</h2>
 		</div>
-
 		<div class="row">
 			<div class="col-md-3">
 				<img src="./../images/explorer/aventurier.jpg"/>
@@ -446,42 +445,46 @@
 				  </div>
 				</div>
 
-				<h3>Création d'une page pour les TP Bitcoin</h3>
-				<p>
-					De manière à vous vous permettre d'utiliser ce site pour la rédaction d'un CV en ligne, d'un blog, pour le partage de photo/video, ..., les développements pour le TP se feront dans des sous-dossiers.
-				</p>
 				<ul class="list-group">
 					<li class="list-group-item">
-						- Créer un nouveau fichier <code>bitcoin/index.html</code> (dans Github en difficulté=débutant, dans votre dossier local en difficulté=expert ).<br/>
-						- Y copier le contenu de la homepage + y faire les modifications nécessaires (titre de la page, contenu, ...)
-					</li>
-					<li class="list-group-item">
-						Dans la homepage, ajouter un lien faire la page <code>/bitcoin/</code>.<br/>
-						<pre>
-						<code class="language-html">
-&lt;a href=" URL_DE_DESTINATION " title=" UNE_INDICATION " &gt;	LE_TEXTE_CLIQUABLE	&lt;/a&gt;
-						</code>
-					</pre>
-					</li>
-					<li class="list-group-item">
+						<h3>Création d'une page "Bitcoin"</h3>
+						<p>
+							Afin que ce site puisse être utilisé pour la rédaction d'un CV en ligne, d'un blog, pour le partage de photo/video, ..., les développements pour le TP exploreur se feront dans une page spécifique.
+						</p>
+						Créer un nouveau fichier <code>bitcoin/index.html</code> (dans Github en difficulté=débutant, dans votre dossier local en difficulté=expert ).
+						<hr>
+						Y copier le contenu de la homepage + y faire les modifications nécessaires (titre de la page, contenu, ...)
+						<hr>
 						Depuis votre page <code>/bitcoin/</code> faire un lien retour vers la homepage.
+						<pre><code class="language-html">
+&lt;a href=" URL_DE_DESTINATION " title=" UNE_INDICATION " &gt;	LE_TEXTE_CLIQUABLE	&lt;/a&gt;
+						</code></pre>
 					</li>
 					<li class="list-group-item">
-						Commit, push les modification
+						<h3>Ajout de lien vers la page bitcoin</h3>
+						Dans la homepage, ajouter un lien faire la page <code>/bitcoin/</code>.
+						<hr>
+						Dans les menus de chaque page, ajouter des liens vers la page bitcoin.
+						<hr>
+						Dans les menus de chaque page, ajouter des liens vers la homepage.
 					</li>
 					<li class="list-group-item">
-						Test - Sur le navigateur web :<br/>
+						<h3>Tests en local et sauvegarde</h3>
+						Test en local que vous parvenez à passer d'une page à l'autre (aller / retour / aller / retour)
+						<hr>
+						Commit et push les modifications
+					</li>
+					<li class="list-group-item">
+						<h3>Tests en ligne</h3>
+						Sur le navigateur web :<br/>
 						- Vérifier que le lien vers la page bitcoin est présent<br/>
 						- Cliquer et vérifier qu'il affiche la page bitcoin, avec le lien retour<br/>
 						- Cliquer sur le lien retour et vérifier que vous êtes bien de retour sur la homepage<br/>
 					</li>
-					<li class="list-group-item">
-						Si le test est réussi, ajouter un lien <code>bitcoin</code> dans le menu de <strong>toutes les pages</strong>
-					</li>
 				</ul>
 			</div>
 		</div>
-
+		<img src="./../images/explorer/aventurier_fin-de-niveau.jpg" />
 
 
 		<div class="page-header" id="niveau6">
@@ -560,7 +563,7 @@
 					<li class="list-group-item">
 						<h3>Faire évoluer votre page</h3>
 						<p>
-							Voici un exemple de code JavaScript/JQuery pour réaliser l'appel des WebService  :
+							Dans votre dossier <code>js</code>, créer un fichier contenant le code JavaScript/JQuery permettant d'appeler des WebServices  :
 							<pre>
 								<code class="javascript hljs">
 $(document).ready(function() {
@@ -585,7 +588,13 @@ $(document).ready(function() {
 							</pre>
 						</p>
 						<p>
-							Et un exemple de code html pour afficher la réponse reçue du WebService dans la page html :
+							Dans la page html <code>bitcoin</code>, ajouter (soit dans le head, soit avant la fermeture de la balise <code>html</code>) un appel du fichier javascript avec : 
+							<pre>
+								<code class="html hljs">&lt;script type="text/javascript" src="../js/[NOM_DE_MON_FICHIER_JS].js" defer&gt;&lt;/script&gt;</code>
+							</pre>
+						</p>
+						<p>
+							Dans la page html <code>bitcoin</code>, afficher la réponse reçue du WebService avec :
 							<pre>
 								<code class="html hljs">
 &lt;span id="[ID_DE_VOTRE_BALISE_D_AFFICHAGE]"&gt;&lt;/span&gt;
@@ -594,6 +603,29 @@ $(document).ready(function() {
 							On utilise ici l'id <code>[ID_DE_VOTRE_BALISE_D_AFFICHAGE]</code> pour afficher la donnée reçue dans le champs <code>[VARIABLE_RECUE]</code>.<br/>
 							A vous de créer plusieurs balises avec plusieurs id, afin d'afficher les informations qui vous semblent pertinantes sur vos pages.
 						</p>
+						<hr/>
+						<p>Exemple :</p>
+						<div class="row">
+							<div class="col-md-3">
+								<img src="./../images/explorer/magicienne_fin-de-niveau.jpg" />
+							</div>
+							<div class="col-lg-9 col-md-9">
+								<div class="panel panel-yellow">
+									<div class="panel-heading">
+										<div class="row">
+											<div class="col-xs-3">
+												<i class="fa fa-th fa-5x"></i>
+											</div>
+											<div class="col-xs-9 text-right">
+												<h2>
+													<span id="bitcoin_block_number"></span> blocks
+												</h2>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</li>
 					<li class="list-group-item">
 						<h3>Ajouter des données</h3>
@@ -632,31 +664,6 @@ $(document).ready(function() {
 			</li>
 		</ul> -->
 
-		<div class="row">
-			<div class="col-md-3">
-				<p>Exemple :</p>				
-			</div>
-			<div class="col-md-3">
-				<img src="./../images/explorer/magicienne_fin-de-niveau.jpg" />
-			</div>
-			<div class="col-lg-4 col-md-6">
-				<div class="panel panel-yellow">
-					<div class="panel-heading">
-						<div class="row">
-							<div class="col-xs-3">
-								<i class="fa fa-th fa-5x"></i>
-							</div>
-							<div class="col-xs-9 text-right">
-								<h2>
-									<span id="bitcoin_block_number"></span> blocks
-								</h2>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
 
 
 
@@ -664,36 +671,132 @@ $(document).ready(function() {
 
 
 		<div class="page-header" id="niveau7">
-			<h2>Niveau 7 - Barbares de dématérialisation - Ajout de formulaires</h2>
+			<h2>Niveau 7 - Barbares de dématérialisation - Ajout de formulaires + Navigation entre les pages de l'exploreur</h2>
 		</div>
-		<div class="progress">
-			<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
-		    	40% Web
-		  	</div>
-		  	<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:10%">
-		    	10% Blockchain
-		  	</div>
-		  	<div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:10%">
-		    	10% Blockchain
-		  	</div>
+		<div class="row">
+			<div class="col-md-3">
+				<img src="./../images/explorer/barbare.png" />
+			</div>
+			<div class="col-md-9">
+				<div class="progress">
+					<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+				    	40% Web
+				  	</div>
+				  	<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:10%">
+				    	10% Blockchain
+				  	</div>
+				  	<div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:10%">
+				    	10% Blockchain
+				  	</div>
+				</div>
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>Ajout d'un formulaire de recherche en haut de la page <code>bitcoin</code></h3>
+						
+					</li>
+					<li class="list-group-item">
+						<h3>Appel d'un numéro de block</h3>
+						Si la donnée saisie est un integer entre 1 et le nombre actuel de blocks, alors afficher les données du bloc
+
+					</li>
+					<li class="list-group-item">
+						<h3>Appel d'une transaction</h3>
+						Si la donnée saisie est un numéro de transaction valide, alors afficher les données de la transaction
+
+					</li>
+					<li class="list-group-item">
+						<h3>Appel d'une adresse</h3>
+						Si la donnée saisie est une adresse valide, alors afficher les données de l'adresse
+
+					</li>
+					<li class="list-group-item">
+						<h3>Maillage entre les pages</h3>
+						La présentation d'un block relie sur toutes les transactions qu'il contient
+						<hr/>
+						La présentation d'une adresse relie sur toutes les transactions qu'elle a réalisée
+						<hr/>
+						La présentation d'une transaction relie vers toutes les adresses concernées
+					</li>
+					<li class="list-group-item">
+						<h3>Optimisations, design et compatibilité</h3>
+						<ul class="list-group">
+							<li class="list-group-item">Vérifier que vos pages sont validées par W3C : <a href="http://validator.w3.org/" rel="nofollow" target="_blanck">W3C Validator</a></li>
+							<li class="list-group-item">Améliorer la présentation des pages à l'aide de CSS, animations JS, ...</li>
+							<li class="list-group-item">Ajouter des images issues de Font-Awesome</li>
+						</ul>
+						<div class="alert alert-info" role="alert"><strong>TODO Albin</strong> Lister l'ensemble des fonctionnalités possibles et souhaitées</div>
+					</li>
+				</ul>
+				<ul class="list-group">
+					<li class="list-group-item">
+						Permettre la navigation au travers des réponses fournies par l'API grâce à des liens hypertexte pour les transaction, adresses, hash de block et numéro de block tel que:
+					</li>
+				</ul>
+				<pre>
+					<code class="javascript hljs">Block -> Transactions
+						Transaction -> Block
+						Transaction -> Address
+						Address -> Transaction
+					</code>
+				</pre>
+				<p>
+					Pour ce faire il suffit d'ajouter une fonction qui sera chargé de détecter si <code>match</code> de la fonction <code>syntaxHighlight(json)</code> est bien du type hash, adresse ou nombre. Si c'est le cas, ajouter le html nécessaire tel que suggéré dans l'exemple suivant :
+				</p>
+				<pre>
+					<code class="html hljs">data = `&lt;a href="javascript:appelFonction('${data}')"&gt;"${data}"&lt;/a&gt;`</code>
+				</pre>
+				<p>
+					Sachez que la variable <code>match</code> contiendra des <code>"</code> en trop qu'il faudra retirer au préalable pour pouvoir faire la vérification, plus d'information par <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/replace">ici</a>
+				</p>
+				<ul class="list-group">
+					<li class="list-group-item">
+						Commit, push les modification
+					</li>
+				</ul>
+			</div>
 		</div>
-		Appel d'une transaction
-		Appel d'un numéro de block
-		...
+
+
+
+		
 
 		<div class="page-header" id="niveau8">
-			<h2>Niveau 8 - Ogres - Affichage de QR Code + Navigation entre les pages de l'exploreur</h2>
+			<h2>Niveau 8 - Ogres - Affichage de QR Code</h2>
 		</div>
-		<div class="progress">
-		  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-		    70% Complete
-		  </div>
+		<div class="row">
+			<div class="col-md-9">
+				<div class="progress">
+				  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+				    70% Complete
+				  </div>
+				</div>
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>Générateur de QR Code</h3>
+						A l'aide de la librairie <a href="https://github.com/davidshimjs/qrcodejs" title="QR Code for JS" rel="nofollow" target="_blanck">QR Code for JS (MIT Licence)</a>, générer un QR Code respectant le BIP ...
+						<hr>
+						Tester le QR Code généré à l'aide d'une application mobile.
+					</li>
+					<li class="list-group-item">
+						<h3>Validateur d'adresses / de block / de transaction bitcoin</h3>
+						Faire une page spécifique et l'ajouter au menu
+						<hr/>
+						Ajouter un champs de saisie
+						<hr/>
+						Si donnée saisie est une information valide (numéro de block, adresse ou transaction), afficher que la donnée est valide + un lien pour en savoir plus.
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<img src="./../images/explorer/ogre.png" />
+			</div>
 		</div>
-		<h3>Générateur de QR Code</h3>
-		<ul class="list-group">
-			<li class="list-group-item">A l'aide de la librairie <a href="https://github.com/davidshimjs/qrcodejs" title="QR Code for JS" rel="nofollow" target="_blanck">QR Code for JS (MIT Licence)</a>, générer un QR Code respectant le BIP ...</li>
-			<li class="list-group-item">Tester le QR Code généré à l'aide d'une application mobile.</li>
-		</ul>
+		<img src="./../images/explorer/ogre_fin-de-niveau.jpg" />
+
+
+
+
+
 
 
 
@@ -701,16 +804,48 @@ $(document).ready(function() {
 		<div class="page-header" id="niveau9">
 			<h2>Niveau 9 - Menestrels - Proof of Existence et SHA256 de données (cf Coinb.in)</h2>
 		</div>
-		<div class="progress">
-		  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:80%">
-		    80% Complete
-		  </div>
+		<div class="row">
+			<div class="col-md-3">
+				<img src="./../images/explorer/menestrel.png" />
+			</div>
+			<div class="col-md-9">
+				<div class="progress">
+				  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:80%">
+				    80% Complete
+				  </div>
+				</div>
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>SHA256 d'une donnée</h3>
+						Faire une page spécifique
+						<hr/>
+						Faire un formulaire de saisie des données
+						<hr/>
+						Lorsque clique sur bouton "SHA256", alors affichage en dessous du résultat
+					</li>
+					<li class="list-group-item">
+						<h3>Proof of Existence</h3>
+						Signature d'un document => Génération d'un hash
+						<hr/>
+
+					</li>
+					<li class="list-group-item">
+						<h3>Vérification de l'authenticité d'un document</h3>
+						Formulaire de saisie d'une donnée et d'un SHA 256
+						<hr/>
+						Div de résultat en vert lorsque résultat authentique, et orange sinon
+						<hr/>
+						Améliorer pour qu'il n'y ait pas besoin de bouton de déclenchement
+						Vérification d'un document => Recevoir hash + document ET répondre si matching
+					</li>
+				</ul>
+			</div>
 		</div>
-		<h3>Proof of Existence</h3>
-		<ul class="list-group">
-			<li class="list-group-item">Signature d'un document => Génération d'un hash</li>
-			<li class="list-group-item">Vérification d'un document => Recevoir hash + document ET répondre si matching</li>
-		</ul>
+
+
+
+		
+
 
 
 
@@ -718,11 +853,34 @@ $(document).ready(function() {
 		<div class="page-header" id="niveau10">
 			<h2>Niveau 10 - Voleurs - PaperWallet</h2>
 		</div>
-		<div class="progress">
-		  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-		    90% Complete
-		  </div>
+		<div class="row">
+			<div class="col-md-9">
+				<div class="progress">
+				  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+				    90% Complete
+				  </div>
+				</div>
+				<ul class="list-group">
+					<li class="list-group-item">
+						...
+					</li>
+					<li class="list-group-item">
+						...
+					</li>
+					<li class="list-group-item">
+						...
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<img src="./../images/explorer/voleur.png" />
+			</div>
 		</div>
+
+
+
+
+
 
 
 		<div class="page-header" id="niveau11">
@@ -737,30 +895,69 @@ $(document).ready(function() {
 		<div class="page-header" id="niveau11">
 			<h2>Niveau 11 - Dragon - Bonus - Signature d'une transaction</h2>
 		</div>
-
+		<div class="row">
+			<div class="col-md-9">
+				<div class="progress">
+				  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+				    100% Complete
+				  </div>
+				</div>
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>Blockchain et Data Mining</h3>
+						<p>
+							Les blockchains offrent une BdD publiques pour le Data Mining.<br/>
+							Dès lors, il est intéressant de copier dans une même modélisation de BdD les différentes crypto-monnaies pour tenter d'y détecter des patterns.<br/>
+							Ici, pour faire plus simple, nous allons utiliser l'ensemble de technologies WAMP/LAMP (Linux - Apache - MySQL - PHP).
+							En entreprise, il est désormais plus courant d'utiliser les technologies MEAN (MongoDB - Express - AngularJS - NodeJS), mais les principes sont les mêmes.
+						</p>
+						<ul class="list-group">
+							<li class="list-group-item">Installer WAMP/LAMP</li>
+							<li class="list-group-item">Créer une BdD par crypto-monnaie avec 3 tables : block, address et transaction</li>
+							<li class="list-group-item">Réaliser un "moteur" PHP parcourant une blockchain par block</li>
+							<li class="list-group-item">Ajouter l'insertion en BdD (MySQL) lors du parcours</li>
+							<li class="list-group-item">Analyser la densité temporelle des transactions, la variation des montants, ...</li>
+						</ul>
+					</li>	
+					<li class="list-group-item">
+						<h3>Blockchain et Bots</h3>
+						<p>
+							Une conseillère, c'est bien. Un bot dans ma poche, c'est mieux. Les utilisateurs sont de plus en plus demandeurs de bots permettant d'accéder à leurs soldes, historiques, statistiques, ...<br/>
+							Les bots sont ainsi une excellente solution aux besoins de "Everywhere, everytime" des utilisateurs.<br/>
+							Avec une crypto-monnaie, cela devient assez facile à réaliser. 
+							Pour s'épargner la gestion de la sécurité, il peut être un bon choix d'utiliser Telegram. Ce n'est pas une solution "professionnelle", mais permet un niveau de sécurité acceptable pour un faible coût de développement.
+						</p>
+						<ul class="list-group">
+							<li class="list-group-item">Regarder cette <a href="https://github.com/python-telegram-bot/python-telegram-bot" rel="nofollow" target="_blanck" title="Bot Telegram en Python">exemple de bot en Python sur Telegram</a></li>
+							<li class="list-group-item">Créer une 1ère règle : Si réception d'une adresse bitcoin valide, retourner son solde.</li>
+							<li class="list-group-item">Créer une 2e règle : Si réception d'une adresse bitcoin valide avec /historic, retourner l'historique des transactions, en commençeant par les dernières transactions reçues.</li>
+						</ul>
+					</li>	
+					<li class="list-group-item">
+						<h3>HD Wallet et Audit financier</h3>
+						<p>
+							Les HD Wallet permettent la génération de plusieurs milliards d'adresses à partir d'une adresse bitcoin.
+							Par ce procédé, il est possible de facilement changer d'identité sur le réseau, et ainsi éviter d'avoir un unique historique de transaction.
+						</p>
+						<p>
+							Cette technologie trouve d'autres applications en gestion comptable d'entreprises.<br/>
+							La génération d'une adresse par compte permet de répartir les écritures sur différents comptes, sans que la blockchain (publique) ne permet de regrouper les comptes d'une même entreprise.<br/>
+							Ce procédé permet d'automatiser l'action d'audit comptable.<br/>
+							L'entreprise souhaitant faire auditer ses comptes fourni l'adresse racine à l'auditeur.<br/>
+							Ce dernier est alors en mesure d'extraire l'ensemble des écritures.
+						</p>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<img src="./../images/explorer/dragon.jpg" />
+			</div>
+		</div>
 
 			
 		<h3>Instructions :</h3>
 		<p>
 			De manière à optimiser votre code, le mettre dans une fonction qui prendra en paramètre l'<code>url</code> du webservice sur lequel sera faite la requête mais aussi l'<code>id</code> de l'élément html où la réponse sera affichée
-		</p>
-		<p>
-			De manière à s'assurer que les requêtes api soient bien faite s au chargement de la page, les placer dans une fonction de la manière suivante :
-			<pre>
-				<code class="javascript hljs">function homePageLoading() {
-    url = 'apiUrl';
-    elementID = 'idDeVotreElementHtml';
-    fonctionRequeteApi(url, elementID);
-
-    ...
-}</code>
-			</pre>
-		</p>
-		<p>
-			Qui peut être appelé dans la page html de la manière suivante : 
-			<pre>
-				<code class="html hljs">&lt;script type="text/javascript"&gt;homePageLoading();&lt;/script&gt;</code>
-			</pre>
 		</p>
 
 		<h3>Objectifs :</h3>
@@ -879,89 +1076,6 @@ output(syntaxHighlight(str));
 				Commit, push les modification
 			</li>
 		</ul>
-
-		<h3>Partie 3 : Navigation</h3>
-		<ul class="list-group">
-			<li class="list-group-item">
-				Permettre la navigation au travers des réponses fournies par l'API grâce à des liens hypertexte pour les transaction, adresses, hash de block et numéro de block tel que:
-			</li>
-		</ul>
-		<pre>
-			<code class="javascript hljs">Block -> Transactions
-Transaction -> Block
-Transaction -> Address
-Address -> Transaction</code>
-		</pre>
-		<p>
-			Pour ce faire il suffit d'ajouter une fonction qui sera chargé de détecter si <code>match</code> de la fonction <code>syntaxHighlight(json)</code> est bien du type hash, adresse ou nombre. Si c'est le cas, ajouter le html nécessaire tel que suggéré dans l'exemple suivant :
-		</p>
-		<pre>
-			<code class="html hljs">data = `&lt;a href="javascript:appelFonction('${data}')"&gt;"${data}"&lt;/a&gt;`</code>
-		</pre>
-		<p>
-			Sachez que la variable <code>match</code> contiendra des <code>"</code> en trop qu'il faudra retirer au préalable pour pouvoir faire la vérification, plus d'information par <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/replace">ici</a>
-		</p>
-		<ul class="list-group">
-			<li class="list-group-item">
-				Commit, push les modification
-			</li>
-		</ul>
-	
-		
-		
-		
-		<div class="page-header">
-			<h2>Optimisations, design et compatibilité</h2>
-		</div>
-		<ul class="list-group">
-			<li class="list-group-item">Vérifier que vos pages sont validées par W3C : <a href="http://validator.w3.org/" rel="nofollow" target="_blanck">W3C Validator</a></li>
-			<li class="list-group-item">Améliorer la présentation des pages à l'aide de CSS, animations JS, ...</li>
-		</ul>
-		<div class="alert alert-info" role="alert"><strong>TODO Albin</strong> Lister l'ensemble des fonctionnalités possibles et souhaitées</div>
-
-		<div class="page-header">
-			<h2>Aller plus loin</h2>
-		</div>
-		<h3>Blockchain et Data Mining</h3>
-		<p>
-			Les blockchains offrent une BdD publiques pour le Data Mining.<br/>
-			Dès lors, il est intéressant de copier dans une même modélisation de BdD les différentes crypto-monnaies pour tenter d'y détecter des patterns.<br/>
-			Ici, pour faire plus simple, nous allons utiliser l'ensemble de technologies WAMP/LAMP (Linux - Apache - MySQL - PHP).
-			En entreprise, il est désormais plus courant d'utiliser les technologies MEAN (MongoDB - Express - AngularJS - NodeJS), mais les principes sont les mêmes.
-		</p>
-		<ul class="list-group">
-			<li class="list-group-item">Installer WAMP/LAMP</li>
-			<li class="list-group-item">Créer une BdD par crypto-monnaie avec 3 tables : block, address et transaction</li>
-			<li class="list-group-item">Réaliser un "moteur" PHP parcourant une blockchain par block</li>
-			<li class="list-group-item">Ajouter l'insertion en BdD (MySQL) lors du parcours</li>
-			<li class="list-group-item">Analyser la densité temporelle des transactions, la variation des montants, ...</li>
-		</ul>
-		
-		<h3>Blockchain et Bots</h3>
-		<p>
-			Une conseillère, c'est bien. Un bot dans ma poche, c'est mieux. Les utilisateurs sont de plus en plus demandeurs de bots permettant d'accéder à leurs soldes, historiques, statistiques, ...<br/>
-			Les bots sont ainsi une excellente solution aux besoins de "Everywhere, everytime" des utilisateurs.<br/>
-			Avec une crypto-monnaie, cela devient assez facile à réaliser. 
-			Pour s'épargner la gestion de la sécurité, il peut être un bon choix d'utiliser Telegram. Ce n'est pas une solution "professionnelle", mais permet un niveau de sécurité acceptable pour un faible coût de développement.
-		</p>
-		<ul class="list-group">
-			<li class="list-group-item">Regarder cette <a href="https://github.com/python-telegram-bot/python-telegram-bot" rel="nofollow" target="_blanck" title="Bot Telegram en Python">exemple de bot en Python sur Telegram</a></li>
-			<li class="list-group-item">Créer une 1ère règle : Si réception d'une adresse bitcoin valide, retourner son solde.</li>
-			<li class="list-group-item">Créer une 2e règle : Si réception d'une adresse bitcoin valide avec /historic, retourner l'historique des transactions, en commençeant par les dernières transactions reçues.</li>
-		</ul>
-		
-		<h3>HD Wallet et Audit financier</h3>
-		<p>
-			Les HD Wallet permettent la génération de plusieurs milliards d'adresses à partir d'une adresse bitcoin.
-			Par ce procédé, il est possible de facilement changer d'identité sur le réseau, et ainsi éviter d'avoir un unique historique de transaction.
-		</p>
-		<p>
-			Cette technologie trouve d'autres applications en gestion comptable d'entreprises.<br/>
-			La génération d'une adresse par compte permet de répartir les écritures sur différents comptes, sans que la blockchain (publique) ne permet de regrouper les comptes d'une même entreprise.<br/>
-			Ce procédé permet d'automatiser l'action d'audit comptable.<br/>
-			L'entreprise souhaitant faire auditer ses comptes fourni l'adresse racine à l'auditeur.<br/>
-			Ce dernier est alors en mesure d'extraire l'ensemble des écritures.
-		</p>
 	</div>
 	<footer class="footer">
 		<div class="container">
