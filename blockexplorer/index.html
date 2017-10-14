@@ -53,7 +53,7 @@
 			<div class="navbar-collapse collapse" id="navbar">
 				<ul class="nav navbar-nav">
 					<li class="active dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" role="button" title="TP 3A" aria-haspopup="true" aria-expanded="false">Exploreur d'une blockchain</a>
+						<a class="dropdown-toggle" data-toggle="dropdown" role="button" title="Block Explorer" aria-haspopup="true" aria-expanded="false">Block Explorer</a>
 						<ul class="dropdown-menu">
 							<li><a href="#lancement" title="Création de la league et lancement du site">Création de la league et lancement du site</a></li>
 							<li><a href="#niveau1" title="Niveau 1 - Newbies - Création de la page d'accueil">Niveau 1 - Newbies - Création de la page d'accueil</a></li>
@@ -61,9 +61,13 @@
 							<li><a href="#niveau3" title="Niveau 3 - Nains - Ajout d'un CSS">Niveau 3 - Nains - Ajout d'un CSS</a></li>
 							<li><a href="#niveau4" title="Niveau 4 - Aventuriers - Navigation entre pages web">Niveau 4 - Aventuriers - Navigation entre pages web</a></li>
 							<li><a href="#niveau5" title="Niveau 5 - Magiciens - Appel et affichage de données extérieurs">Niveau 5 - Magiciens - Appel et affichage de données extérieurs</a></li>
-							<li><a href="#niveau6" title="Niveau 6 - Barbares - Ajout d'un formulaire et appel d'une transaction">Niveau 6 - Barbares - Ajout d'un formulaire et appel d'une transaction, d'un block, d'une adresse</a></li>
-							<li><a href="#niveau7" title="Niveau 7 - Géants - Affichage de QR Code">Niveau 7 - Géants - Affichage des adresses dans des QR Code</a></li>				
-							<li><a href="#niveau8" title="Niveau 8 - Demi-Dieu - Proof of Existence">Niveau 8 - Demi-Dieu - QR Code et Proof of Existence</a></li>
+							<li><a href="#niveau6" title="Niveau 6 - Barbares - Ajout d'un formulaire et appel d'une transaction">Niveau 6 - Magicienne - Ajout d'un formulaire et appel d'une transaction, d'un block, d'une adresse</a></li>
+							<li><a href="#niveau7" title="Niveau 7 - Barbares - Ajout de formulaires et navigation">Niveau 7 - Barbares - Ajout de formulaires et navigation</a></li>				
+							<li><a href="#niveau8" title="Niveau 8 - Ogres - QR Code">Niveau 8 - Ogre- QR Code</a></li>
+							<li><a href="#niveau8" title="Niveau 9 - Menestrel - Proof of Existence">Niveau 9 - Menestrel - Proof of Existence et SHA256</a></li>
+							<li><a href="#niveau8" title="Niveau 10 - Voleur - PaperWallet">Niveau 10 - Voleur - PaperWallet</a></li>
+							<li><a href="#niveau8" title="Niveau 11 - Vampire - Génération de clés HD Wallet">Niveau 11 - Vampire - Génération de clés HD Wallet</a></li>
+							<li><a href="#niveau8" title="Niveau 12 - Dragon - Signature d'une transaction">Niveau 12 - Dragon - Signature d'une transaction</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -81,7 +85,6 @@
 					<li><a href="/tuto-arc" title="Tutoriel ARC">Tutoriel ARC</a></li>
 					<li><a href="/tuto-doc-node-web3" title="Tutoriel Web3.js">Tutoriel Web3.js</a></li>
 					<li><a href="/lexique" title="Lexique Blockchain">Lexique Blockchain</a></li>
-					<li><a href="/bitcoin" title="Bitcoin exploreur">Bitcoin</a></li>
 					<li><a href="/smoothie" title="Smoothie">Smoothie</a></li>
 					<li><a href="/tuto-arc" title="Tuto ARC">ARC</a></li>
 				</ul>
@@ -147,9 +150,76 @@
 		<div class="page-header" id="niveau1">
 			<h2>Niveau 0 - Equipement</h2>
 		</div>
-		<ul class="list-group">
-			<li class="list-group-item">Aller sur la <a href="./../">page d'accueil</a> pour vous équiper</li>
-		</ul>
+		<h3>Sublime Text</h3>
+		<div class="row">
+			<div class="col-md-9">
+				<p>Sublime Text est un éditeur de texte qui s'est imposé en quelques mois comme la nouvelle plateforme de développement de référence (IDE).</p>
+				<ul class="list-group">
+					<li class="list-group-item">Installer Sublime Text : <a href="https://www.sublimetext.com/" title="Sublime Text" rel="nofollow" target="_blanck">Sublime Text</a></li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<img src="./../images/tools/sublime_text.png" />
+			</div>
+		</div>
+
+		<h3>Github</h3>
+		<div class="row">
+			<div class="col-md-9">
+				<p>Github vous rendra trois services :</p>
+				<ul>
+					<li>Sauvegarder les réalisations sur un serveur extérieur => Aucune perte possible de votre code</li>
+					<li>Hébergement de vos pages => Serveur web</li>
+					<li>Travail collaboratif => Edition à plusieurs du site</li>
+				</ul>
+				<ul class="list-group">
+					<li class="list-group-item">
+						Se créer un compte public <a href="https://github.com/join" title="Sign up GitHub" rel="nofollow" target="_blanck">GitHub</a><br/>
+						Attention, votre alias sera présent dans votre nom de site ! Vous êtes donc invité à indiquer votre prénom_nom (et pas un pseudo, surnom ou alias...).
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<img src="./../images/tools/github.png" />
+			</div>
+		</div>
+
+
+		<h3>Github Desktop</h3>
+		<div class="row">
+			<div class="col-md-9">
+				<ul class="list-group">
+					<li class="list-group-item">
+						Installer <a href="https://desktop.github.com/" title="GitHub Desktop" rel="nofollow" target="_blanck">Github Desktop</a>
+						Github Desktop vous permet de coder sur votre PC offline.<br/>
+						Après chaque réalisation, vous pourrez faire un commit (= groupement d'évolutions) + push (= envoi sur les serveurs de Github) pour mettre en ligne vos améliorations/ajouts.
+					</li>
+					<li class="list-group-item">
+						Le lancer et vous connecter
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<img src="./../images/tools/github.png" />
+			</div>
+		</div>
+
+
+		<h3>Postman</h3>
+		<div class="row">
+			<div class="col-md-9">
+				<p>Postman facilie le test de web services, que vous soyez client ou serveur</p>
+				<ul class="list-group">
+					<li class="list-group-item">
+						Installer <a href="https://www.getpostman.com/postman" title="" rel="nofollow" target="_blanck">Postman</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<img src="./../images/tools/postman.png"/>
+			</div>
+		</div>
+
 
 		<div class="page-header" id="niveau1">
 			<h2>Niveau 1 - Troll - Création de la league et du repository</h2>
@@ -170,7 +240,10 @@
 					-> 3 étudiants - Je suis contre les plans à trois (et oui...). L'un des trois doit, soit trouver un binome dans un autre groupe de trois... soit commencer sa carrière en solo.
 				</p>
 				<ul class="list-group">
-					<li class="list-group-item">Créer un repository et une page HTML avec <a href="https://pages.github.com/" title="Github Pages" rel="nofollow" target="_blanck">Github Pages</a></li>
+					<li class="list-group-item">
+						Créer un repository et une page HTML en suivant les indications de <a href="https://pages.github.com/" title="Github Pages" rel="nofollow" target="_blanck">Github Pages</a>
+						<img src="./../images/explorer/repository_creation.PNG" class="border" alt="Capture d'écran de la création du repository" />
+					</li>
 					<li class="list-group-item">Indiquer dans le ReadMe les Prénom - NOM (adresse email @devinci) de chaque membre</li>
 					<li class="list-group-item">Inviter les membres de la league sur le repository Github</li>
 					<li class="list-group-item">Commit + Push sur GitHub</li>
@@ -198,6 +271,7 @@
 					<li class="list-group-item">
 						Dans le repository de votre projet, créer un nouveau fichier "index.html".<br/>
 						A la racine du repository, il sera la page d'accueil (homepage) de votre projet.
+						<img src="./../images/explorer/create_new_file.PNG" class="border" alt="Capture d'écran de la création de la home page" />
 					</li>
 					<li class="list-group-item">
 						Copier le code ci-dessous de base d'une page HTML dans le fichier, via le site web de Github.
@@ -218,13 +292,15 @@
 &lt;/html&gt;
 						</code>
 					</pre>
-
+						Exemple :<br/>
+						<img src="./../images/explorer/home_page.PNG" class="border" alt="Capture d'écran du code de la page d'accueil" />
 					</li>
 					<li class="list-group-item">
 						- Indiquer les Prénom - NOM (adresse e-mail) du binome<br/>
 						- Faire attention que ce soit les mêmes que dans le ReadMe...
 					</li>		
 					<li class="list-group-item">
+						<img src="./../images/explorer/first_commit.PNG" class="border" alt="Capture d'écran du premier commit" />
 						Commit, push les modifications
 					</li>
 					<li class="list-group-item">
@@ -893,7 +969,7 @@ $(document).ready(function() {
 		</div>
 
 		<div class="page-header" id="niveau11">
-			<h2>Niveau 11 - Dragon - Bonus - Signature d'une transaction</h2>
+			<h2>Niveau 12 - Dragon - Bonus - Signature d'une transaction</h2>
 		</div>
 		<div class="row">
 			<div class="col-md-9">

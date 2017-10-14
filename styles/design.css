@@ -35,6 +35,10 @@ h1 {
 	font-size: 12px;
 }
 
+img.border {
+	border: 1px solid #ddd;
+	margin: 10px 10px;
+}
 
 /* ******** PANEL ********  */
 .panel-green {
